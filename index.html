@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sherlock: Noir Director's cut</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icon.png">
+    <meta name="theme-color" content="#0a0a0a">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Lora:ital,wght@0,400;0,600;1,400&family=Patrick+Hand&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. CORE & RESET --- */
+        :root {
+            --bg-noir: #080808;
+            --paper: #f0e6d2;
+            --ink: #1a1a1a;
+            --red: #a30000;
+            --gold: #c5a059;
+            --font-head: 'Special Elite', cursive; 
+            --font-body: 'Lora', serif;              
+            --font-hand: 'Patrick Hand', cursive;
+            --font-cinzel: 'Cinzel', serif;
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; user-select: none; outline: none; }
+
+        html, body {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            overflow: hidden; position: fixed;
+            background: var(--bg-noir); color: var(--ink);
+            font-family: var(--font-body); touch-action: none;
+        }
+
+        /* --- 2. VISUAL EFFECTS --- */
+        .film-grain {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 9000;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E");
+            opacity: 0.08; animation: grainShift 0.5s steps(5) infinite;
+        }
+        @keyframes grainShift { 0% { transform: translate(0,0) } 20% { transform: translate(-2px, 2px) } 40% { transform: translate(2px, -2px) } 60% { transform: translate(-2px, -2px) } 80% { transform: translate(2px, 2px) } }
+
+        .light-leak {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 9001;
+            background: linear-gradient(135deg, rgba(255,200,150,0.03) 0%, transparent 40%, transparent 60%, rgba(200,200,255,0.03) 100%);
+            mix-blend-mode: screen;
+        }
+
+        .vignette {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 8999;
+            background: radial-gradient(circle, transparent 60%, #000 130%);
+        }
+
+        .shake-screen { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake { 10%, 90% { transform: translate3d(-2px, 0, 0); } 20%, 80% { transform: translate3d(4px, 0, 0); } 30%, 50%, 70% { transform: translate3d(-6px, 0, 0); } 40%, 60% { transform: translate3d(6px, 0, 0); } }
+
+        /* --- 3. LOBBY UI --- */
+        #lobby-screen {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: #050505; z-index: 100;
+        }
+
+        .rain {
+            position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.4; animation: rainFall 0.8s linear infinite; pointer-events: none; z-index: 1;
+        }
+        @keyframes rainFall { from {background-position: 0 0;} to {background-position: -10px 500px;} }
+
+        .lightning {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: #fff; opacity: 0; pointer-events: none; z-index: 2;
+            animation: thunder 8s infinite;
+        }
+        @keyframes thunder { 0%, 95% { opacity: 0; } 96% { opacity: 0.6; } 96.5% { opacity: 0; } 97% { opacity: 0.2; } 100% { opacity: 0; } }
+
+        .energy-wrapper {
+            position: absolute; bottom: 20px; left: 20px; z-index: 10;
+            display: flex; align-items: center; gap: 12px;
+            background: rgba(20, 20, 20, 0.85); padding: 8px 15px;
+            border: 1px solid #333; border-left: 4px solid var(--gold);
+            border-radius: 2px; backdrop-filter: blur(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        .ticket-icon { font-size: 1.4rem; filter: drop-shadow(0 0 5px var(--red)); animation: pulse 2s infinite; }
+        .ticket-info { display: flex; flex-direction: column; align-items: flex-start; }
+        .ticket-count { font-family: var(--font-head); color: #fff; font-size: 1rem; letter-spacing: 1px; }
+        .ticket-highlight { color: var(--gold); font-weight: bold; font-size: 1.2rem; }
+        .timer-text { font-family: var(--font-body); font-size: 0.7rem; color: #888; font-style: italic; min-width: 80px;}
+
+        .game-logo {
+            font-family: var(--font-head); font-size: 4rem; color: #fff;
+            text-transform: uppercase; letter-spacing: 5px; margin-bottom: 5px; z-index: 5;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #eaddcf, 0 0 30px #c5a059;
+            animation: flicker 4s infinite;
+        }
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; text-shadow: 0 0 4px #fff, 0 0 10px #fff, 0 0 20px #c5a059; }
+            20%, 24%, 55% { opacity: 0.1; text-shadow: none; }
+        }
+        .subtitle { color: #888; font-family: var(--font-head); letter-spacing: 4px; font-weight: 600; font-size: 0.9rem; margin-bottom: 30px; z-index: 5; }
+
+        .case-carousel {
+            width: 100%; padding: 30px; display: flex; gap: 25px;
+            overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 60px;
+            touch-action: pan-x; z-index: 5;
+        }
+        .case-carousel::-webkit-scrollbar { display: none; }
+
+        .case-folder {
+            flex: 0 0 260px; height: 380px; background: var(--paper);
+            border-radius: 2px; position: relative; scroll-snap-align: center;
+            box-shadow: 15px 15px 50px rgba(0,0,0,0.9); cursor: pointer;
+            display: flex; flex-direction: column; padding: 25px;
+            border: 1px solid #5d4037; border-left: 8px solid #3e2723;
+            background-image: url('https://www.transparenttextures.com/patterns/paper.png');
+            transition: transform 0.2s;
+        }
+        .case-folder:active { transform: scale(0.97); }
+        .case-folder.locked { 
+            filter: grayscale(1) brightness(0.3); 
+            cursor: not-allowed; 
+        }
+        .case-folder.locked::after { content: "🔒LOCKED"; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); color: #fff; font-family: var(--font-head); font-size: 1.5rem; text-align: center; white-space: nowrap;}
+        
+        .case-folder.solved::after { 
+            content: "★ SOLVED"; position: absolute; top: 15px; right: 15px; 
+            color: var(--red); font-family: var(--font-head); font-weight: bold; font-size: 1.2rem;
+            border: 3px solid var(--red); padding: 2px 8px; transform: rotate(15deg); opacity: 0.8;
+        }
+
+        .btn-start {
+            background: #1a1a1a; color: #fff; border: none; padding: 15px; width: 100%;
+            font-family: var(--font-head); font-size: 1.2rem; margin-top: auto; cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); letter-spacing: 1px; transition: background 0.2s;
+        }
+        .btn-start:active { background: #333; }
+
+        /* --- 4. GAME INTERFACE --- */
+        #game-interface { display: none; height: 100%; flex-direction: column; background: #111; z-index: 50; }
+        .top-nav { background: #0f0f0f; height: 60px; display: flex; justify-content: space-between; align-items: center; padding: 0 15px; border-bottom: 1px solid #333; }
+        .back-btn { color:#fff; font-family:var(--font-head); font-size:1rem; cursor:pointer; display: flex; align-items: center; gap: 5px; }
+        .hearts-container { color: var(--red); font-size: 1.2rem; letter-spacing: 2px; font-family: var(--font-head); }
+
+        .workspace { flex: 1; position: relative; overflow: hidden; background: #222; }
+        .screen {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            padding: 25px; overflow-y: auto; display: none;
+            background-image: url('https://www.transparenttextures.com/patterns/paper.png');
+            background-color: var(--paper); touch-action: pan-y; 
+        }
+        .screen.active { display: block; animation: fadeIn 0.3s; }
+        @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+        .typewriter-text { font-family: var(--font-body); font-size: 1.3rem; line-height: 1.6; color: #111; text-align: justify; font-weight: 500; }
+        .cursor::after { content: '|'; animation: blink 0.8s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        .suspect-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding-bottom: 90px; }
+        .sticky-note {
+            background: #ffeb3b; padding: 15px; min-height: 160px;
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+            font-family: var(--font-hand); color: #000; font-size: 1.4rem;
+            transform: rotate(-2deg); transition: transform 0.3s;
+            cursor: pointer; position: relative; overflow: hidden;
+        }
+        .sticky-note:nth-child(even) { transform: rotate(2deg); background: #81d4fa; }
+        .sticky-note.flipped { transform: scale(1.05) rotate(0deg); z-index: 10; box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
+        .note-title { font-weight: bold; border-bottom: 2px dashed #000; margin-bottom: 5px; padding-bottom: 5px; font-family: var(--font-hand); }
+        .note-content { display: none; line-height: 1.3; }
+        .note-hint { position: absolute; bottom: 10px; right: 10px; font-size: 1rem; color: #555; font-style: italic;}
+        .sticky-note.flipped .note-content { display: block; animation: fadeIn 0.3s; }
+        .sticky-note.flipped .note-hint { display: none; }
+
+        .evidence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding-bottom: 90px; }
+        .evi-card-container { background-color: transparent; width: 100%; height: 190px; perspective: 1000px; cursor: pointer; }
+        .evi-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; box-shadow: 4px 4px 0 rgba(0,0,0,0.1); }
+        .evi-card-container.flipped .evi-card-inner { transform: rotateY(180deg); }
+        .evi-front, .evi-back {
+            position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden;
+            border: 2px solid #333; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px; background: #fff;
+        }
+        .evi-back { background-color: var(--paper); color: var(--red); transform: rotateY(180deg); font-family: var(--font-hand); font-size: 1.3rem; line-height: 1.3; text-align: center; font-weight: bold; }
+        .evi-icon { font-size: 3rem; margin-bottom: 10px; }
+        .evi-name { font-family: var(--font-head); font-weight: bold; font-size: 1rem; text-transform: uppercase; color: #333;}
+
+        #tab-logic { background-image: radial-gradient(#aaa 1px, transparent 1px); background-size: 20px 20px; }
+        .grid-container { overflow: auto; background: #fff; border: 2px solid #333; margin-bottom: 90px; }
+        table { border-collapse: collapse; width: 100%; }
+        td, th { border: 1px solid #555; text-align: center; padding: 5px; width: 50px; height: 50px; }
+        th { font-family: var(--font-head); font-size: 0.8rem; background: #eee; writing-mode: vertical-rl; transform: rotate(180deg); height: 100px; }
+        td { font-family: var(--font-hand); font-weight: bold; font-size: 1.5rem; cursor: pointer; }
+        td:first-child { font-family: var(--font-head); font-size: 0.9rem; background: #f9f9f9; width: 80px; }
+        td.x { color: var(--red); } td.o { color: green; }
+
+        .bottom-nav { background: #111; height: 60px; display: flex; border-top: 1px solid #444; z-index: 50; box-shadow: 0 -4px 10px rgba(0,0,0,0.5); }
+        .nav-btn { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #777; font-family: var(--font-head); font-size: 0.7rem; transition: all 0.2s; border-top: 3px solid transparent; }
+        .nav-btn.active { color: #fff; background: #1a1a1a; border-top-color: var(--gold); }
+        .nav-icon { font-size: 1.3rem; margin-bottom: 4px; }
+
+        .fab {
+            position: absolute; bottom: 85px; right: 25px;
+            width: 70px; height: 70px; background: var(--red); border-radius: 50%;
+            border: 4px solid #fff; box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.2rem; color: #fff; z-index: 60; cursor: pointer; transition: transform 0.2s;
+        }
+        .fab:active { transform: scale(0.9); }
+
+        /* MODALS */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95); z-index: 2000;
+            display: flex; align-items: center; justify-content: center; 
+            opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s;
+        }
+        .modal-overlay.show { opacity: 1; visibility: visible; }
+        .modal-box {
+            background: var(--paper); width: 85%; max-width: 400px; padding: 25px;
+            border: 4px solid #111; box-shadow: 0 20px 60px #000;
+            text-align: center; transform: scale(0.9); transition: transform 0.3s;
+        }
+        .modal-overlay.show .modal-box { transform: scale(1); }
+        
+        select { width: 100%; padding: 12px; margin-bottom: 15px; font-family: var(--font-head); font-size: 1.1rem; background: #fff; border: 2px solid #333; }
+        .modal-special { background: linear-gradient(180deg, #1a1a1a 0%, #000 100%); border: 2px solid var(--gold); color: var(--gold); }
+
+        /* --- FIXED SIGNATURE STYLES --- */
+        .stamp-mark {
+            border: 5px solid var(--red); color: var(--red); font-family: var(--font-head);
+            font-size: 2.5rem; font-weight: bold; padding: 10px 20px;
+            transform: rotate(-10deg); margin: 20px auto; opacity: 0;
+        }
+        .stamp-mark.stamped { animation: stampIn 0.3s forwards 0.2s; }
+        @keyframes stampIn { from { opacity: 0; transform: scale(3) rotate(-10deg); } to { opacity: 1; transform: scale(1) rotate(-10deg); } }
+        
+        .signature-container { 
+            height: 100px; 
+            width: 80%; 
+            max-width: 300px;
+            margin: 20px auto; 
+            position: relative; 
+            opacity: 0; 
+        }
+        .signature-active { animation: fadeInSig 0.5s forwards 0.8s; }
+        @keyframes fadeInSig { to { opacity: 1; } }
+        
+        .sig-path { 
+            fill: none; 
+            stroke: #000080; 
+            stroke-width: 3; 
+            stroke-linecap: round; 
+            stroke-dasharray: 600; 
+            stroke-dashoffset: 600; 
+        }
+        .signature-active .sig-path { animation: writeName 2.5s ease-in-out forwards 0.8s; }
+        @keyframes writeName { to { stroke-dashoffset: 0; } }
+        
+        .sig-name { 
+            font-family: 'Patrick Hand', cursive; 
+            color: #000080; 
+            font-size: 1.8rem; 
+            position: absolute;
+            bottom: 10px; 
+            right: 20px; 
+            opacity: 0;
+            transform: rotate(-5deg); 
+        }
+        .signature-active .sig-name { animation: fadeInSig 1s forwards 2.5s; }
+
+        #toast {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95); padding: 15px; border-left: 6px solid #333;
+            font-family: var(--font-head); font-weight: 700; font-size: 1rem;
+            z-index: 10000; display: none; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        #ending-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; z-index: 9999; display: none;
+            flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; padding: 30px; opacity: 0; transition: opacity 2s ease-in-out;
+        }
+        .ending-text { font-family: var(--font-body); font-size: 1.2rem; color: #ccc; margin-bottom: 40px; opacity: 0; transform: translateY(20px); transition: all 1.5s ease; }
+        .teaser-title { font-family: var(--font-cinzel); font-size: 2.5rem; color: var(--red); text-shadow: 0 0 20px var(--red); letter-spacing: 5px; opacity: 0; transform: scale(0.9); transition: all 1s ease; margin-bottom: 60px; }
+        
+        /* CHỮ KÝ TÁC GIẢ (Style mới) */
+        .creator-signature {
+            font-family: 'Patrick Hand', cursive; 
+            font-size: 3rem; 
+            color: var(--gold); 
+            position: relative;
+            opacity: 0;
+            transform: rotate(-5deg); 
+            text-shadow: 0 0 10px rgba(197, 160, 89, 0.5); 
+            margin-bottom: 30px;
+            border-bottom: 2px solid transparent; 
+        }
+        .visible { opacity: 1 !important; transform: translateY(0) scale(1) !important; }
+        
+        /* Ẩn nút Admin */
+        .admin-btn { display: none; }
+        /* --- CHỮ KÝ GÓC PHẢI DƯỚI (Cập nhật) --- */
+.watermark-right-bottom {
+    position: absolute;
+    bottom: 30px;   /* Cùng hàng với thẻ Vé */
+    right: 30px;    /* Góc dưới bên phải */
+    z-index: 20;
+    text-align: right; /* Căn lề phải */
+    font-family: var(--font-head);
+    opacity: 0.7; /* Giảm độ mờ cho nhẹ nhàng */
+    /* Không cần viền kẻ nữa để trông gọn hơn */
+    animation: pulseGlow 3s infinite alternate ease-in-out; /* Thêm hiệu ứng động */
+}
+
+.wm-title {
+    font-size: 0.6rem; /* Nhỏ lại */
+    color: #888;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1px;
+}
+
+.wm-name {
+    font-size: 0.9rem; /* Nhỏ lại */
+    color: #e0e0e0;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.wm-ver {
+    font-size: 0.55rem; /* Nhỏ lại */
+    color: var(--gold);
+    margin-top: 2px;
+    font-family: var(--font-body);
+    font-style: italic;
+}
+
+/* Hiệu ứng động: Nhấp nháy nhẹ màu vàng nhạt */
+@keyframes pulseGlow {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 215, 0, 0.1);
+    }
+    100% {
+        text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    }
+}
+    </style>
+</head>
+<body>
+    <div id="ending-screen">
+        <div id="end-msg" class="ending-text">
+            Mọi bí ẩn đã được phơi bày.<br>
+            Thành phố này nợ bạn một lời cảm ơn, Thám tử.
+        </div>
+        <div id="end-teaser" class="teaser-title">
+            SHERLOCK NOIR<br>
+            <span style="font-size: 1rem; color: #fff; letter-spacing: 8px;">PART II: LONDON FOG</span>
+        </div>
+        <div id="end-credit" class="creator-signature">
+            VanGiang
+            <div style="font-size: 0.7rem; font-family: var(--font-head); color: #555; margin-top: 5px; letter-spacing: 2px;">DIRECTOR</div>
+        </div>
+        <button class="btn-start" style="margin-top: 50px; opacity: 0; width: auto; padding: 10px 30px; border: 1px solid #333;" id="btn-replay" onclick="location.reload()">TRỞ VỀ THỰC TẠI</button>
+    </div>
+
+    <div class="film-grain"></div>
+    <div class="light-leak"></div>
+    <div class="vignette"></div>
+    <div id="toast">Thông báo</div>
+
+    <div id="lobby-screen">
+        <div class="rain"></div>
+        <div class="lightning"></div>
+        <div class="watermark-right-bottom">
+    <div class="wm-title">Created By</div>
+    <div class="wm-name">VANGIANG</div>
+    <div class="wm-ver">Noir OS v1.0</div>
+</div>
+        
+        <div class="admin-btn" onclick="openLogin()">🔑</div>
+        <div class="admin-badge" id="admin-badge">ADMIN MODE</div>
+
+        <div class="energy-wrapper">
+            <div class="ticket-icon">🎟️</div>
+            <div class="ticket-info">
+                <div class="ticket-count">VÉ: <span id="ticket-count" class="ticket-highlight">5</span>/5</div>
+                <div id="timer-text" class="timer-text">Sẵn sàng</div>
+            </div>
+        </div>
+
+        <div class="game-logo">SHERLOCK</div>
+        <div class="subtitle">NOIR Director's cut</div>
+
+        <div class="progress-bar-lobby">
+            <div id="lobby-progress" class="progress-fill-lobby"></div>
+        </div>
+        
+        <div class="case-carousel" id="case-list"></div>
+    </div>
+
+    <div id="game-interface">
+        <div class="top-nav">
+            <div class="back-btn" onclick="confirmExit()">⬅ QUAY VỀ SẢNH</div>
+            <div class="hearts-container" id="hearts-display">❤❤❤</div>
+        </div>
+
+        <div class="workspace">
+            <div id="tab-file" class="screen active">
+                <h2 style="font-family:var(--font-head); border-bottom: 2px solid #000; padding-bottom:10px; margin-top:0;">HỒ SƠ VỤ ÁN</h2>
+                <div id="story-content" class="typewriter-text"></div>
+            </div>
+            <div id="tab-suspects" class="screen">
+                <div class="suspect-grid" id="suspects-content"></div>
+            </div>
+            <div id="tab-evidence" class="screen">
+                <div class="evidence-grid" id="evidence-content"></div>
+            </div>
+            <div id="tab-logic" class="screen">
+                <h3 style="font-family:var(--font-head); text-align:center; margin-top:0;">SỔ TAY GHI CHÉP</h3>
+                <div id="grid-container" class="grid-container"></div>
+            </div>
+            <div class="fab" onclick="openReport()">⚖️</div>
+        </div>
+
+        <div class="bottom-nav">
+            <div class="nav-btn active" onclick="switchTab('file', this)"><div class="nav-icon">📁</div>Hồ Sơ</div>
+            <div class="nav-btn" onclick="switchTab('suspects', this)"><div class="nav-icon">👥</div>Nghi Phạm</div>
+            <div class="nav-btn" onclick="switchTab('evidence', this)"><div class="nav-icon">🔎</div>Vật Chứng</div>
+            <div class="nav-btn" onclick="switchTab('logic', this)"><div class="nav-icon">📝</div>Sổ Tay</div>
+        </div>
+    </div>
+
+    <div id="modal-report" class="modal-overlay">
+        <div class="modal-box">
+            <h2 style="font-family:var(--font-head); margin-top:0">KẾT LUẬN ĐIỀU TRA</h2>
+            <select id="sel-suspect"></select>
+            <select id="sel-weapon"></select>
+            <select id="sel-location"></select>
+            <button class="btn-start" style="background:var(--red);" onclick="submitReport()">KÝ LỆNH BẮT GIỮ</button>
+            <div style="margin-top:15px; text-decoration:underline; cursor:pointer" onclick="closeModal('modal-report')">Tôi chưa chắc chắn</div>
+        </div>
+    </div>
+
+    <div id="modal-result" class="modal-overlay">
+        <div class="modal-box" id="result-box-content"></div>
+    </div>
+
+    <div id="modal-unlock" class="modal-overlay">
+        <div class="modal-box">
+            <h3 style="font-family:var(--font-head);">🔐 MẬT MÃ BẢO MẬT</h3>
+            <input type="text" id="inp-code" style="width:100%; padding:15px; font-size:1.8rem; text-align:center; font-family:var(--font-head); letter-spacing:5px; margin: 20px 0; border: 2px solid #333;" placeholder="....">
+            <button class="btn-start" onclick="verifyCode()">MỞ KHÓA</button>
+            <div style="margin-top:15px; text-decoration:underline; cursor:pointer" onclick="closeModal('modal-unlock')">Hủy bỏ</div>
+        </div>
+    </div>
+
+    <div id="modal-login" class="modal-overlay">
+        <div class="modal-box">
+            <h3 style="font-family:var(--font-head);">ĐĂNG NHẬP HỆ THỐNG</h3>
+            <p style="font-size: 0.9rem;">Dành cho quản trị viên</p>
+            <input type="number" id="inp-phone" style="width:100%; padding:15px; font-size:1.5rem; text-align:center; font-family:var(--font-head); margin: 20px 0; border: 2px solid #333;" placeholder="Số điện thoại...">
+            <button class="btn-start" onclick="verifyAdmin()">ĐĂNG NHẬP</button>
+            <div style="margin-top:15px; text-decoration:underline; cursor:pointer" onclick="closeModal('modal-login')">Đóng</div>
+        </div>
+    </div>
+
+    <script src="cases.js"></script> 
+
+    <script>
+        /* --- 2. STATE & CONFIG --- */
+        const REGEN_TIME = 1800000; // 30 Phút cho game thật
+        
+        let state = {
+            currentCase: 0,
+            lives: 3,
+            tickets: 5,
+            nextRefill: 0, 
+            solved: [],
+            gridData: {},
+            isAdmin: false
+        };
+        let typeInterval;
+
+        /* --- 3. CORE FUNCTIONS --- */
+        window.onload = function() {
+            loadProgress();
+            renderLobby();
+            updateStats();
+            startTimer();
+        };
+
+        function startTimer() {
+            setInterval(() => {
+                if (state.isAdmin) return;
+
+                if (state.tickets < 5) {
+                    let now = Date.now();
+                    if (!state.nextRefill || state.nextRefill === 0) {
+                        state.nextRefill = now + REGEN_TIME;
+                    }
+                    if (now >= state.nextRefill) {
+                        state.tickets++;
+                        if (state.tickets < 5) {
+                            state.nextRefill = now + REGEN_TIME;
+                        } else {
+                            state.nextRefill = 0;
+                        }
+                        saveProgress();
+                        updateStats();
+                    } else {
+                        let left = state.nextRefill - now;
+                        let m = Math.floor(left / 60000);
+                        let s = Math.floor((left % 60000) / 1000);
+                        document.getElementById('timer-text').innerText = `Hồi sau: ${m}:${s < 10 ? '0'+s : s}`;
+                        document.getElementById('timer-text').style.color = "#e57373";
+                    }
+                } else {
+                    document.getElementById('timer-text').innerText = "Sẵn sàng";
+                    document.getElementById('timer-text').style.color = "#888";
+                    state.nextRefill = 0;
+                }
+            }, 1000);
+        }
+
+        function updateStats() {
+            const tkEl = document.getElementById('ticket-count');
+            const heartEl = document.getElementById('hearts-display');
+
+            if (state.isAdmin) {
+                tkEl.innerText = "∞";
+                heartEl.innerText = "ADMIN MODE";
+                document.getElementById('admin-badge').style.display = 'block';
+                document.getElementById('timer-text').innerText = "Vô hạn";
+            } else {
+                tkEl.innerText = state.tickets;
+                let heartStr = "";
+                for(let i=0; i<state.lives; i++) heartStr += "❤";
+                heartEl.innerText = heartStr;
+                document.getElementById('admin-badge').style.display = 'none';
+
+                if(state.tickets === 0) {
+                    tkEl.style.color = "var(--red)";
+                } else {
+                    tkEl.style.color = "var(--gold)";
+                }
+
+                if(state.lives <= 0) {
+                    showToast("BẠN ĐÃ KIỆT SỨC! GAME OVER.");
+                    setTimeout(() => { localStorage.clear(); location.reload(); }, 3000);
+                }
+            }
+        }
+
+        function loadProgress() {
+            const save = localStorage.getItem('sherlock_noir_save');
+            if(save) {
+                try {
+                    state = JSON.parse(save);
+                } catch(e) {
+                    localStorage.clear();
+                }
+                
+                if(state.nextRefill === undefined) state.nextRefill = 0;
+
+                if(!state.isAdmin && state.tickets < 5 && state.nextRefill > 0) {
+                    let now = Date.now();
+                    while(now >= state.nextRefill && state.tickets < 5) {
+                        state.tickets++;
+                        state.nextRefill += REGEN_TIME;
+                    }
+                    if(state.tickets >= 5) state.nextRefill = 0;
+                    if(state.tickets < 5 && state.nextRefill < now) state.nextRefill = now + REGEN_TIME;
+                    
+                    saveProgress();
+                }
+            }
+        }
+
+        function saveProgress() {
+            localStorage.setItem('sherlock_noir_save', JSON.stringify(state));
+        }
+
+        /* --- ADMIN LOGIC --- */
+        function openLogin() {
+            if (state.isAdmin) {
+                if(confirm("Đăng xuất Admin?")) {
+                    state.isAdmin = false;
+                    state.tickets = 5; 
+                    state.lives = 3;
+                    updateStats();
+                    saveProgress();
+                    renderLobby();
+                }
+            } else {
+                document.getElementById('modal-login').classList.add('show');
+            }
+        }
+
+        function verifyAdmin() {
+            const phone = document.getElementById('inp-phone').value;
+            if (phone === "0967374054") {
+                state.isAdmin = true;
+                state.tickets = 999;
+                state.lives = 999;
+                updateStats();
+                saveProgress();
+                closeModal('modal-login');
+                showToast("Admin Mode Activated");
+                renderLobby();
+            } else {
+                shakeScreen();
+                showToast("Sai thông tin!");
+            }
+        }
+
+        function renderLobby() {
+            const list = document.getElementById('case-list');
+            list.innerHTML = "";
+            let solvedCount = 0;
+            
+            if (typeof CASES === 'undefined') {
+                list.innerHTML = "<div style='color:white; text-align:center;'>Đang tải dữ liệu...</div>";
+                return;
+            }
+
+            CASES.forEach((c, index) => { 
+                const el = document.createElement('div');
+                const isLocked = index > 0 && !state.solved.includes(index - 1);
+                const isSolved = state.solved.includes(index); 
+                if(isSolved) solvedCount++;
+
+                el.className = `case-folder ${isLocked ? 'locked' : ''} ${isSolved ? 'solved' : ''}`;
+                el.onclick = () => {
+                    // Admin bypass
+                    if (state.isAdmin) {
+                        startCase(index);
+                        return;
+                    }
+
+                    if (index === 4 && isLocked) { // Case 5 (index 4) cần nhập mã
+                        document.getElementById('modal-unlock').classList.add('show');
+                        return;
+                    }
+                    if(isLocked) {
+                        showToast("Cần phá giải vụ án trước!");
+                        shakeScreen();
+                    } else {
+                        startCase(index);
+                    }
+                };
+                
+                el.innerHTML = `
+                    <div style="border-bottom: 2px solid #5d4037; padding-bottom: 10px; margin-bottom: 10px;">
+                        <span style="background: #3e2723; color: #fff; padding: 2px 8px; font-size: 0.8rem;">CASE #${index + 1}</span>
+                        <span style="float: right; color: var(--red); font-weight: bold;">${c.diff}</span>
+                    </div>
+                    <h2 style="font-family: var(--font-head); margin: 10px 0; font-size: 1.4rem;">${c.title}</h2>
+                    <p style="font-family: var(--font-body); font-size: 0.9rem; color: #444; flex-grow: 1;">${c.desc}</p>
+                    <div style="border-top: 1px dashed #5d4037; padding-top: 10px; font-size: 0.8rem; text-align: right; color: #666;">
+                        ${isSolved ? 'ĐÃ HOÀN THÀNH' : (isLocked ? 'ĐANG KHÓA' : 'CHƯA GIẢI QUYẾT')}
+                    </div>
+                `;
+                list.appendChild(el);
+            });
+
+            document.getElementById('lobby-progress').style.width = `${(solvedCount / CASES.length) * 100}%`;
+            
+            // Kích hoạt Ending khi giải xong Case 60 (index 59) - Đã sửa và đảm bảo hoạt động
+            if (state.solved.includes(59)) {
+                setTimeout(showEnding, 2000);
+            }
+        }
+
+        function startCase(id) {
+            if(!state.isAdmin && state.tickets <= 0) {
+                showToast("Hết vé! Hãy chờ hồi phục.");
+                shakeScreen();
+                return;
+            }
+            
+            if(!state.isAdmin && !state.solved.includes(id)) {
+                state.tickets--;
+                if(state.tickets === 4) {
+                    state.nextRefill = Date.now() + REGEN_TIME;
+                }
+                saveProgress();
+                updateStats();
+            }
+
+            state.currentCase = id;
+            document.getElementById('lobby-screen').style.display = 'none';
+            document.getElementById('game-interface').style.display = 'flex';
+            setupGameUI(id);
+        }
+
+        function confirmExit() {
+            if(confirm("Rời khỏi hiện trường?")) {
+                document.getElementById('game-interface').style.display = 'none';
+                document.getElementById('lobby-screen').style.display = 'flex';
+                clearInterval(typeInterval);
+                renderLobby();
+            }
+        }
+
+        function setupGameUI(id) {
+            const c = CASES[id];
+            const storyDiv = document.getElementById('story-content');
+            storyDiv.innerHTML = "";
+            typewriter(storyDiv, c.story.join("\n\n"));
+
+            const susDiv = document.getElementById('suspects-content');
+            susDiv.innerHTML = "";
+            c.suspects.forEach(s => {
+                const note = document.createElement('div');
+                note.className = 'sticky-note';
+                note.onclick = function() { this.classList.toggle('flipped'); };
+                note.innerHTML = `<div class="note-title">${s.name}</div><div style="font-size:0.9rem; margin-bottom:5px;">(${s.role})</div><div class="note-content">${s.note || s.detail}</div><div class="note-hint">(Chạm để lật)</div>`;
+                susDiv.appendChild(note);
+            });
+
+            const eviDiv = document.getElementById('evidence-content');
+            eviDiv.innerHTML = "";
+            c.evidence.forEach(e => {
+                const card = document.createElement('div');
+                card.className = 'evi-card-container';
+                card.onclick = function() { this.classList.toggle('flipped'); };
+                const text = e.desc || e.t || "Không có mô tả";
+                card.innerHTML = `<div class="evi-card-inner"><div class="evi-front"><div class="evi-icon">${e.icon}</div><div class="evi-name">${e.name}</div></div><div class="evi-back">"${text}"</div></div>`;
+                eviDiv.appendChild(card);
+            });
+
+            let sList = c.opts ? c.opts.s : c.suspects.map(x => x.name);
+            let wList = c.opts ? c.opts.w : c.evidence.map(x => x.name);
+            let lList = c.opts ? c.opts.l : c.locations;
+
+            populateSelect('sel-suspect', sList, "Chọn Nghi Phạm");
+            populateSelect('sel-weapon', wList, "Chọn Vật Chứng");
+            populateSelect('sel-location', lList, "Chọn Địa Điểm");
+            
+            setupGrid(c);
+            switchTab('file', document.querySelector('.nav-btn'));
+        }
+
+        function populateSelect(id, items, label) {
+            const sel = document.getElementById(id);
+            sel.innerHTML = `<option value="">-- ${label} --</option>`;
+            if(items){
+                items.forEach(i => {
+                    const opt = document.createElement('option');
+                    opt.value = i; opt.innerText = i;
+                    sel.appendChild(opt);
+                });
+            }
+        }
+
+        function switchTab(tabName, btn) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById('tab-' + tabName).classList.add('active');
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            if(btn) btn.classList.add('active');
+        }
+
+        function typewriter(element, text) {
+            element.innerHTML = '<span class="cursor"></span>';
+            let i = 0; clearInterval(typeInterval); element.classList.add('typing');
+            typeInterval = setInterval(() => {
+                if(i < text.length) {
+                    let char = text.charAt(i); if(char === '\n') char = '<br>';
+                    element.innerHTML = text.substring(0, i+1) + '<span class="cursor"></span>'; i++;
+                } else {
+                    clearInterval(typeInterval); element.innerHTML = text.replace(/\n/g, '<br>');
+                }
+            }, 30);
+        }
+
+        function setupGrid(c) {
+            const container = document.getElementById('grid-container'); container.innerHTML = "";
+            const table = document.createElement('table');
+            
+            let cols = c.opts ? [...c.opts.w, ...c.opts.l] : [...c.evidence.map(e => e.name), ...c.locations];
+            let rows = c.opts ? c.opts.s : c.suspects.map(s => s.name);
+
+            let tr = document.createElement('tr'); tr.appendChild(document.createElement('td'));
+            if(cols) {
+                cols.forEach(col => { const th = document.createElement('th'); th.innerText = col; tr.appendChild(th); });
+            }
+            table.appendChild(tr);
+            if(rows) {
+                rows.forEach(row => {
+                    tr = document.createElement('tr');
+                    const nameTd = document.createElement('td'); nameTd.innerText = row; tr.appendChild(nameTd);
+                    if(cols) {
+                        cols.forEach(() => {
+                            const td = document.createElement('td');
+                            td.onclick = function() { if(this.innerText==="") { this.innerText="X"; this.className="x"; } else if(this.innerText==="X") { this.innerText="O"; this.className="o"; } else { this.innerText=""; this.className=""; } };
+                            tr.appendChild(td);
+                        });
+                    }
+                    table.appendChild(tr);
+                });
+            }
+            container.appendChild(table);
+        }
+
+        function openReport() { document.getElementById('modal-report').classList.add('show'); }
+        function closeModal(id) { document.getElementById(id).classList.remove('show'); }
+        function submitReport() {
+            const s = document.getElementById('sel-suspect').value;
+            const w = document.getElementById('sel-weapon').value;
+            const l = document.getElementById('sel-location').value;
+            if(!s || !w || !l) { showToast("Hãy điền đầy đủ thông tin!"); return; }
+            closeModal('modal-report'); checkSolution(s, w, l);
+        }
+
+        function checkSolution(suspect, weapon, location) {
+            const c = CASES[state.currentCase];
+            
+            let correctS, correctW, correctL;
+            if (c.sol) { 
+                correctS = c.sol.s; correctW = c.sol.w; correctL = c.sol.l;
+            } else { 
+                correctS = c.solution.suspect; correctW = c.solution.weapon; correctL = c.solution.location;
+            }
+
+            const isCorrect = (suspect === correctS && weapon === correctW && location === correctL);
+            const resultBox = document.getElementById('result-box-content');
+            document.getElementById('modal-result').classList.add('show');
+
+            if(isCorrect) {
+                if(!state.solved.includes(state.currentCase)) { 
+                    state.solved.push(state.currentCase);
+                    saveProgress();
+                }
+
+                resultBox.className = "modal-box modal-special";
+                resultBox.innerHTML = `
+                    <div style="font-family:var(--font-head); font-size:1.5rem; margin-bottom:10px;">VỤ ÁN ĐÃ ĐƯỢC PHÁ!</div>
+                    <div class="stamp-mark stamped">CASE CLOSED</div>
+                    <div class="signature-container signature-active">
+                        <svg class="sig-path" viewBox="0 0 300 100"><path d="M10,80 Q50,10 80,80 T150,50 T250,80" /></svg>
+                        <div class="sig-name">Sherlock</div>
+                    </div>
+                    <p>Hung thủ ${suspect} đã bị bắt tại ${location} cùng vật chứng ${weapon}.</p>
+                    <button class="btn-start" onclick="closeResult(true)">TIẾP TỤC</button>
+                `;
+            } else {
+                if (!state.isAdmin) state.lives--; 
+                updateStats(); saveProgress(); shakeScreen();
+                resultBox.className = "modal-box";
+                resultBox.innerHTML = `<h2 style="color:var(--red); font-family:var(--font-head)">KẾT LUẬN SAI!</h2><p>Nghi phạm có bằng chứng ngoại phạm. Bạn đã mất uy tín.</p><div style="font-size:3rem;">🚫</div><p>Còn lại: ${state.isAdmin ? "∞" : state.lives} mạng</p><button class="btn-start" onclick="closeResult(false)">THỬ LẠI</button>`;
+            }
+        }
+
+        function closeResult(isWin) {
+            closeModal('modal-result');
+            if(isWin) {
+                document.getElementById('game-interface').style.display = 'none';
+                document.getElementById('lobby-screen').style.display = 'flex';
+                renderLobby();
+            }
+        }
+
+        function verifyCode() {
+            const inp = document.getElementById('inp-code');
+            const code = inp.value.toUpperCase().trim();
+            if (code === "SHERLOCK" || code === "NOIR" || code === "1887") {
+                showToast("Mật mã chính xác!"); closeModal('modal-unlock'); inp.value = ""; startCase(4);
+            } else {
+                shakeScreen(); showToast("Mật mã sai!");
+            }
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById('toast'); t.innerText = msg; t.style.display = 'block';
+            setTimeout(() => t.style.display = 'none', 3000);
+        }
+        function shakeScreen() { document.body.classList.add('shake-screen'); setTimeout(() => document.body.classList.remove('shake-screen'), 500); }
+
+        function showEnding() {
+            const endScreen = document.getElementById('ending-screen'); endScreen.style.display = 'flex';
+            setTimeout(() => endScreen.style.opacity = 1, 100);
+            setTimeout(() => document.getElementById('end-msg').classList.add('visible'), 1000);
+            setTimeout(() => document.getElementById('end-teaser').classList.add('visible'), 4000);
+            setTimeout(() => document.getElementById('end-credit').classList.add('visible'), 7000);
+            setTimeout(() => { document.getElementById('btn-replay').style.opacity = 1; document.getElementById('btn-replay').style.pointerEvents = 'auto'; }, 9000);
+        }
+    </script>
+</body>
+</html>
