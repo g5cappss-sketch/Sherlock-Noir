@@ -81,20 +81,6 @@
         }
         @keyframes thunder { 0%, 95% { opacity: 0; } 96% { opacity: 0.6; } 96.5% { opacity: 0; } 97% { opacity: 0.2; } 100% { opacity: 0; } }
 
-        .energy-wrapper {
-            position: absolute; bottom: 20px; left: 20px; z-index: 10;
-            display: flex; align-items: center; gap: 12px;
-            background: rgba(20, 20, 20, 0.85); padding: 8px 15px;
-            border: 1px solid #333; border-left: 4px solid var(--gold);
-            border-radius: 2px; backdrop-filter: blur(5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-        }
-        .ticket-icon { font-size: 1.4rem; filter: drop-shadow(0 0 5px var(--red)); animation: pulse 2s infinite; }
-        .ticket-info { display: flex; flex-direction: column; align-items: flex-start; }
-        .ticket-count { font-family: var(--font-head); color: #fff; font-size: 1rem; letter-spacing: 1px; }
-        .ticket-highlight { color: var(--gold); font-weight: bold; font-size: 1.2rem; }
-        .timer-text { font-family: var(--font-body); font-size: 0.7rem; color: #888; font-style: italic; min-width: 80px;}
-
         .game-logo {
             font-family: var(--font-head); font-size: 4rem; color: #fff;
             text-transform: uppercase; letter-spacing: 5px; margin-bottom: 5px; z-index: 5;
@@ -147,7 +133,7 @@
         #game-interface { display: none; height: 100%; flex-direction: column; background: #111; z-index: 50; }
         .top-nav { background: #0f0f0f; height: 60px; display: flex; justify-content: space-between; align-items: center; padding: 0 15px; border-bottom: 1px solid #333; }
         .back-btn { color:#fff; font-family:var(--font-head); font-size:1rem; cursor:pointer; display: flex; align-items: center; gap: 5px; }
-        .hearts-container { color: var(--red); font-size: 1.2rem; letter-spacing: 2px; font-family: var(--font-head); }
+        .hearts-container { color: var(--red); font-size: 1rem; font-weight: bold; letter-spacing: 1px; font-family: var(--font-head); }
 
         .workspace { flex: 1; position: relative; overflow: hidden; background: #222; }
         .screen {
@@ -291,7 +277,7 @@
         .ending-text { font-family: var(--font-body); font-size: 1.2rem; color: #ccc; margin-bottom: 40px; opacity: 0; transform: translateY(20px); transition: all 1.5s ease; }
         .teaser-title { font-family: var(--font-cinzel); font-size: 2.5rem; color: var(--red); text-shadow: 0 0 20px var(--red); letter-spacing: 5px; opacity: 0; transform: scale(0.9); transition: all 1s ease; margin-bottom: 60px; }
         
-        /* CHỮ KÝ TÁC GIẢ (Style mới) */
+        /* CHỮ KÝ TÁC GIẢ */
         .creator-signature {
             font-family: 'Patrick Hand', cursive; 
             font-size: 3rem; 
@@ -307,52 +293,24 @@
         
         /* Ẩn nút Admin */
         .admin-btn { display: none; }
-        /* --- CHỮ KÝ GÓC PHẢI DƯỚI (Cập nhật) --- */
-.watermark-right-bottom {
-    position: absolute;
-    bottom: 30px;   /* Cùng hàng với thẻ Vé */
-    right: 30px;    /* Góc dưới bên phải */
-    z-index: 20;
-    text-align: right; /* Căn lề phải */
-    font-family: var(--font-head);
-    opacity: 0.7; /* Giảm độ mờ cho nhẹ nhàng */
-    /* Không cần viền kẻ nữa để trông gọn hơn */
-    animation: pulseGlow 3s infinite alternate ease-in-out; /* Thêm hiệu ứng động */
-}
+        
+        /* CHỮ KÝ GÓC PHẢI DƯỚI */
+        .watermark-right-bottom {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            z-index: 20;
+            text-align: right;
+            font-family: var(--font-head);
+            opacity: 0.7;
+            animation: pulseGlow 3s infinite alternate ease-in-out;
+        }
 
-.wm-title {
-    font-size: 0.6rem; /* Nhỏ lại */
-    color: #888;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 1px;
-}
+        .wm-title { font-size: 0.6rem; color: #888; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1px; }
+        .wm-name { font-size: 0.9rem; color: #e0e0e0; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+        .wm-ver { font-size: 0.55rem; color: var(--red); margin-top: 2px; font-family: var(--font-body); font-style: italic; font-weight: bold; }
 
-.wm-name {
-    font-size: 0.9rem; /* Nhỏ lại */
-    color: #e0e0e0;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.wm-ver {
-    font-size: 0.55rem; /* Nhỏ lại */
-    color: var(--gold);
-    margin-top: 2px;
-    font-family: var(--font-body);
-    font-style: italic;
-}
-
-/* Hiệu ứng động: Nhấp nháy nhẹ màu vàng nhạt */
-@keyframes pulseGlow {
-    0% {
-        text-shadow: 0 0 5px rgba(255, 215, 0, 0.1);
-    }
-    100% {
-        text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-    }
-}
+        @keyframes pulseGlow { 0% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.1); } 100% { text-shadow: 0 0 15px rgba(255, 215, 0, 0.4); } }
     </style>
 </head>
 <body>
@@ -381,21 +339,13 @@
         <div class="rain"></div>
         <div class="lightning"></div>
         <div class="watermark-right-bottom">
-    <div class="wm-title">Created By</div>
-    <div class="wm-name">VANGIANG</div>
-    <div class="wm-ver">Noir OS v1.0</div>
-</div>
+            <div class="wm-title">Created By</div>
+            <div class="wm-name">VANGIANG</div>
+            <div class="wm-ver">HARDCORE MODE</div>
+        </div>
         
         <div class="admin-btn" onclick="openLogin()">🔑</div>
         <div class="admin-badge" id="admin-badge">ADMIN MODE</div>
-
-        <div class="energy-wrapper">
-            <div class="ticket-icon">🎟️</div>
-            <div class="ticket-info">
-                <div class="ticket-count">VÉ: <span id="ticket-count" class="ticket-highlight">5</span>/5</div>
-                <div id="timer-text" class="timer-text">Sẵn sàng</div>
-            </div>
-        </div>
 
         <div class="game-logo">SHERLOCK</div>
         <div class="subtitle">NOIR Director's cut</div>
@@ -410,7 +360,7 @@
     <div id="game-interface">
         <div class="top-nav">
             <div class="back-btn" onclick="confirmExit()">⬅ QUAY VỀ SẢNH</div>
-            <div class="hearts-container" id="hearts-display">❤❤❤</div>
+            <div class="hearts-container" id="hearts-display">SINH TỬ: ❤</div>
         </div>
 
         <div class="workspace">
@@ -441,7 +391,8 @@
 
     <div id="modal-report" class="modal-overlay">
         <div class="modal-box">
-            <h2 style="font-family:var(--font-head); margin-top:0">KẾT LUẬN ĐIỀU TRA</h2>
+            <h2 style="font-family:var(--font-head); margin-top:0; color: var(--red);">KẾT LUẬN ĐIỀU TRA</h2>
+            <p style="font-size:0.9rem; margin-bottom:15px; font-weight:bold;">Cảnh báo: Suy luận sai sẽ kết thúc toàn bộ sự nghiệp!</p>
             <select id="sel-suspect"></select>
             <select id="sel-weapon"></select>
             <select id="sel-location"></select>
@@ -477,13 +428,9 @@
 
     <script>
         /* --- 2. STATE & CONFIG --- */
-        const REGEN_TIME = 1800000; // 30 Phút cho game thật
-        
         let state = {
             currentCase: 0,
-            lives: 3,
-            tickets: 5,
-            nextRefill: 0, 
+            lives: 1, // Giảm từ 3 xuống 1 để tạo độ khó Hardcore
             solved: [],
             gridData: {},
             isAdmin: false
@@ -495,66 +442,20 @@
             loadProgress();
             renderLobby();
             updateStats();
-            startTimer();
         };
 
-        function startTimer() {
-            setInterval(() => {
-                if (state.isAdmin) return;
-
-                if (state.tickets < 5) {
-                    let now = Date.now();
-                    if (!state.nextRefill || state.nextRefill === 0) {
-                        state.nextRefill = now + REGEN_TIME;
-                    }
-                    if (now >= state.nextRefill) {
-                        state.tickets++;
-                        if (state.tickets < 5) {
-                            state.nextRefill = now + REGEN_TIME;
-                        } else {
-                            state.nextRefill = 0;
-                        }
-                        saveProgress();
-                        updateStats();
-                    } else {
-                        let left = state.nextRefill - now;
-                        let m = Math.floor(left / 60000);
-                        let s = Math.floor((left % 60000) / 1000);
-                        document.getElementById('timer-text').innerText = `Hồi sau: ${m}:${s < 10 ? '0'+s : s}`;
-                        document.getElementById('timer-text').style.color = "#e57373";
-                    }
-                } else {
-                    document.getElementById('timer-text').innerText = "Sẵn sàng";
-                    document.getElementById('timer-text').style.color = "#888";
-                    state.nextRefill = 0;
-                }
-            }, 1000);
-        }
-
         function updateStats() {
-            const tkEl = document.getElementById('ticket-count');
             const heartEl = document.getElementById('hearts-display');
 
             if (state.isAdmin) {
-                tkEl.innerText = "∞";
-                heartEl.innerText = "ADMIN MODE";
+                heartEl.innerText = "ADMIN (BẤT TỬ)";
                 document.getElementById('admin-badge').style.display = 'block';
-                document.getElementById('timer-text').innerText = "Vô hạn";
             } else {
-                tkEl.innerText = state.tickets;
-                let heartStr = "";
-                for(let i=0; i<state.lives; i++) heartStr += "❤";
-                heartEl.innerText = heartStr;
+                heartEl.innerText = state.lives > 0 ? "SINH TỬ: ❤" : "ĐÃ CHẾT";
                 document.getElementById('admin-badge').style.display = 'none';
 
-                if(state.tickets === 0) {
-                    tkEl.style.color = "var(--red)";
-                } else {
-                    tkEl.style.color = "var(--gold)";
-                }
-
                 if(state.lives <= 0) {
-                    showToast("BẠN ĐÃ KIỆT SỨC! GAME OVER.");
+                    showToast("SAI LẦM CHÍ MẠNG! TRÒ CHƠI KẾT THÚC.");
                     setTimeout(() => { localStorage.clear(); location.reload(); }, 3000);
                 }
             }
@@ -568,20 +469,6 @@
                 } catch(e) {
                     localStorage.clear();
                 }
-                
-                if(state.nextRefill === undefined) state.nextRefill = 0;
-
-                if(!state.isAdmin && state.tickets < 5 && state.nextRefill > 0) {
-                    let now = Date.now();
-                    while(now >= state.nextRefill && state.tickets < 5) {
-                        state.tickets++;
-                        state.nextRefill += REGEN_TIME;
-                    }
-                    if(state.tickets >= 5) state.nextRefill = 0;
-                    if(state.tickets < 5 && state.nextRefill < now) state.nextRefill = now + REGEN_TIME;
-                    
-                    saveProgress();
-                }
             }
         }
 
@@ -594,8 +481,7 @@
             if (state.isAdmin) {
                 if(confirm("Đăng xuất Admin?")) {
                     state.isAdmin = false;
-                    state.tickets = 5; 
-                    state.lives = 3;
+                    state.lives = 1;
                     updateStats();
                     saveProgress();
                     renderLobby();
@@ -609,7 +495,6 @@
             const phone = document.getElementById('inp-phone').value;
             if (phone === "0967374054") {
                 state.isAdmin = true;
-                state.tickets = 999;
                 state.lives = 999;
                 updateStats();
                 saveProgress();
@@ -646,7 +531,7 @@
                         return;
                     }
 
-                    if (index === 4 && isLocked) { // Case 5 (index 4) cần nhập mã
+                    if (index === 4 && isLocked) { // Case 5 cần nhập mã
                         document.getElementById('modal-unlock').classList.add('show');
                         return;
                     }
@@ -661,7 +546,7 @@
                 el.innerHTML = `
                     <div style="border-bottom: 2px solid #5d4037; padding-bottom: 10px; margin-bottom: 10px;">
                         <span style="background: #3e2723; color: #fff; padding: 2px 8px; font-size: 0.8rem;">CASE #${index + 1}</span>
-                        <span style="float: right; color: var(--red); font-weight: bold;">${c.diff}</span>
+                        <span style="float: right; color: var(--red); font-weight: bold;">${c.diff || 'HARD'}</span>
                     </div>
                     <h2 style="font-family: var(--font-head); margin: 10px 0; font-size: 1.4rem;">${c.title}</h2>
                     <p style="font-family: var(--font-body); font-size: 0.9rem; color: #444; flex-grow: 1;">${c.desc}</p>
@@ -674,28 +559,12 @@
 
             document.getElementById('lobby-progress').style.width = `${(solvedCount / CASES.length) * 100}%`;
             
-            // Kích hoạt Ending khi giải xong Case 60 (index 59) - Đã sửa và đảm bảo hoạt động
             if (state.solved.includes(59)) {
                 setTimeout(showEnding, 2000);
             }
         }
 
         function startCase(id) {
-            if(!state.isAdmin && state.tickets <= 0) {
-                showToast("Hết vé! Hãy chờ hồi phục.");
-                shakeScreen();
-                return;
-            }
-            
-            if(!state.isAdmin && !state.solved.includes(id)) {
-                state.tickets--;
-                if(state.tickets === 4) {
-                    state.nextRefill = Date.now() + REGEN_TIME;
-                }
-                saveProgress();
-                updateStats();
-            }
-
             state.currentCase = id;
             document.getElementById('lobby-screen').style.display = 'none';
             document.getElementById('game-interface').style.display = 'flex';
@@ -856,7 +725,7 @@
                 if (!state.isAdmin) state.lives--; 
                 updateStats(); saveProgress(); shakeScreen();
                 resultBox.className = "modal-box";
-                resultBox.innerHTML = `<h2 style="color:var(--red); font-family:var(--font-head)">KẾT LUẬN SAI!</h2><p>Nghi phạm có bằng chứng ngoại phạm. Bạn đã mất uy tín.</p><div style="font-size:3rem;">🚫</div><p>Còn lại: ${state.isAdmin ? "∞" : state.lives} mạng</p><button class="btn-start" onclick="closeResult(false)">THỬ LẠI</button>`;
+                resultBox.innerHTML = `<h2 style="color:var(--red); font-family:var(--font-head)">SAI LẦM CHÍ MẠNG!</h2><p>Lập luận của bạn đã sụp đổ. Hung thủ đã trốn thoát và sự nghiệp của bạn tiêu tan.</p><div style="font-size:3rem;">💀</div><button class="btn-start" onclick="closeResult(false)">CHẤP NHẬN SỐ PHẬN</button>`;
             }
         }
 
