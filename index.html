@@ -96,8 +96,9 @@
         .case-carousel {
             width: 100%; padding: 30px; display: flex; gap: 25px;
             overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 60px;
-            touch-action: pan-x; z-index: 5;
+            touch-action: pan-x; z-index: 5; cursor: grab;
         }
+        .case-carousel:active { cursor: grabbing; }
         .case-carousel::-webkit-scrollbar { display: none; }
 
         .case-folder {
@@ -133,7 +134,7 @@
         #game-interface { display: none; height: 100%; flex-direction: column; background: #111; z-index: 50; }
         .top-nav { background: #0f0f0f; height: 60px; display: flex; justify-content: space-between; align-items: center; padding: 0 15px; border-bottom: 1px solid #333; }
         .back-btn { color:#fff; font-family:var(--font-head); font-size:1rem; cursor:pointer; display: flex; align-items: center; gap: 5px; }
-        .hearts-container { color: var(--red); font-size: 1rem; font-weight: bold; letter-spacing: 1px; font-family: var(--font-head); }
+        .hearts-container { color: var(--red); font-size: 1.2rem; letter-spacing: 2px; font-family: var(--font-head); }
 
         .workspace { flex: 1; position: relative; overflow: hidden; background: #222; }
         .screen {
@@ -277,7 +278,7 @@
         .ending-text { font-family: var(--font-body); font-size: 1.2rem; color: #ccc; margin-bottom: 40px; opacity: 0; transform: translateY(20px); transition: all 1.5s ease; }
         .teaser-title { font-family: var(--font-cinzel); font-size: 2.5rem; color: var(--red); text-shadow: 0 0 20px var(--red); letter-spacing: 5px; opacity: 0; transform: scale(0.9); transition: all 1s ease; margin-bottom: 60px; }
         
-        /* CHỮ KÝ TÁC GIẢ */
+        /* CHỮ KÝ TÁC GIẢ (Style mới) */
         .creator-signature {
             font-family: 'Patrick Hand', cursive; 
             font-size: 3rem; 
@@ -294,23 +295,47 @@
         /* Ẩn nút Admin */
         .admin-btn { display: none; }
         
-        /* CHỮ KÝ GÓC PHẢI DƯỚI */
+        /* --- CHỮ KÝ GÓC PHẢI DƯỚI (Cập nhật) --- */
         .watermark-right-bottom {
             position: absolute;
-            bottom: 30px;
-            right: 30px;
+            bottom: 30px;   /* Cùng hàng với thẻ Vé */
+            right: 30px;    /* Góc dưới bên phải */
             z-index: 20;
-            text-align: right;
+            text-align: right; /* Căn lề phải */
             font-family: var(--font-head);
-            opacity: 0.7;
-            animation: pulseGlow 3s infinite alternate ease-in-out;
+            opacity: 0.7; /* Giảm độ mờ cho nhẹ nhàng */
+            animation: pulseGlow 3s infinite alternate ease-in-out; /* Thêm hiệu ứng động */
         }
 
-        .wm-title { font-size: 0.6rem; color: #888; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1px; }
-        .wm-name { font-size: 0.9rem; color: #e0e0e0; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
-        .wm-ver { font-size: 0.55rem; color: var(--red); margin-top: 2px; font-family: var(--font-body); font-style: italic; font-weight: bold; }
+        .wm-title {
+            font-size: 0.6rem; /* Nhỏ lại */
+            color: #888;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1px;
+        }
 
-        @keyframes pulseGlow { 0% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.1); } 100% { text-shadow: 0 0 15px rgba(255, 215, 0, 0.4); } }
+        .wm-name {
+            font-size: 0.9rem; /* Nhỏ lại */
+            color: #e0e0e0;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .wm-ver {
+            font-size: 0.55rem; /* Nhỏ lại */
+            color: var(--gold);
+            margin-top: 2px;
+            font-family: var(--font-body);
+            font-style: italic;
+        }
+
+        /* Hiệu ứng động: Nhấp nháy nhẹ màu vàng nhạt */
+        @keyframes pulseGlow {
+            0% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.1); }
+            100% { text-shadow: 0 0 15px rgba(255, 215, 0, 0.4); }
+        }
     </style>
 </head>
 <body>
@@ -341,7 +366,7 @@
         <div class="watermark-right-bottom">
             <div class="wm-title">Created By</div>
             <div class="wm-name">VANGIANG</div>
-            <div class="wm-ver">HARDCORE MODE</div>
+            <div class="wm-ver">Noir OS v1.0</div>
         </div>
         
         <div class="admin-btn" onclick="openLogin()">🔑</div>
@@ -360,7 +385,7 @@
     <div id="game-interface">
         <div class="top-nav">
             <div class="back-btn" onclick="confirmExit()">⬅ QUAY VỀ SẢNH</div>
-            <div class="hearts-container" id="hearts-display">SINH TỬ: ❤</div>
+            <div class="hearts-container" id="hearts-display">❤❤❤</div>
         </div>
 
         <div class="workspace">
@@ -391,8 +416,7 @@
 
     <div id="modal-report" class="modal-overlay">
         <div class="modal-box">
-            <h2 style="font-family:var(--font-head); margin-top:0; color: var(--red);">KẾT LUẬN ĐIỀU TRA</h2>
-            <p style="font-size:0.9rem; margin-bottom:15px; font-weight:bold;">Cảnh báo: Suy luận sai sẽ kết thúc toàn bộ sự nghiệp!</p>
+            <h2 style="font-family:var(--font-head); margin-top:0">KẾT LUẬN ĐIỀU TRA</h2>
             <select id="sel-suspect"></select>
             <select id="sel-weapon"></select>
             <select id="sel-location"></select>
@@ -430,7 +454,7 @@
         /* --- 2. STATE & CONFIG --- */
         let state = {
             currentCase: 0,
-            lives: 1, // Giảm từ 3 xuống 1 để tạo độ khó Hardcore
+            lives: 3,
             solved: [],
             gridData: {},
             isAdmin: false
@@ -442,20 +466,23 @@
             loadProgress();
             renderLobby();
             updateStats();
+            setupCarouselDrag(); // Kích hoạt sự kiện kéo thả chuột
         };
 
         function updateStats() {
             const heartEl = document.getElementById('hearts-display');
 
             if (state.isAdmin) {
-                heartEl.innerText = "ADMIN (BẤT TỬ)";
+                heartEl.innerText = "ADMIN MODE";
                 document.getElementById('admin-badge').style.display = 'block';
             } else {
-                heartEl.innerText = state.lives > 0 ? "SINH TỬ: ❤" : "ĐÃ CHẾT";
+                let heartStr = "";
+                for(let i=0; i<state.lives; i++) heartStr += "❤";
+                heartEl.innerText = heartStr;
                 document.getElementById('admin-badge').style.display = 'none';
 
                 if(state.lives <= 0) {
-                    showToast("SAI LẦM CHÍ MẠNG! TRÒ CHƠI KẾT THÚC.");
+                    showToast("BẠN ĐÃ KIỆT SỨC! GAME OVER.");
                     setTimeout(() => { localStorage.clear(); location.reload(); }, 3000);
                 }
             }
@@ -466,6 +493,9 @@
             if(save) {
                 try {
                     state = JSON.parse(save);
+                    // Dọn dẹp các biến cũ nếu còn lưu trong cache
+                    if(state.tickets !== undefined) delete state.tickets;
+                    if(state.nextRefill !== undefined) delete state.nextRefill;
                 } catch(e) {
                     localStorage.clear();
                 }
@@ -481,7 +511,7 @@
             if (state.isAdmin) {
                 if(confirm("Đăng xuất Admin?")) {
                     state.isAdmin = false;
-                    state.lives = 1;
+                    state.lives = 3;
                     updateStats();
                     saveProgress();
                     renderLobby();
@@ -525,13 +555,12 @@
 
                 el.className = `case-folder ${isLocked ? 'locked' : ''} ${isSolved ? 'solved' : ''}`;
                 el.onclick = () => {
-                    // Admin bypass
                     if (state.isAdmin) {
                         startCase(index);
                         return;
                     }
 
-                    if (index === 4 && isLocked) { // Case 5 cần nhập mã
+                    if (index === 4 && isLocked) { // Case 5 (index 4) cần nhập mã
                         document.getElementById('modal-unlock').classList.add('show');
                         return;
                     }
@@ -546,7 +575,7 @@
                 el.innerHTML = `
                     <div style="border-bottom: 2px solid #5d4037; padding-bottom: 10px; margin-bottom: 10px;">
                         <span style="background: #3e2723; color: #fff; padding: 2px 8px; font-size: 0.8rem;">CASE #${index + 1}</span>
-                        <span style="float: right; color: var(--red); font-weight: bold;">${c.diff || 'HARD'}</span>
+                        <span style="float: right; color: var(--red); font-weight: bold;">${c.diff}</span>
                     </div>
                     <h2 style="font-family: var(--font-head); margin: 10px 0; font-size: 1.4rem;">${c.title}</h2>
                     <p style="font-family: var(--font-body); font-size: 0.9rem; color: #444; flex-grow: 1;">${c.desc}</p>
@@ -562,6 +591,39 @@
             if (state.solved.includes(59)) {
                 setTimeout(showEnding, 2000);
             }
+        }
+
+        /* --- KÉO THẢ CHUỘT CHO MÁY TÍNH --- */
+        function setupCarouselDrag() {
+            const slider = document.querySelector('.case-carousel');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                slider.style.cursor = 'grabbing';
+                slider.style.scrollSnapType = 'none'; // Tắt snap khi đang kéo để không bị giật
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+            slider.addEventListener('mouseleave', () => {
+                isDown = false;
+                slider.style.cursor = 'grab';
+                slider.style.scrollSnapType = 'x mandatory';
+            });
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+                slider.style.cursor = 'grab';
+                slider.style.scrollSnapType = 'x mandatory'; // Bật lại snap sau khi thả
+            });
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault(); // Ngăn chọn văn bản khi kéo
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 1.5; // Độ nhạy khi kéo
+                slider.scrollLeft = scrollLeft - walk;
+            });
         }
 
         function startCase(id) {
@@ -725,7 +787,7 @@
                 if (!state.isAdmin) state.lives--; 
                 updateStats(); saveProgress(); shakeScreen();
                 resultBox.className = "modal-box";
-                resultBox.innerHTML = `<h2 style="color:var(--red); font-family:var(--font-head)">SAI LẦM CHÍ MẠNG!</h2><p>Lập luận của bạn đã sụp đổ. Hung thủ đã trốn thoát và sự nghiệp của bạn tiêu tan.</p><div style="font-size:3rem;">💀</div><button class="btn-start" onclick="closeResult(false)">CHẤP NHẬN SỐ PHẬN</button>`;
+                resultBox.innerHTML = `<h2 style="color:var(--red); font-family:var(--font-head)">KẾT LUẬN SAI!</h2><p>Nghi phạm có bằng chứng ngoại phạm. Bạn đã mất uy tín.</p><div style="font-size:3rem;">🚫</div><p>Còn lại: ${state.isAdmin ? "∞" : state.lives} mạng</p><button class="btn-start" onclick="closeResult(false)">THỬ LẠI</button>`;
             }
         }
 
