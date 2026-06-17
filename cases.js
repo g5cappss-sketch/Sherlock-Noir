@@ -1,5 +1,5 @@
 const CASES = [
-   {
+    {
         id: 0,
         title: "Vũ Điệu Cuối Cùng", 
         diff: "DỄ",
@@ -31,8 +31,6 @@ const CASES = [
             {
                 name: "Hộp Đàn Cello", 
                 icon: "🎻", 
-                locked: true, 
-                code: "1998", 
                 desc: "Bên trong hộp đàn, giấu dưới lớp nhung lót là một cuộn dây cước trong suốt, rất mảnh nhưng cực kỳ sắc bén. Nó đã được lau chùi sạch sẽ."
             },
             {
@@ -47,9 +45,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Nhạc Công", "Đạo Diễn", "Lao Công"], 
-            w: ["Dây Đàn/Cước", "Tay Không", "Khăn Lụa"], 
-            l: ["Phòng Thay Đồ", "Sân Khấu", "Phòng Điều Khiển"] 
+            s: ["Đạo Diễn", "Nhạc Công", "Lao Công"], 
+            w: ["Khăn Lụa", "Tay Không", "Dây Đàn/Cước"], 
+            l: ["Phòng Điều Khiển", "Phòng Thay Đồ", "Sân Khấu"] 
         },
         sol: {
             s: "Nhạc Công", 
@@ -57,7 +55,7 @@ const CASES = [
             l: "Phòng Thay Đồ"
         }
     },
-            {
+    {
         id: 1,
         title: "Kẻ Vô Hình", 
         diff: "TRUNG BÌNH",
@@ -94,8 +92,6 @@ const CASES = [
             {
                 name: "Hồ Sơ Y Tế", 
                 icon: "📋", 
-                locked: true, 
-                code: "1975", 
                 desc: "Hồ sơ sức khỏe định kỳ của gia đình: Nạn nhân máu O. Vợ máu B. Quản gia máu O. Đầu bếp máu A."
             },
             {
@@ -105,9 +101,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Đầu Bếp", "Quản Gia", "Vợ Nạn Nhân"], 
-            w: ["Con Dao", "Súng Lục", "Thuốc Độc"], 
-            l: ["Thư Viện", "Nhà Bếp", "Phòng Ngủ"] 
+            s: ["Quản Gia", "Vợ Nạn Nhân", "Đầu Bếp"], 
+            w: ["Súng Lục", "Con Dao", "Thuốc Độc"], 
+            l: ["Nhà Bếp", "Thư Viện", "Phòng Ngủ"] 
         },
         sol: {s: "Đầu Bếp", w: "Con Dao", l: "Thư Viện"}
     },
@@ -148,8 +144,6 @@ const CASES = [
             {
                 name: "Nhật Ký", 
                 icon: "📓", 
-                locked: true, 
-                code: "1200", 
                 desc: "Trang cuối cùng nạn nhân viết vội: 'Gã thợ sửa máy đang lén lút làm gì đó với bánh răng số 4'."
             },
             {
@@ -159,9 +153,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Thợ Sửa", "Người Vợ", "Thị Trưởng"], 
-            w: ["Tay Không (Đẩy ngã)", "Cờ Lê", "Gậy Sắt"], 
-            l: ["Đỉnh Tháp", "Quán Rượu", "Tòa Thị Chính"] 
+            s: ["Người Vợ", "Thợ Sửa", "Thị Trưởng"], 
+            w: ["Gậy Sắt", "Cờ Lê", "Tay Không (Đẩy ngã)"], 
+            l: ["Quán Rượu", "Đỉnh Tháp", "Tòa Thị Chính"] 
         },
         sol: {s: "Thợ Sửa", w: "Tay Không (Đẩy ngã)", l: "Đỉnh Tháp"}
     },
@@ -202,8 +196,6 @@ const CASES = [
             {
                 name: "Hộp Dụng Cụ", 
                 icon: "🧰", 
-                locked: true, 
-                code: "0909", 
                 desc: "Trong hộp đồ nghề của Kỹ Sư, cảnh sát tìm thấy một chiếc cần câu máy thu gọn, dây cước siêu bền và một nam châm cực mạnh."
             },
             {
@@ -213,9 +205,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Kỹ Sư", "Ảo Thuật Gia", "Giám Đốc"], 
-            w: ["Cần Câu & Nam Châm", "Tay Không", "Dây Thừng"], 
-            l: ["Ống Thông Gió", "Cửa Chính", "Hành Lang"] 
+            s: ["Giám Đốc", "Ảo Thuật Gia", "Kỹ Sư"], 
+            w: ["Tay Không", "Dây Thừng", "Cần Câu & Nam Châm"], 
+            l: ["Cửa Chính", "Ống Thông Gió", "Hành Lang"] 
         },
         sol: {s: "Kỹ Sư", w: "Cần Câu & Nam Châm", l: "Ống Thông Gió"}
     },
@@ -256,8 +248,6 @@ const CASES = [
             {
                 name: "Lọ Thuốc Bổ", 
                 icon: "💊", 
-                locked: true, 
-                code: "3388", 
                 desc: "Lọ thuốc được dán nhãn 'Vitamin' thực chất chứa Digoxin - một loại thuốc trợ tim cực mạnh nếu dùng quá liều."
             },
             {
@@ -267,9 +257,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Bác Sĩ Riêng", "Người Hầu", "Thư Ký"], 
-            w: ["Tương Tác Thuốc & Rượu", "Thuốc Chuột", "Dao Găm"], 
-            l: ["Bàn Tiệc", "Nhà Bếp", "Phòng Khám"] 
+            s: ["Thư Ký", "Bác Sĩ Riêng", "Người Hầu"], 
+            w: ["Dao Găm", "Thuốc Chuột", "Tương Tác Thuốc & Rượu"], 
+            l: ["Nhà Bếp", "Bàn Tiệc", "Phòng Khám"] 
         },
         sol: {s: "Bác Sĩ Riêng", w: "Tương Tác Thuốc & Rượu", l: "Bàn Tiệc"}
     },
@@ -310,8 +300,6 @@ const CASES = [
             {
                 name: "Bình Nước", 
                 icon: "💧", 
-                locked: true, 
-                code: "4567", 
                 desc: "Tìm thấy trong tủ của Nghệ Sĩ Piano. Hắn đã đổ nước ra sàn chỗ bục chỉ huy để tạo mạch điện."
             },
             {
@@ -321,9 +309,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Nghệ Sĩ Piano", "Kỹ Thuật Viên", "Vợ Nhạc Trưởng"], 
-            w: ["Điện Giật (Giày & Nước)", "Đũa Chỉ Huy", "Súng"], 
-            l: ["Sân Khấu", "Phòng Thay Đồ", "Phòng Kỹ Thuật"] 
+            s: ["Kỹ Thuật Viên", "Vợ Nhạc Trưởng", "Nghệ Sĩ Piano"], 
+            w: ["Súng", "Điện Giật (Giày & Nước)", "Đũa Chỉ Huy"], 
+            l: ["Phòng Kỹ Thuật", "Phòng Thay Đồ", "Sân Khấu"] 
         },
         sol: {s: "Nghệ Sĩ Piano", w: "Điện Giật (Giày & Nước)", l: "Sân Khấu"}
     },
@@ -364,8 +352,6 @@ const CASES = [
             {
                 name: "Hộp Đen", 
                 icon: "📼", 
-                locked: true, 
-                code: "7700", 
                 desc: "Ghi âm: 'Cậu dám làm thế à?'. Tiếng vật lộn và tiếng cắt ống thở."
             },
             {
@@ -375,9 +361,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Cơ Phó", "Tiếp Viên Trưởng", "Vệ Sĩ"], 
-            w: ["Cắt Ống Khí & Thuốc Ngủ", "Súng", "Dây Thừng"], 
-            l: ["Buồng Lái", "Khoang Hành Khách", "Nhà Vệ Sinh"] 
+            s: ["Tiếp Viên Trưởng", "Cơ Phó", "Vệ Sĩ"], 
+            w: ["Súng", "Cắt Ống Khí & Thuốc Ngủ", "Dây Thừng"], 
+            l: ["Nhà Vệ Sinh", "Khoang Hành Khách", "Buồng Lái"] 
         },
         sol: {s: "Cơ Phó", w: "Cắt Ống Khí & Thuốc Ngủ", l: "Buồng Lái"}
     },
@@ -418,8 +404,6 @@ const CASES = [
             {
                 name: "Băng Ghi Hình", 
                 icon: "📹", 
-                locked: true, 
-                code: "1234", 
                 desc: "Góc quay khuất cho thấy Bảo Vệ lén đưa chùm chìa khóa cho Họa Sĩ trước khi đèn tắt."
             },
             {
@@ -429,9 +413,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Họa Sĩ", "Bảo Vệ", "Nhà Sưu Tầm"], 
-            w: ["Chìa Khóa (Đồng Phạm)", "Dao Rọc Giấy", "Búa"], 
-            l: ["Phòng Tranh", "Sảnh Chính", "Kho"] 
+            s: ["Bảo Vệ", "Nhà Sưu Tầm", "Họa Sĩ"], 
+            w: ["Búa", "Chìa Khóa (Đồng Phạm)", "Dao Rọc Giấy"], 
+            l: ["Kho", "Phòng Tranh", "Sảnh Chính"] 
         },
         sol: {s: "Họa Sĩ", w: "Chìa Khóa (Đồng Phạm)", l: "Phòng Tranh"}
     },
@@ -472,8 +456,6 @@ const CASES = [
             {
                 name: "Email Tống Tiền", 
                 icon: "💻", 
-                locked: true, 
-                code: "0000", 
                 desc: "Nội dung: 'Tôi biết cậu đã gian lận luận án, hãy đưa 10.000$'. Người nhận: Nam Sinh Viên."
             },
             {
@@ -483,9 +465,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Nam Sinh Viên", "Lao Công", "Giáo Sư"], 
-            w: ["Cưa & Đẩy Ngã", "Súng", "Gạch"], 
-            l: ["Thư Viện", "Phòng Học", "Căng Tin"] 
+            s: ["Lao Công", "Giáo Sư", "Nam Sinh Viên"], 
+            w: ["Súng", "Gạch", "Cưa & Đẩy Ngã"], 
+            l: ["Phòng Học", "Căng Tin", "Thư Viện"] 
         },
         sol: {s: "Nam Sinh Viên", w: "Cưa & Đẩy Ngã", l: "Thư Viện"}
     },
@@ -526,8 +508,6 @@ const CASES = [
             {
                 name: "Nhật Ký", 
                 icon: "📓", 
-                locked: true, 
-                code: "2025", 
                 desc: "Ghi chép: 'Trợ lý đã lén lút thay đổi vị trí các lọ hóa chất nhiều lần'."
             },
             {
@@ -537,9 +517,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Trợ Lý", "Đối Thủ Cạnh Tranh", "Nghiên Cứu Sinh"], 
-            w: ["Bẫy Hóa Chất (Natri + Nước)", "Bom Hẹn Giờ", "Súng"], 
-            l: ["Phòng Thí Nghiệm", "Hành Lang", "Sân Trường"] 
+            s: ["Nghiên Cứu Sinh", "Trợ Lý", "Đối Thủ Cạnh Tranh"], 
+            w: ["Súng", "Bom Hẹn Giờ", "Bẫy Hóa Chất (Natri + Nước)"], 
+            l: ["Hành Lang", "Sân Trường", "Phòng Thí Nghiệm"] 
         },
         sol: {s: "Trợ Lý", w: "Bẫy Hóa Chất (Natri + Nước)", l: "Phòng Thí Nghiệm"}
     },
@@ -580,8 +560,6 @@ const CASES = [
             {
                 name: "Mảnh Gốm Cổ", 
                 icon: "🏺", 
-                locked: true, 
-                code: "1000", 
                 desc: "Bên trong mảnh gốm vỡ có chứa hỗn hợp axit và muối xyanua, tạo ra khí độc khi vỡ."
             },
             {
@@ -591,13 +569,13 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Đồng Nghiệp", "Hướng Dẫn Viên", "Kẻ Trộm Mộ"], 
-            w: ["Khí Độc Xyanua", "Lời Nguyền", "Dao Găm"], 
-            l: ["Lăng Mộ", "Sa Mạc", "Khách Sạn"] 
+            s: ["Kẻ Trộm Mộ", "Hướng Dẫn Viên", "Đồng Nghiệp"], 
+            w: ["Dao Găm", "Khí Độc Xyanua", "Lời Nguyền"], 
+            l: ["Sa Mạc", "Lăng Mộ", "Khách Sạn"] 
         },
         sol: {s: "Đồng Nghiệp", w: "Khí Độc Xyanua", l: "Lăng Mộ"}
     },
-            {
+    {
         id: 11,
         title: "Bóng Ma Trên Đỉnh Tuyết", 
         diff: "TRUNG BÌNH",
@@ -634,8 +612,6 @@ const CASES = [
             {
                 name: "Chiếc Ba Lô", 
                 icon: "🎒", 
-                locked: true, 
-                code: "5555", 
                 desc: "Bên trong thiếu mất bình dưỡng khí dự phòng - thứ quan trọng nhất để sống sót. Người bạn đồng hành đã lén lấy nó."
             },
             {
@@ -645,9 +621,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Bạn Leo Núi", "Đội Trưởng", "Chủ Nhà Trọ"], 
-            w: ["Gậy Leo Núi", "Súng Săn", "Lở Tuyết"], 
-            l: ["Sườn Núi", "Lều Trại", "Trạm Nghỉ"] 
+            s: ["Đội Trưởng", "Bạn Leo Núi", "Chủ Nhà Trọ"], 
+            w: ["Lở Tuyết", "Súng Săn", "Gậy Leo Núi"], 
+            l: ["Lều Trại", "Trạm Nghỉ", "Sườn Núi"] 
         },
         sol: {s: "Bạn Leo Núi", w: "Gậy Leo Núi", l: "Sườn Núi"}
     },
@@ -688,8 +664,6 @@ const CASES = [
             {
                 name: "Laptop Cá Nhân", 
                 icon: "💻", 
-                locked: true, 
-                code: "1010", 
                 desc: "Nhật ký truy cập cho thấy Kỹ Sư Phần Cứng đã đăng nhập vào hệ thống điện tòa nhà và tắt aptomat an toàn."
             },
             {
@@ -699,9 +673,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Kỹ Sư Phần Cứng", "Hacker Mũ Trắng", "Thư Ký Riêng"], 
-            w: ["Bàn Phím Nhiễm Điện", "Dây Cáp", "Nước"], 
-            l: ["Phòng Server", "Văn Phòng CEO", "Nhà Riêng"] 
+            s: ["Hacker Mũ Trắng", "Thư Ký Riêng", "Kỹ Sư Phần Cứng"], 
+            w: ["Nước", "Bàn Phím Nhiễm Điện", "Dây Cáp"], 
+            l: ["Nhà Riêng", "Văn Phòng CEO", "Phòng Server"] 
         },
         sol: {s: "Kỹ Sư Phần Cứng", w: "Bàn Phím Nhiễm Điện", l: "Phòng Server"}
     },
@@ -742,8 +716,6 @@ const CASES = [
             {
                 name: "Nhật Ký Hàng Hải", 
                 icon: "📖", 
-                locked: true, 
-                code: "3333", 
                 desc: "Trang cuối cùng viết về việc Thủy Thủ Trưởng đe dọa sẽ 'cho ông ta bơi cùng cá mập'."
             },
             {
@@ -753,9 +725,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Thủy Thủ Trưởng", "Đầu Bếp Trưởng", "Hành Khách VIP"], 
-            w: ["Đẩy Xuống Biển", "Dao Găm", "Súng Lục"], 
-            l: ["Phòng Thuyền Trưởng", "Boong Tàu", "Nhà Bếp"] 
+            s: ["Đầu Bếp Trưởng", "Thủy Thủ Trưởng", "Hành Khách VIP"], 
+            w: ["Dao Găm", "Súng Lục", "Đẩy Xuống Biển"], 
+            l: ["Boong Tàu", "Phòng Thuyền Trưởng", "Nhà Bếp"] 
         },
         sol: {s: "Thủy Thủ Trưởng", w: "Đẩy Xuống Biển", l: "Phòng Thuyền Trưởng"}
     },
@@ -796,8 +768,6 @@ const CASES = [
             {
                 name: "Điện Thoại", 
                 icon: "📱", 
-                locked: true, 
-                code: "8888", 
                 desc: "Tin nhắn đe dọa từ Đối Tác gửi nạn nhân: 'Nếu mày không ký hợp đồng, tao sẽ đập nát đầu mày'."
             },
             {
@@ -807,9 +777,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Đối Tác", "Caddie", "Vợ Nạn Nhân"], 
-            w: ["Gậy Golf", "Bóng Golf Bay Trúng", "Hòn Đá"], 
-            l: ["Sân Golf (Hố 9)", "Xe Điện", "Nhà Câu Lạc Bộ"] 
+            s: ["Vợ Nạn Nhân", "Đối Tác", "Caddie"], 
+            w: ["Bóng Golf Bay Trúng", "Gậy Golf", "Hòn Đá"], 
+            l: ["Nhà Câu Lạc Bộ", "Xe Điện", "Sân Golf (Hố 9)"] 
         },
         sol: {s: "Đối Tác", w: "Gậy Golf", l: "Sân Golf (Hố 9)"}
     },
@@ -850,8 +820,6 @@ const CASES = [
             {
                 name: "Thẻ Nhớ Máy Ảnh", 
                 icon: "📷", 
-                locked: true, 
-                code: "2468", 
                 desc: "Những bức ảnh cuối cùng chụp được cảnh Stylist lén đổ thêm một lượng lớn đá khô vào bồn ngay sát chân nạn nhân."
             },
             {
@@ -861,9 +829,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Stylist", "Nhiếp Ảnh Gia", "Trợ Lý Ánh Sáng"], 
-            w: ["Ngạt Khí (Đá Khô CO2)", "Dây Siết", "Thuốc Độc"], 
-            l: ["Studio Chụp Ảnh", "Phòng Thay Đồ", "Sảnh Chờ"] 
+            s: ["Trợ Lý Ánh Sáng", "Nhiếp Ảnh Gia", "Stylist"], 
+            w: ["Dây Siết", "Thuốc Độc", "Ngạt Khí (Đá Khô CO2)"], 
+            l: ["Phòng Thay Đồ", "Studio Chụp Ảnh", "Sảnh Chờ"] 
         },
         sol: {s: "Stylist", w: "Ngạt Khí (Đá Khô CO2)", l: "Studio Chụp Ảnh"}
     },
@@ -904,8 +872,6 @@ const CASES = [
             {
                 name: "Nhật Ký Hệ Thống", 
                 icon: "💻", 
-                locked: true, 
-                code: "9900", 
                 desc: "Tài khoản Admin của Cảnh Sát Trưởng đã đăng nhập để xóa dữ liệu camera trong 5 phút đó."
             },
             {
@@ -915,9 +881,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Cảnh Sát Trưởng", "CS Trực Ban", "Lao Công"], 
-            w: ["Dàn Dựng Treo Cổ", "Súng Lục", "Thuốc Độc"], 
-            l: ["Buồng Giam", "Phòng Trực Ban", "Phòng Cảnh Sát Trưởng"] 
+            s: ["CS Trực Ban", "Lao Công", "Cảnh Sát Trưởng"], 
+            w: ["Súng Lục", "Dàn Dựng Treo Cổ", "Thuốc Độc"], 
+            l: ["Phòng Trực Ban", "Phòng Cảnh Sát Trưởng", "Buồng Giam"] 
         },
         sol: {s: "Cảnh Sát Trưởng", w: "Dàn Dựng Treo Cổ", l: "Buồng Giam"}
     },
@@ -953,8 +919,6 @@ const CASES = [
             {
                 name: "Bình Khí", 
                 icon: "🧯", 
-                locked: true, 
-                code: "1144", 
                 desc: "Bình khí này có một lỗ thủng nhỏ xíu ở đáy đã được hàn lại sơ sài, khí đã rò rỉ hết từ trước. Lính Mới cố tình đưa bình hỏng này."
             },
             {
@@ -969,9 +933,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Lính Mới", "Chủ Nhà Kho", "Đội Phó"], 
-            w: ["Bình Khí Hỏng (Ngạt Khói)", "Đẩy Vào Lửa", "Sập Tường"], 
-            l: ["Hiện Trường Đám Cháy", "Xe Cứu Hỏa", "Trạm Cứu Hỏa"] 
+            s: ["Chủ Nhà Kho", "Lính Mới", "Đội Phó"], 
+            w: ["Sập Tường", "Đẩy Vào Lửa", "Bình Khí Hỏng (Ngạt Khói)"], 
+            l: ["Trạm Cứu Hỏa", "Hiện Trường Đám Cháy", "Xe Cứu Hỏa"] 
         },
         sol: {s: "Lính Mới", w: "Bình Khí Hỏng (Ngạt Khói)", l: "Hiện Trường Đám Cháy"}
     },
@@ -1012,8 +976,6 @@ const CASES = [
             {
                 name: "Cờ Lê Đa Năng", 
                 icon: "🔧", 
-                locked: true, 
-                code: "2233", 
                 desc: "Tìm thấy trong cốp xe của Chủ Thầu. Trên cờ lê có dính mỡ bò trùng loại với mỡ trên giàn giáo."
             },
             {
@@ -1023,9 +985,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Chủ Thầu", "Thợ Xây", "Thư Ký Dự Án"], 
-            w: ["Tháo Chốt Giàn Giáo", "Đẩy Ngã", "Gạch Rơi"], 
-            l: ["Công Trường Xây Dựng", "Văn Phòng", "Tầng 10"] 
+            s: ["Thư Ký Dự Án", "Chủ Thầu", "Thợ Xây"], 
+            w: ["Đẩy Ngã", "Tháo Chốt Giàn Giáo", "Gạch Rơi"], 
+            l: ["Văn Phòng", "Tầng 10", "Công Trường Xây Dựng"] 
         },
         sol: {s: "Chủ Thầu", w: "Tháo Chốt Giàn Giáo", l: "Công Trường Xây Dựng"}
     },
@@ -1066,8 +1028,6 @@ const CASES = [
             {
                 name: "Băng Ghi Hình", 
                 icon: "📹", 
-                locked: true, 
-                code: "4455", 
                 desc: "Ghi lại cảnh Vệ Sĩ lẻn xuống gầm xe trong lúc xe đang được rửa (Thợ rửa xe không để ý)."
             },
             {
@@ -1077,9 +1037,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Vệ Sĩ", "Chính Trị Gia", "Thợ Rửa Xe"], 
-            w: ["Bom Gài Gầm Xe", "Súng Tỉa", "Đâm Xe"], 
-            l: ["Bãi Đỗ Xe", "Tòa Soạn Báo", "Gara Rửa Xe"] 
+            s: ["Thợ Rửa Xe", "Chính Trị Gia", "Vệ Sĩ"], 
+            w: ["Bom Gài Gầm Xe", "Đâm Xe", "Súng Tỉa"], 
+            l: ["Gara Rửa Xe", "Bãi Đỗ Xe", "Tòa Soạn Báo"] 
         },
         sol: {s: "Vệ Sĩ", w: "Bom Gài Gầm Xe", l: "Bãi Đỗ Xe"}
     },
@@ -1115,8 +1075,6 @@ const CASES = [
             {
                 name: "Viên Phấn Độc", 
                 icon: "🖍️", 
-                locked: true, 
-                code: "6677", 
                 desc: "Viên phấn này nặng hơn bình thường do đã bị ngâm tẩm hóa chất. Nó được lấy từ ngăn tủ riêng của Thầy Phó Hiệu Trưởng."
             },
             {
@@ -1131,14 +1089,13 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Phó Hiệu Trưởng", "Học Sinh Cá Biệt", "Lao Công"], 
-            w: ["Phấn Tẩm Độc Cyanua", "Nước Uống Có Độc", "Dao"], 
-            l: ["Lớp Học", "Phòng Giáo Viên", "Sân Trường"] 
+            s: ["Học Sinh Cá Biệt", "Phó Hiệu Trưởng", "Lao Công"], 
+            w: ["Dao", "Phấn Tẩm Độc Cyanua", "Nước Uống Có Độc"], 
+            l: ["Phòng Giáo Viên", "Sân Trường", "Lớp Học"] 
         },
         sol: {s: "Phó Hiệu Trưởng", w: "Phấn Tẩm Độc Cyanua", l: "Lớp Học"}
     },
-           
-           {
+    {
         id: 21,
         title: "Tiệm Bánh Nửa Đêm", 
         diff: "TRUNG BÌNH",
@@ -1175,8 +1132,6 @@ const CASES = [
             {
                 name: "Chìa Khóa Kho", 
                 icon: "🗝️", 
-                locked: true, 
-                code: "2468", 
                 desc: "Chìa khóa nằm trong túi nạn nhân, nhưng Phụ Bếp có một bản sao bí mật giấu dưới đế giày."
             },
             {
@@ -1186,9 +1141,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Phụ Bếp", "Vợ Nạn Nhân", "Đối Thủ"], 
-            w: ["Đẩy Ngã & Đổ Bột (Ngạt Thở)", "Dao Làm Bánh", "Súng"], 
-            l: ["Kho Bột Mì", "Khu Vực Nướng", "Quầy Thu Ngân"] 
+            s: ["Vợ Nạn Nhân", "Đối Thủ", "Phụ Bếp"], 
+            w: ["Dao Làm Bánh", "Đẩy Ngã & Đổ Bột (Ngạt Thở)", "Súng"], 
+            l: ["Khu Vực Nướng", "Kho Bột Mì", "Quầy Thu Ngân"] 
         },
         sol: {s: "Phụ Bếp", w: "Đẩy Ngã & Đổ Bột (Ngạt Thở)", l: "Kho Bột Mì"}
     },
@@ -1199,7 +1154,7 @@ const CASES = [
         desc: "Ca phẫu thuật làm đẹp biến thành thảm kịch.",
         story: [
             "Một nữ đại gia bất động sản đột ngột tử vong ngay trên bàn mổ trong khi đang thực hiện phẫu thuật căng da mặt.",
-            "Bác sĩ phẫu thuật khẳng định mọi quy trình đều chuẩn xác. Tuy nhiên, giám định pháp y phát hiện nạn nhân chết do thiếu oxy não trầm trọng.",
+            "Bác sĩ phẫu thuật khẳng định mọi quy trình đều chuẩn xác. Tuy nhiên, giám định pháp y phát hiện nạn nhân chết do thiếu oxy脑 trầm trọng.",
             "Hệ thống cung cấp khí gây mê và oxy dường như đã bị can thiệp.",
             "Mã tủ hồ sơ bệnh án: 1111."
         ],
@@ -1229,8 +1184,6 @@ const CASES = [
             {
                 name: "Sổ Tay Cá Nhân", 
                 icon: "📒", 
-                locked: true, 
-                code: "1111", 
                 desc: "Ghi chép của Y Tá cho thấy cô ta đang bị xã hội đen đe dọa đòi nợ thay cho người yêu."
             },
             {
@@ -1240,9 +1193,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Y Tá Phụ Tá", "Bác Sĩ Trưởng", "Chồng Nạn Nhân"], 
-            w: ["Tráo Bình Khí (Gây Ngạt)", "Dao Mổ", "Thuốc Mê Quá Liều"], 
-            l: ["Phòng Phẫu Thuật", "Phòng Hồi Sức", "Sảnh Chờ"] 
+            s: ["Bác Sĩ Trưởng", "Chồng Nạn Nhân", "Y Tá Phụ Tá"], 
+            w: ["Tráo Bình Khí (Gây Ngạt)", "Thuốc Mê Quá Liều", "Dao Mổ"], 
+            l: ["Phòng Phẫu Thuật", "Sảnh Chờ", "Phòng Hồi Sức"] 
         },
         sol: {s: "Y Tá Phụ Tá", w: "Tráo Bình Khí (Gây Ngạt)", l: "Phòng Phẫu Thuật"}
     },
@@ -1283,8 +1236,6 @@ const CASES = [
             {
                 name: "Đôi Găng Tay", 
                 icon: "🧤", 
-                locked: true, 
-                code: "7890", 
                 desc: "Tìm thấy đôi găng tay làm vườn dính máu được giấu kỹ dưới gầm giường của Quản Gia."
             },
             {
@@ -1294,9 +1245,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Quản Gia", "Người Làm Vườn", "Con Trai"], 
-            w: ["Xẻng", "Cuốc Chim", "Hòn Đá"], 
-            l: ["Vườn Hoa", "Phòng Khách", "Nhà Kho"] 
+            s: ["Con Trai", "Người Làm Vườn", "Quản Gia"], 
+            w: ["Cuốc Chim", "Hòn Đá", "Xẻng"], 
+            l: ["Phòng Khách", "Vườn Hoa", "Nhà Kho"] 
         },
         sol: {s: "Quản Gia", w: "Xẻng", l: "Vườn Hoa"}
     },
@@ -1337,8 +1288,6 @@ const CASES = [
             {
                 name: "Cầu Dao Tổng", 
                 icon: "⚡", 
-                locked: true, 
-                code: "1010", 
                 desc: "Nhật ký SmartHome cho thấy hệ thống điện đã bị can thiệp kỹ thuật. Dấu vân tay của Kỹ Sư Điện in trên cầu dao."
             },
             {
@@ -1348,9 +1297,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Kỹ Sư Điện", "Bạn Gái", "Chủ Nợ"], 
-            w: ["Bàn Phím Nhiễm Điện", "Dây Cáp", "Nước"], 
-            l: ["Phòng Làm Việc", "Nhà Tắm", "Cửa Chính"] 
+            s: ["Chủ Nợ", "Kỹ Sư Điện", "Bạn Gái"], 
+            w: ["Nước", "Dây Cáp", "Bàn Phím Nhiễm Điện"], 
+            l: ["Cửa Chính", "Nhà Tắm", "Phòng Làm Việc"] 
         },
         sol: {s: "Kỹ Sư Điện", w: "Bàn Phím Nhiễm Điện", l: "Phòng Làm Việc"}
     },
@@ -1391,8 +1340,6 @@ const CASES = [
             {
                 name: "File Thư", 
                 icon: "💻", 
-                locked: true, 
-                code: "2023", 
                 desc: "Kiểm tra metadata cho thấy file này được tạo ra và in SAU khi nạn nhân đã chết (dựa trên giờ tử vong pháp y)."
             },
             {
@@ -1402,9 +1349,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Người Vợ", "Đồng Nghiệp", "Em Trai"], 
-            w: ["Dàn Dựng Treo Cổ", "Thuốc Độc", "Súng"], 
-            l: ["Phòng Ngủ", "Phòng Khách", "Ban Công"] 
+            s: ["Em Trai", "Người Vợ", "Đồng Nghiệp"], 
+            w: ["Súng", "Dàn Dựng Treo Cổ", "Thuốc Độc"], 
+            l: ["Phòng Khách", "Phòng Ngủ", "Ban Công"] 
         },
         sol: {s: "Người Vợ", w: "Dàn Dựng Treo Cổ", l: "Phòng Ngủ"}
     },
@@ -1445,8 +1392,6 @@ const CASES = [
             {
                 name: "Băng Ghi Hình", 
                 icon: "📹", 
-                locked: true, 
-                code: "5555", 
                 desc: "Dữ liệu camera cho thấy Quản Lý đã lén tắt hệ thống báo động laser trong 5 phút vào lúc 2h sáng."
             },
             {
@@ -1456,9 +1401,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Quản Lý", "Bảo Vệ Trưởng", "Lao Công"], 
-            w: ["Dao Cắt Kính & Chìa Khóa", "Búa Tạ", "Súng"], 
-            l: ["Cửa Hàng", "Kho Hàng", "Phòng Camera"] 
+            s: ["Bảo Vệ Trưởng", "Lao Công", "Quản Lý"], 
+            w: ["Dao Cắt Kính & Chìa Khóa", "Súng", "Búa Tạ"], 
+            l: ["Kho Hàng", "Cửa Hàng", "Phòng Camera"] 
         },
         sol: {s: "Quản Lý", w: "Dao Cắt Kính & Chìa Khóa", l: "Cửa Hàng"}
     },
@@ -1499,8 +1444,6 @@ const CASES = [
             {
                 name: "Hóa Đơn", 
                 icon: "🧾", 
-                locked: true, 
-                code: "9000", 
                 desc: "Hóa đơn mua 5 bao xi măng khô nhanh và 1 thùng phi, người ký tên nhận hàng là Tài Xế Xe Tải."
             },
             {
@@ -1510,9 +1453,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Tài Xế Xe Tải", "Ông Trùm", "Thủ Kho"], 
-            w: ["Chôn Sống (Xi Măng)", "Súng", "Dây Thừng"], 
-            l: ["Bãi Đất Hoang", "Bến Cảng", "Nhà Kho"] 
+            s: ["Thủ Kho", "Tài Xế Xe Tải", "Ông Trùm"], 
+            w: ["Súng", "Dây Thừng", "Chôn Sống (Xi Măng)"], 
+            l: ["Bãi Đất Hoang", "Nhà Kho", "Bến Cảng"] 
         },
         sol: {s: "Tài Xế Xe Tải", w: "Chôn Sống (Xi Măng)", l: "Nhà Kho"}
     },
@@ -1548,8 +1491,6 @@ const CASES = [
             {
                 name: "Kìm Cắt Cáp", 
                 icon: "✂️", 
-                locked: true, 
-                code: "1212", 
                 desc: "Được giấu sâu trong túi gậy golf của Đối Thủ. Lưỡi kìm có dính dầu phanh và mạt kim loại."
             },
             {
@@ -1564,9 +1505,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Đối Thủ", "Thợ Sửa Xe", "Vợ Nạn Nhân"], 
-            w: ["Cắt Dây Phanh", "Đẩy Xe", "Bom Hẹn Giờ"], 
-            l: ["Gara Riêng", "Đèo", "Đường Đua"] 
+            s: ["Vợ Nạn Nhân", "Đối Thủ", "Thợ Sửa Xe"], 
+            w: ["Cắt Dây Phanh", "Bom Hẹn Giờ", "Đẩy Xe"], 
+            l: ["Đèo", "Gara Riêng", "Đường Đua"] 
         },
         sol: {s: "Đối Thủ", w: "Cắt Dây Phanh", l: "Gara Riêng"}
     },
@@ -1602,8 +1543,6 @@ const CASES = [
             {
                 name: "Chiếc Nhẫn Ngọc", 
                 icon: "💍", 
-                locked: true, 
-                code: "3333", 
                 desc: "Chiếc nhẫn trên tay Người Vợ có một ngăn rỗng bí mật bên dưới viên ngọc, chứa bột Cyanua."
             },
             {
@@ -1618,9 +1557,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Người Vợ", "Sommelier", "Bạn Làm Ăn"], 
-            w: ["Nhẫn Chứa Độc", "Rượu Có Độc", "Kim Tiêm"], 
-            l: ["Bàn Tiệc", "Hầm Rượu", "Quầy Bar"] 
+            s: ["Bạn Làm Ăn", "Người Vợ", "Sommelier"], 
+            w: ["Kim Tiêm", "Nhẫn Chứa Độc", "Rượu Có Độc"], 
+            l: ["Quầy Bar", "Bàn Tiệc", "Hầm Rượu"] 
         },
         sol: {s: "Người Vợ", w: "Nhẫn Chứa Độc", l: "Bàn Tiệc"}
     },
@@ -1661,8 +1600,6 @@ const CASES = [
             {
                 name: "Điện Thoại", 
                 icon: "📱", 
-                locked: true, 
-                code: "0000", 
                 desc: "Tin nhắn từ Đối Thủ gửi cho một gã thợ: 'Làm cho sạch sẽ vào, đừng để nó thi đấu'."
             },
             {
@@ -1672,9 +1609,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Đối Thủ", "HLV", "Cậu Bé Nhặt Bóng"], 
-            w: ["Cưa Khung Vợt", "Bóng Tennis Chứa Chì", "Sàn Trơn"], 
-            l: ["Sân Tennis", "Phòng Thay Đồ", "Khán Đài"] 
+            s: ["Cậu Bé Nhặt Bóng", "HLV", "Đối Thủ"], 
+            w: ["Sàn Trơn", "Bóng Tennis Chứa Chì", "Cưa Khung Vợt"], 
+            l: ["Phòng Thay Đồ", "Khán Đài", "Sân Tennis"] 
         },
         sol: {s: "Đối Thủ", w: "Cưa Khung Vợt", l: "Sân Tennis"}
     },
@@ -1715,8 +1652,6 @@ const CASES = [
             {
                 name: "Đèn Pin", 
                 icon: "🔦", 
-                locked: true, 
-                code: "5678", 
                 desc: "Rơi dưới đáy giếng, trên thân đèn có khắc tên Trưởng Thôn."
             },
             {
@@ -1726,9 +1661,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Trưởng Thôn", "Gã Say Rượu", "Cô Gái Làng"], 
+            s: ["Cô Gái Làng", "Trưởng Thôn", "Gã Say Rượu"], 
             w: ["Gạch (Ném Xuống)", "Đẩy Ngã", "Dìm Nước"], 
-            l: ["Giếng Nước", "Nhà Trưởng Thôn", "Bìa Rừng"] 
+            l: ["Nhà Trưởng Thôn", "Giếng Nước", "Bìa Rừng"] 
         },
         sol: {s: "Trưởng Thôn", w: "Gạch (Ném Xuống)", l: "Giếng Nước"}
     },
@@ -1764,8 +1699,6 @@ const CASES = [
             {
                 name: "Con Dao Bấm", 
                 icon: "🗡️", 
-                locked: true, 
-                code: "1024", 
                 desc: "Được tìm thấy dán băng dính dưới gầm ghế của Người Ngồi Cạnh. Trên cán dao chỉ có vân tay của hắn."
             },
             {
@@ -1780,9 +1713,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Người Ngồi Cạnh", "Nhân Viên Soát Vé", "Bạn Gái"], 
-            w: ["Dao Bấm", "Súng Giảm Thanh", "Dây Siết"], 
-            l: ["Rạp Phim", "Nhà Vệ Sinh", "Quầy Vé"] 
+            s: ["Bạn Gái", "Người Ngồi Cạnh", "Nhân Viên Soát Vé"], 
+            w: ["Súng Giảm Thanh", "Dây Siết", "Dao Bấm"], 
+            l: ["Quầy Vé", "Nhà Vệ Sinh", "Rạp Phim"] 
         },
         sol: {s: "Người Ngồi Cạnh", w: "Dao Bấm", l: "Rạp Phim"}
     },
@@ -1818,8 +1751,6 @@ const CASES = [
             {
                 name: "Bảng Điều Khiển", 
                 icon: "🎛️", 
-                locked: true, 
-                code: "9999", 
                 desc: "Nhật ký hệ thống cho thấy Kỹ Thuật Viên đã đăng nhập và chỉnh lực hút lên 200% vào lúc nạn nhân xuống nước."
             },
             {
@@ -1834,9 +1765,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Kỹ Thuật Viên", "Nhân Viên Cứu Hộ", "Quản Lý"], 
-            w: ["Máy Bơm (Lực Hút)", "Dìm Nước", "Điện Giật"], 
-            l: ["Hồ Bơi", "Phòng Máy Bơm", "Phòng Thay Đồ"] 
+            s: ["Quản Lý", "Kỹ Thuật Viên", "Nhân Viên Cứu Hộ"], 
+            w: ["Điện Giật", "Dìm Nước", "Máy Bơm (Lực Hút)"], 
+            l: ["Hồ Bơi", "Phòng Thay Đồ", "Phòng Máy Bơm"] 
         },
         sol: {s: "Kỹ Thuật Viên", w: "Máy Bơm (Lực Hút)", l: "Hồ Bơi"}
     },
@@ -1877,8 +1808,6 @@ const CASES = [
             {
                 name: "Chùm Chìa Khóa", 
                 icon: "🗝️", 
-                locked: true, 
-                code: "0404", 
                 desc: "Tìm thấy chìa khóa vạn năng (Master Key) giấu trong phòng làm việc của Quản Lý. Hắn dùng nó để mở cửa, nhốt nạn nhân vào rồi dùng thủ thuật khóa chốt xích từ bên ngoài."
             },
             {
@@ -1888,9 +1817,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Quản Lý", "Lễ Tân", "Bảo Vệ"], 
-            w: ["Nhốt (Chết Đói/Khát)", "Dao", "Súng"], 
-            l: ["Phòng 404", "Sảnh Lễ Tân", "Kho Hành Lý"] 
+            s: ["Bảo Vệ", "Lễ Tân", "Quản Lý"], 
+            w: ["Súng", "Nhốt (Chết Đói/Khát)", "Dao"], 
+            l: ["Kho Hành Lý", "Phòng 404", "Sảnh Lễ Tân"] 
         },
         sol: {s: "Quản Lý", w: "Nhốt (Chết Đói/Khát)", l: "Phòng 404"}
     },
@@ -1931,8 +1860,6 @@ const CASES = [
             {
                 name: "Chìa Khóa Buồng", 
                 icon: "🗝️", 
-                locked: true, 
-                code: "7777", 
                 desc: "Tìm thấy chìa khóa phòng nạn nhân trong túi tạp dề của Tiếp Viên Tàu."
             },
             {
@@ -1942,9 +1869,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Tiếp Viên Tàu", "Hành Khách Bên", "Bác Sĩ"], 
-            w: ["Gối & Dây Siết", "Dao", "Thuốc Độc"], 
-            l: ["Toa Tàu", "Hành Lang", "Nhà Vệ Sinh"] 
+            s: ["Bác Sĩ", "Tiếp Viên Tàu", "Hành Khách Bên"], 
+            w: ["Dao", "Thuốc Độc", "Gối & Dây Siết"], 
+            l: ["Nhà Vệ Sinh", "Toa Tàu", "Hành Lang"] 
         },
         sol: {s: "Tiếp Viên Tàu", w: "Gối & Dây Siết", l: "Toa Tàu"}
     },
@@ -1985,8 +1912,6 @@ const CASES = [
             {
                 name: "Con Dao Găm", 
                 icon: "🔪", 
-                locked: true, 
-                code: "1357", 
                 desc: "Tìm thấy trong ba lô của Thợ Săn Sống Sót. Lưỡi dao có dính sợi nylon từ dây leo núi."
             },
             {
@@ -1996,9 +1921,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Thợ Săn Sống", "Dẫn Đường", "Dân Làng"], 
-            w: ["Cắt Dây Thừng", "Đẩy Ngã", "Hòn Đá"], 
-            l: ["Vực Thẳm", "Cửa Hang", "Khu Rừng"] 
+            s: ["Dân Làng", "Dẫn Đường", "Thợ Săn Sống"], 
+            w: ["Đẩy Ngã", "Cắt Dây Thừng", "Hòn Đá"], 
+            l: ["Cửa Hang", "Khu Rừng", "Vực Thẳm"] 
         },
         sol: {s: "Thợ Săn Sống", w: "Cắt Dây Thừng", l: "Vực Thẳm"}
     },
@@ -2039,8 +1964,6 @@ const CASES = [
             {
                 name: "Chiếc Cưa Nhỏ", 
                 icon: "🪚", 
-                locked: true, 
-                code: "0909", 
                 desc: "Tìm thấy một chiếc cưa kim loại nhỏ xíu giấu trong hộp phấn trang điểm của Đối Thủ."
             },
             {
@@ -2050,9 +1973,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Đối Thủ", "Nhà Thiết Kế", "Trợ Lý Riêng"], 
-            w: ["Cưa Gót Giày", "Sàn Trơn", "Đẩy Ngã"], 
-            l: ["Sàn Diễn", "Hậu Trường", "Phòng Thay Đồ"] 
+            s: ["Trợ Lý Riêng", "Đối Thủ", "Nhà Thiết Kế"], 
+            w: ["Sàn Trơn", "Cưa Gót Giày", "Đẩy Ngã"], 
+            l: ["Phòng Thay Đồ", "Hậu Trường", "Sàn Diễn"] 
         },
         sol: {s: "Đối Thủ", w: "Cưa Gót Giày", l: "Sàn Diễn"}
     },
@@ -2093,8 +2016,6 @@ const CASES = [
             {
                 name: "Bình Axit", 
                 icon: "🧪", 
-                locked: true, 
-                code: "2020", 
                 desc: "Một bình axit Sulfuric rỗng được tìm thấy trong tủ đồ cá nhân của Kỹ Sư Bảo Trì."
             },
             {
@@ -2104,9 +2025,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Kỹ Sư Bảo Trì", "Bảo Vệ Tòa Nhà", "Lao Công"], 
-            w: ["Axit Ăn Mòn Cáp", "Cưa Cáp", "Bom"], 
-            l: ["Hố Thang Máy", "Phòng Kỹ Thuật", "Cabin Thang Máy"] 
+            s: ["Bảo Vệ Tòa Nhà", "Kỹ Sư Bảo Trì", "Lao Công"], 
+            w: ["Bom", "Axit Ăn Mòn Cáp", "Cưa Cáp"], 
+            l: ["Phòng Kỹ Thuật", "Hố Thang Máy", "Cabin Thang Máy"] 
         },
         sol: {s: "Kỹ Sư Bảo Trì", w: "Axit Ăn Mòn Cáp", l: "Hố Thang Máy"}
     },
@@ -2147,8 +2068,6 @@ const CASES = [
             {
                 name: "Điều Khiển Quạt", 
                 icon: "💨", 
-                locked: true, 
-                code: "3030", 
                 desc: "Dấu vân tay của Con Gái in rõ trên nút bật quạt chế độ mạnh nhất."
             },
             {
@@ -2158,9 +2077,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Con Gái", "Người Làm Vườn", "Bác Sĩ"], 
-            w: ["Phấn Hoa (Sốc Phản Vệ)", "Thuốc Độc", "Khí Gas"], 
-            l: ["Nhà Kính", "Vườn Hoa", "Phòng Ngủ"] 
+            s: ["Người Làm Vườn", "Bác Sĩ", "Con Gái"], 
+            w: ["Khí Gas", "Thuốc Độc", "Phấn Hoa (Sốc Phản Vệ)"], 
+            l: ["Phòng Ngủ", "Nhà Kính", "Vườn Hoa"] 
         },
         sol: {s: "Con Gái", w: "Phấn Hoa (Sốc Phản Vệ)", l: "Nhà Kính"}
     },
@@ -2201,8 +2120,6 @@ const CASES = [
             {
                 name: "Cờ Lê", 
                 icon: "🔧", 
-                locked: true, 
-                code: "1111", 
                 desc: "Chiếc cờ lê của Thợ Điện có dính vụn sơn màu trắng của lan can hải đăng."
             },
             {
@@ -2212,1037 +2129,9 @@ const CASES = [
             }
         ],
         opts: { 
-            s: ["Thợ Điện", "Thuyền Chài", "Vợ Nạn Nhân"], 
-            w: ["Tháo Ốc Lan Can", "Đẩy Ngã", "Gậy Sắt"], 
-            l: ["Đỉnh Hải Đăng", "Bãi Đá", "Cầu Thang"] 
+            s: ["Vợ Nạn Nhân", "Thợ Điện", "Thuyền Chài"], 
+            w: ["Đẩy Ngã", "Tháo Ốc Lan Can", "Gậy Sắt"], 
+            l: ["Bãi Đá", "Đỉnh Hải Đăng", "Cầu Thang"] 
         },
         sol: {s: "Thợ Điện", w: "Tháo Ốc Lan Can", l: "Đỉnh Hải Đăng"}
     },
-            {
-        id: 41,
-        title: "Sân Khấu Tử Thần", 
-        diff: "DỄ",
-        desc: "Khi đạo cụ trở thành vũ khí giết người.",
-        story: [
-            "Trong cảnh cao trào của vở kịch, nam diễn viên chính bị bạn diễn bắn chết ngay trên sân khấu. Khán giả vỗ tay vì tưởng là diễn xuất.",
-            "Khẩu súng đạo cụ lẽ ra chỉ bắn đạn mã tử, nhưng lại bắn ra đạn thật xuyên tim nạn nhân.",
-            "Đạo cụ viên thề rằng anh ta đã kiểm tra súng kỹ lưỡng trước giờ diễn.",
-            "Mã rương đạo cụ: 0070."
-        ],
-        suspects: [
-            {
-                name: "Nhân Viên Đạo Cụ", 
-                role: "Hậu Đài", 
-                detail: "Khai: 'Tôi đã nạp đạn giả, tôi thề!'.<br>Thái độ: Hoảng loạn tột độ."
-            },
-            {
-                name: "Bạn Diễn", 
-                role: "Diễn Viên", 
-                detail: "Khai: 'Tôi chỉ làm theo kịch bản, tôi không biết súng có đạn thật'."
-            },
-            {
-                name: "Đạo Diễn", 
-                role: "Chỉ Đạo", 
-                detail: "Khai: 'Tôi muốn cảnh này phải thật chân thực, nhưng không phải thế này'."
-            }
-        ],
-        evidence: [
-            {
-                name: "Khẩu Súng Lục", 
-                icon: "🔫", 
-                desc: "Là súng thật, nòng súng còn ấm. Trong ổ đạn có vỏ đạn thật."
-            },
-            {
-                name: "Hộp Đạn", 
-                icon: "📦", 
-                locked: true, 
-                code: "0070", 
-                desc: "Một hộp đạn thật được giấu dưới đáy rương đạo cụ của Nhân Viên Đạo Cụ."
-            },
-            {
-                name: "Kịch Bản", 
-                icon: "📜", 
-                desc: "Có ghi chú viết tay của Đạo Diễn yêu cầu đổi góc bắn, nhưng không ai sửa đạn."
-            }
-        ],
-        opts: { 
-            s: ["Nhân Viên Đạo Cụ", "Bạn Diễn", "Đạo Diễn"], 
-            w: ["Tráo Đạn Thật", "Súng Giả", "Dao"], 
-            l: ["Sân Khấu", "Kho Đạo Cụ", "Cánh Gà"] 
-        },
-        sol: {s: "Nhân Viên Đạo Cụ", w: "Tráo Đạn Thật", l: "Sân Khấu"}
-    },
-    {
-        id: 42,
-        title: "Phòng Gym Đẫm Máu", 
-        diff: "TB",
-        desc: "Tai nạn tập luyện hay mưu sát?",
-        story: [
-            "Một vận động viên thể hình chết tức tưởi do thanh tạ 200kg rơi trúng cổ họng khi đang nằm đẩy tạ.",
-            "Lúc xảy ra sự việc, phòng gym khá vắng vẻ. Không có người hỗ trợ (spotter) đứng sau.",
-            "Nạn nhân là người rất khỏe, mức tạ này bình thường anh ta đẩy rất dễ dàng.",
-            "Mã tủ đồ cá nhân: 1999."
-        ],
-        suspects: [
-            {
-                name: "Huấn Luyện Viên", 
-                role: "PT", 
-                detail: "Khai: 'Tôi đau bụng nên đi vệ sinh lúc đó'."
-            },
-            {
-                name: "Hội Viên Mới", 
-                role: "Khách Tập", 
-                detail: "Khai: 'Tôi đeo tai nghe nhạc to quá, không nghe thấy gì'."
-            },
-            {
-                name: "Lao Công", 
-                role: "Tạp Vụ", 
-                detail: "Khai: 'Tôi đang lau kính ở khu cardio'."
-            }
-        ],
-        evidence: [
-            {
-                name: "Thanh Tạ", 
-                icon: "🏋️", 
-                desc: "Phần tay cầm của thanh tạ dính đầy chất lỏng trơn trượt, không phải mồ hôi."
-            },
-            {
-                name: "Chai Dầu Bôi Trơn", 
-                icon: "🛢️", 
-                locked: true, 
-                code: "1999", 
-                desc: "Tìm thấy trong tủ đồ của Huấn Luyện Viên. Anh ta đã bôi dầu vào tạ để nạn nhân trượt tay."
-            },
-            {
-                name: "Khăn Tập", 
-                icon: "🧖", 
-                desc: "Khăn của nạn nhân cũng bị tẩm dầu."
-            }
-        ],
-        opts: { 
-            s: ["Huấn Luyện Viên", "Hội Viên Mới", "Lao Công"], 
-            w: ["Bôi Dầu (Trượt Tay)", "Đẩy Thanh Tạ", "Tạ Rơi Tự Nhiên"], 
-            l: ["Khu Đẩy Tạ", "Nhà Vệ Sinh", "Quầy Lễ Tân"] 
-        },
-        sol: {s: "Huấn Luyện Viên", w: "Bôi Dầu (Trượt Tay)", l: "Khu Đẩy Tạ"}
-    },
-    {
-        id: 43,
-        title: "Mật Thất Thư Viện", 
-        diff: "KHÓ",
-        desc: "Căn phòng bí mật sau giá sách.",
-        story: [
-            "Một nhà sử học nổi tiếng mất tích 3 ngày. Cảnh sát phát hiện ra một mật thất phía sau giá sách trong thư viện riêng của ông.",
-            "Khi mở cửa mật thất, nhà sử học đã chết ngạt bên trong. Hệ thống thông khí bị bịt kín.",
-            "Cơ chế mở cửa mật thất rất tinh vi, chỉ có thể kích hoạt từ bên ngoài.",
-            "Mã cuốn sách kích hoạt: 1800."
-        ],
-        suspects: [
-            {
-                name: "Thủ Thư", 
-                role: "Quản Lý", 
-                detail: "Khai: 'Tôi làm việc ở đây 10 năm nhưng chưa từng biết có mật thất'."
-            },
-            {
-                name: "Sinh Viên", 
-                role: "Học Trò", 
-                detail: "Khai: 'Thầy hẹn em đến lấy tài liệu nhưng không thấy thầy đâu'."
-            },
-            {
-                name: "Giáo Sư", 
-                role: "Đồng Nghiệp", 
-                detail: "Khai: 'Chúng tôi đang tranh cãi về một di tích cổ'."
-            }
-        ],
-        evidence: [
-            {
-                name: "Cơ Quan Bí Mật", 
-                icon: "⚙️", 
-                desc: "Cần gạt mở cửa được giấu sau một cuốn sách giả trên kệ."
-            },
-            {
-                name: "Cuốn Sách Giả", 
-                icon: "📕", 
-                locked: true, 
-                code: "1800", 
-                desc: "Trên gáy cuốn sách có dấu vân tay mới in của Thủ Thư. Hắn đã vô tình hoặc cố ý kích hoạt nó."
-            },
-            {
-                name: "Cây Nến", 
-                icon: "🕯️", 
-                desc: "Nến trong mật thất đã cháy hết, chứng tỏ nạn nhân đã cố gắng tìm dưỡng khí trong tuyệt vọng."
-            }
-        ],
-        opts: { 
-            s: ["Thủ Thư", "Sinh Viên", "Giáo Sư"], 
-            w: ["Nhốt Trong Mật Thất", "Đầu Độc", "Dây Thừng"], 
-            l: ["Mật Thất", "Thư Viện", "Phòng Đọc"] 
-        },
-        sol: {s: "Thủ Thư", w: "Nhốt Trong Mật Thất", l: "Mật Thất"}
-    },
-    {
-        id: 44,
-        title: "Đám Cưới Máu", 
-        diff: "RẤT KHÓ",
-        desc: "Ngày vui hóa thành ngày tang.",
-        story: [
-            "Trong lúc cắt bánh kem, chú rể đột ngột ngã gục và tử vong ngay trên sân khấu. Cô dâu đứng bên cạnh hét lên kinh hoàng.",
-            "Khám nghiệm cho thấy chú rể bị trúng một loại độc thần kinh cực mạnh qua đường máu.",
-            "Không ai tiếp cận chú rể trong khoảnh khắc đó ngoài cô dâu.",
-            "Mã hộp quà cưới của cô dâu: 5050."
-        ],
-        suspects: [
-            {
-                name: "Cô Dâu", 
-                role: "Vợ", 
-                detail: "Khai: 'Em chỉ cầm tay anh ấy cắt bánh thôi mà!'.<br>Trang phục: Váy cưới lộng lẫy, găng tay ren dài."
-            },
-            {
-                name: "Người Yêu Cũ", 
-                role: "Khách Mời", 
-                detail: "Khai: 'Tôi đứng dưới sân khấu chúc phúc cho họ'."
-            },
-            {
-                name: "Đầu Bếp", 
-                role: "Phục Vụ", 
-                detail: "Khai: 'Bánh kem hoàn toàn an toàn, mọi người đều ăn mà'."
-            }
-        ],
-        evidence: [
-            {
-                name: "Con Dao Cắt Bánh", 
-                icon: "🔪", 
-                desc: "Trên cán dao có một cái kim nhỏ xíu tẩm độc nhô ra. Ai cầm chặt cán dao sẽ bị kim đâm."
-            },
-            {
-                name: "Găng Tay Ren", 
-                icon: "🧤", 
-                locked: true, 
-                code: "5050", 
-                desc: "Trong găng tay của Cô Dâu có lót một lớp nhựa cứng bảo vệ lòng bàn tay. Cô ta biết trước về cái kim độc trên dao."
-            },
-            {
-                name: "Bánh Kem", 
-                icon: "🎂", 
-                desc: "Không có độc tố."
-            }
-        ],
-        opts: { 
-            s: ["Cô Dâu", "Người Yêu Cũ", "Đầu Bếp"], 
-            w: ["Kim Độc Trên Cán Dao", "Bánh Độc", "Rượu Độc"], 
-            l: ["Sân Khấu Tiệc Cưới", "Nhà Bếp", "Phòng Cô Dâu"] 
-        },
-        sol: {s: "Cô Dâu", w: "Kim Độc Trên Cán Dao", l: "Sân Khấu Tiệc Cưới"}
-    },
-    {
-        id: 45,
-        title: "Trại Tâm Thần", 
-        diff: "KHÓ",
-        desc: "Cuộc nổi loạn hay mưu đồ cá nhân?",
-        story: [
-            "Bác sĩ điều trị chính được tìm thấy đã chết trong phòng cách ly đặc biệt dành cho bệnh nhân nguy hiểm. Cổ bị siết bằng áo trói.",
-            "Cửa phòng cách ly được mở bằng thẻ từ. Bệnh nhân điên loạn bên trong đang cười man dại bên xác bác sĩ.",
-            "Tuy nhiên, bệnh nhân này bị trói chặt tay chân, không thể tự mở cửa hay tự cởi trói để tấn công.",
-            "Mã thẻ từ của Y Tá Trưởng: 1234."
-        ],
-        suspects: [
-            {
-                name: "Bệnh Nhân", 
-                role: "Tâm Thần", 
-                detail: "Khai: (Cười và nói nhảm)."
-            },
-            {
-                name: "Y Tá Trưởng", 
-                role: "Y Tá", 
-                detail: "Khai: 'Tôi đang phát thuốc ở khu A'."
-            },
-            {
-                name: "Bảo Vệ", 
-                role: "An Ninh", 
-                detail: "Khai: 'Tôi ngủ quên một chút ở chốt trực'."
-            }
-        ],
-        evidence: [
-            {
-                name: "Thẻ Từ Mở Cửa", 
-                icon: "💳", 
-                locked: true, 
-                code: "1234", 
-                desc: "Dữ liệu cửa cho thấy thẻ của Y Tá Trưởng đã mở cửa phòng cách ly lúc 2h sáng."
-            },
-            {
-                name: "Con Dao Nhựa", 
-                icon: "🍴", 
-                desc: "Một con dao nhựa được mài sắc dùng để cắt dây trói cho bệnh nhân, trên đó có vân tay Y Tá Trưởng."
-            },
-            {
-                name: "Camera Hành Lang", 
-                icon: "📹", 
-                desc: "Ghi lại cảnh Y Tá Trưởng đẩy Bác sĩ vào phòng rồi thả bệnh nhân ra."
-            }
-        ],
-        opts: { 
-            s: ["Y Tá Trưởng", "Bệnh Nhân", "Bảo Vệ"], 
-            w: ["Mượn Tay Người Điên", "Siết Cổ", "Thuốc Độc"], 
-            l: ["Phòng Cách Ly", "Phòng Thuốc", "Hành Lang"] 
-        },
-        sol: {s: "Y Tá Trưởng", w: "Mượn Tay Người Điên", l: "Phòng Cách Ly"}
-    },
-    {
-        id: 46,
-        title: "Livestream Tử Thần", 
-        diff: "TB",
-        desc: "Vụ án mạng trước hàng ngàn người xem trực tuyến.",
-        story: [
-            "Một streamer nổi tiếng đang livestream chơi game thì đột ngột ôm cổ, co giật và gục xuống bàn phím. Khán giả tưởng là diễn trò.",
-            "Pháp y kết luận nạn nhân chết do ngộ độc Strychnine cực mạnh.",
-            "Trên bàn chỉ có một lon nước tăng lực nạn nhân vừa uống.",
-            "Mã máy tính của bạn cùng phòng: 8888."
-        ],
-        suspects: [
-            {
-                name: "Bạn Cùng Phòng", 
-                role: "Bạn Bè", 
-                detail: "Khai: 'Tôi là người đưa lon nước cho cậu ấy'.<br>Động cơ: Ghen tị vì kênh của mình ít view."
-            },
-            {
-                name: "Fan Cuồng", 
-                role: "Khán Giả", 
-                detail: "Khai: 'Tôi gửi tặng thùng nước đó qua đường bưu điện'."
-            },
-            {
-                name: "Shipper", 
-                role: "Giao Hàng", 
-                detail: "Khai: 'Tôi chỉ giao hàng đến cửa'."
-            }
-        ],
-        evidence: [
-            {
-                name: "Lon Nước", 
-                icon: "🥤", 
-                desc: "Có một lỗ kim nhỏ xíu dưới đáy lon, được dán lại bằng keo trong. Thuốc độc được bơm vào từ đây."
-            },
-            {
-                name: "Kim Tiêm", 
-                icon: "💉", 
-                locked: true, 
-                code: "8888", 
-                desc: "Tìm thấy kim tiêm và lọ Strychnine giấu trong case máy tính của Bạn Cùng Phòng."
-            },
-            {
-                name: "Chat Log", 
-                icon: "💬", 
-                desc: "Bạn Cùng Phòng dùng nick ảo comment kích bác nạn nhân uống nước ngay trên stream."
-            }
-        ],
-        opts: { 
-            s: ["Bạn Cùng Phòng", "Fan Cuồng", "Shipper"], 
-            w: ["Nước Tẩm Độc", "Khí Gas", "Sốc Thuốc"], 
-            l: ["Phòng Stream", "Nhà Bếp", "Cửa Ra Vào"] 
-        },
-        sol: {s: "Bạn Cùng Phòng", w: "Nước Tẩm Độc", l: "Phòng Stream"}
-    },
-    {
-        id: 47,
-        title: "Bí Mật Kho Lạnh", 
-        diff: "KHÓ",
-        desc: "Cái chết băng giá giữa mùa hè oi ả.",
-        story: [
-            "Quản lý nhà hàng 5 sao được tìm thấy chết cóng trong kho đông lạnh thực phẩm. Nhiệt độ bên trong là -20 độ C.",
-            "Nạn nhân chỉ mặc một chiếc áo sơ mi mỏng, co ro ở góc phòng. Cửa kho bị chốt chặt từ bên ngoài bằng một thanh kim loại.",
-            "Trên tường kho lạnh có những vết cào xước tuyệt vọng bằng móng tay.",
-            "Mã khóa cửa kho lạnh: 0000."
-        ],
-        suspects: [
-            {
-                name: "Đầu Bếp Trưởng", 
-                role: "Bếp Trưởng", 
-                detail: "Khai: 'Tôi đang kiểm kê hàng hóa ở kho khô'.<br>Thái độ: Lạnh lùng, không chút cảm xúc."
-            },
-            {
-                name: "Phụ Bếp", 
-                role: "Nhân Viên", 
-                detail: "Khai: 'Tôi được lệnh đi lấy đá nhưng thấy cửa khóa nên quay về'."
-            },
-            {
-                name: "Kế Toán", 
-                role: "Văn Phòng", 
-                detail: "Khai: 'Tôi nghỉ phép hôm nay, chỉ ghé qua lấy tài liệu'."
-            }
-        ],
-        evidence: [
-            {
-                name: "Thanh Chốt Cửa", 
-                icon: "🚪", 
-                desc: "Chốt cửa bên trong đã bị ai đó dùng búa đập gãy từ trước, khiến nạn nhân không thể mở từ bên trong."
-            },
-            {
-                name: "Cây Búa", 
-                icon: "🔨", 
-                locked: true, 
-                code: "0000", 
-                desc: "Tìm thấy cây búa dính mỡ bò (dùng bôi trơn máy móc nhà bếp) trong tủ đồ của Đầu Bếp Trưởng."
-            },
-            {
-                name: "Áo Khoác", 
-                icon: "🧥", 
-                desc: "Áo khoác bông của nạn nhân bị vứt trong thùng rác bên ngoài. Hung thủ đã ép nạn nhân cởi áo trước khi nhốt vào."
-            }
-        ],
-        opts: { 
-            s: ["Đầu Bếp Trưởng", "Phụ Bếp", "Kế Toán"], 
-            w: ["Phá Chốt Cửa & Nhốt", "Khí Lạnh", "Dao"], 
-            l: ["Kho Đông Lạnh", "Bếp", "Văn Phòng"] 
-        },
-        sol: {s: "Đầu Bếp Trưởng", w: "Phá Chốt Cửa & Nhốt", l: "Kho Đông Lạnh"}
-    },
-    {
-        id: 48,
-        title: "Bảo Tàng Sáp", 
-        diff: "TRUNG BÌNH",
-        desc: "Khi tượng sáp có hơi ấm.",
-        story: [
-            "Khách tham quan hoảng loạn khi phát hiện một bức tượng sáp 'Ma Cà Rồng' bắt đầu rỉ máu thật.",
-            "Khi lớp sáp tan chảy dưới đèn chiếu, thi thể một người đàn ông hiện ra bên trong.",
-            "Nạn nhân đã mất tích 3 ngày trước. Quy trình đúc tượng sáp cần nhiệt độ rất cao.",
-            "Mã xưởng đúc: 1990."
-        ],
-        suspects: [
-            {
-                name: "Nghệ Nhân", 
-                role: "Điêu Khắc", 
-                detail: "Khai: 'Tôi đúc tượng này cả tuần nay, không thấy gì lạ'."
-            },
-            {
-                name: "Bảo Vệ Đêm", 
-                role: "An Ninh", 
-                detail: "Khai: 'Đêm nào tôi cũng nghe tiếng lò nung hoạt động hết công suất'."
-            },
-            {
-                name: "Hướng Dẫn Viên", 
-                role: "Nhân Viên", 
-                detail: "Khai: 'Bức tượng này mới được đưa ra trưng bày sáng nay'."
-            }
-        ],
-        evidence: [
-            {
-                name: "Nồi Nấu Sáp", 
-                icon: "🔥", 
-                desc: "Bên trong nồi còn sót lại một chiếc khuy áo kim loại của nạn nhân mà lửa không nung chảy được."
-            },
-            {
-                name: "Dao Điêu Khắc", 
-                icon: "🔪", 
-                locked: true, 
-                code: "1990", 
-                desc: "Bộ dao của Nghệ Nhân thiếu mất con dao lớn nhất. Nó được tìm thấy cắm sâu trong ngực cái xác bên trong tượng."
-            },
-            {
-                name: "Sổ Nhật Ký", 
-                icon: "📓", 
-                desc: "Nạn nhân là chủ nợ của Nghệ Nhân, đến đòi tiền và bị giết."
-            }
-        ],
-        opts: { 
-            s: ["Nghệ Nhân", "Bảo Vệ Đêm", "Hướng Dẫn Viên"], 
-            w: ["Đúc Sống Trong Tượng", "Lò Thiêu", "Súng"], 
-            l: ["Xưởng Đúc", "Sảnh Trưng Bày", "Kho"] 
-        },
-        sol: {s: "Nghệ Nhân", w: "Đúc Sống Trong Tượng", l: "Xưởng Đúc"}
-    },
-    {
-        id: 49,
-        title: "Chuyến Tàu Cuối", 
-        diff: "KHÓ",
-        desc: "Án mạng trong bóng tối đường hầm.",
-        story: [
-            "Khi tàu điện ngầm chạy qua đoạn đường hầm mất điện kéo dài 30 giây, một hành khách bị đẩy ngã khỏi toa tàu đang chạy.",
-            "Thi thể nạn nhân được tìm thấy trên đường ray. Cửa toa tàu đã bị mở cưỡng bức bằng chế độ khẩn cấp.",
-            "Trong toa lúc đó chỉ có 3 người khác đứng gần cửa.",
-            "Mã số vé tàu: 2024."
-        ],
-        suspects: [
-            {
-                name: "Kẻ Móc Túi", 
-                role: "Tội Phạm", 
-                detail: "Khai: 'Tôi định lấy ví thôi, ai ngờ ông ta ngã'.<br>Thái độ: Lấm lét."
-            },
-            {
-                name: "Nhân Viên Tàu", 
-                role: "Soát Vé", 
-                detail: "Khai: 'Tôi đang đi kiểm tra vé ở toa trên'."
-            },
-            {
-                name: "Vợ Nạn Nhân", 
-                role: "Vợ", 
-                detail: "Khai: 'Tôi đi vệ sinh, lúc quay lại thì chồng tôi đã biến mất'."
-            }
-        ],
-        evidence: [
-            {
-                name: "Cần Gạt Khẩn Cấp", 
-                icon: "🚨", 
-                desc: "Có dấu vân tay của Kẻ Móc Túi. Hắn định mở cửa tẩu thoát sau khi trộm ví."
-            },
-            {
-                name: "Chiếc Ví Da", 
-                icon: "👛", 
-                locked: true, 
-                code: "2024", 
-                desc: "Tìm thấy trong túi áo khoác của Kẻ Móc Túi. Bên trong có vé tàu của nạn nhân."
-            },
-            {
-                name: "Vết Giày", 
-                icon: "👞", 
-                desc: "Trên sàn tàu, ngay sát cửa mở, có vết trượt của giày thể thao (loại Kẻ Móc Túi đang đi), chứng tỏ hắn đã xô xát với nạn nhân."
-            }
-        ],
-        opts: { 
-            s: ["Kẻ Móc Túi", "Nhân Viên Tàu", "Vợ Nạn Nhân"], 
-            w: ["Đẩy Khỏi Tàu", "Dao", "Súng"], 
-            l: ["Cửa Toa Tàu", "Đường Ray", "Ghế Ngồi"] 
-        },
-        sol: {s: "Kẻ Móc Túi", w: "Đẩy Khỏi Tàu", l: "Cửa Toa Tàu"}
-    },
-    // --- CHƯƠNG CUỐI: ĐỐI ĐẦU BÓNG TỐI (50-59) ---
-    {
-        id: 50, 
-        title: "Lời Cảnh Báo", 
-        diff: "KHÓ",
-        desc: "Một viên đạn bắn tỉa sượt qua vai thám tử.",
-        story: [
-            "Bạn đang ngồi trong văn phòng thám tử thì một viên đạn xuyên qua cửa kính, găm vào tường, cách đầu bạn chỉ 5cm.",
-            "Kẻ bắn tỉa đã tẩu thoát, nhưng để lại một vỏ đạn khắc ký hiệu lạ tại tòa nhà đối diện.",
-            "Cảnh sát bắt được 3 nghi phạm có mặt tại sân thượng tòa nhà đó.",
-            "Mã vỏ đạn kim loại: 1999."
-        ],
-        suspects: [
-            {
-                name: "Cựu Xạ Thủ", 
-                role: "Lính Cũ", 
-                detail: "Khai: 'Tôi lên đó hút thuốc cho thoáng'.<br>Thái độ: Bình thản, ngón tay có vết chai do bóp cò."
-            },
-            {
-                name: "Bảo Trì", 
-                role: "Thợ Sửa", 
-                detail: "Khai: 'Tôi đang sửa cục nóng điều hòa'."
-            },
-            {
-                name: "Nhiếp Ảnh Gia", 
-                role: "Chụp Ảnh", 
-                detail: "Khai: 'Tôi đang phơi sáng chụp ảnh hoàng hôn'."
-            }
-        ],
-        evidence: [
-            {
-                name: "Vỏ Đạn Khắc Chữ", 
-                icon: "💊", 
-                locked: true, 
-                code: "1999", 
-                desc: "Trên vỏ đạn khắc dòng chữ: 'TRÒ CHƠI BẮT ĐẦU'. Đây là lời tuyên chiến của tổ chức tội phạm."
-            },
-            {
-                name: "Khẩu Súng Tỉa", 
-                icon: "🔫", 
-                desc: "Được giấu trong hộp đàn Guitar của Cựu Xạ Thủ. Nòng súng vẫn còn nóng."
-            },
-            {
-                name: "Máy Ảnh", 
-                icon: "📷", 
-                desc: "Ảnh chụp cho thấy sân thượng trống trơn lúc xảy ra vụ nổ súng (Nhiếp ảnh gia nói dối về thời gian)."
-            }
-        ],
-        opts: { 
-            s: ["Cựu Xạ Thủ", "Bảo Trì", "Nhiếp Ảnh Gia"], 
-            w: ["Súng Bắn Tỉa", "Nỏ", "Súng Lục"], 
-            l: ["Sân Thượng Đối Diện", "Văn Phòng Thám Tử", "Đường Phố"] 
-        },
-        sol: {s: "Cựu Xạ Thủ", w: "Súng Bắn Tỉa", l: "Sân Thượng Đối Diện"}
-    },
-    {
-        id: 51, 
-        title: "Kẻ Nội Gián", 
-        diff: "RẤT KHÓ",
-        desc: "Sở cảnh sát không còn an toàn.",
-        story: [
-            "Nhân chứng duy nhất biết mặt 'Giáo Sư' bị đầu độc chết ngay trong phòng thẩm vấn của Sở Cảnh Sát.",
-            "Căn phòng được canh gác nghiêm ngặt, chỉ có 3 sĩ quan cao cấp bước vào.",
-            "Camera ghi lại cảnh nạn nhân uống cốc nước rồi gục xuống.",
-            "Mã hồ sơ nhân chứng: 1102."
-        ],
-        suspects: [
-            {
-                name: "Đội Trưởng", 
-                role: "Hình Sự", 
-                detail: "Khai: 'Tôi vào đưa hồ sơ cho hắn xem'."
-            },
-            {
-                name: "Bác Sĩ Pháp Y", 
-                role: "Pháp Y", 
-                detail: "Khai: 'Tôi vào kiểm tra sức khỏe cho hắn'."
-            },
-            {
-                name: "Gác Cửa", 
-                role: "Cảnh Sát", 
-                detail: "Khai: 'Tôi mang cốc nước vào theo lệnh Đội trưởng'."
-            }
-        ],
-        evidence: [
-            {
-                name: "Cốc Nước", 
-                icon: "🥤", 
-                desc: "Chứa chất độc Kali Xyanua. Miệng cốc có dấu vân tay của Cảnh Sát Gác Cửa."
-            },
-            {
-                name: "Găng Tay Cao Su", 
-                icon: "🧤", 
-                locked: true, 
-                code: "1102", 
-                desc: "Tìm thấy trong thùng rác, bên trong găng tay dính bột độc. Xét nghiệm ADN bên trong găng tay trùng khớp với Bác Sĩ Pháp Y."
-            },
-            {
-                name: "Camera", 
-                icon: "📹", 
-                desc: "Góc quay cho thấy Bác Sĩ Pháp Y đã lén bỏ bột vào cốc nước khi Cảnh Sát Gác Cửa không để ý."
-            }
-        ],
-        opts: { 
-            s: ["Bác Sĩ Pháp Y", "Đội Trưởng", "Gác Cửa"], 
-            w: ["Bột Độc Xyanua", "Súng", "Dao"], 
-            l: ["Phòng Thẩm Vấn", "Phòng Pháp Y", "Hành Lang"] 
-        },
-        sol: {s: "Bác Sĩ Pháp Y", w: "Bột Độc Xyanua", l: "Phòng Thẩm Vấn"}
-    },
-    {
-        id: 52,
-        title: "Con Tin Bí Ẩn", 
-        diff: "KHÓ",
-        desc: "Một đoạn video tống tiền gửi đến điện thoại bạn.",
-        story: [
-            "Bạn nhận được video quay cảnh người trợ lý của mình bị trói trong một căn hầm tối tăm. Bom hẹn giờ đang đếm ngược.",
-            "Trong video, có tiếng chuông đồng hồ Big Ben vang lên và tiếng tàu hỏa chạy qua.",
-            "Bạn phải tìm ra địa điểm trước khi bom nổ.",
-            "Mã số trên quả bom trong video: 5060."
-        ],
-        suspects: [
-            {
-                name: "Kẻ Bắt Cóc", 
-                role: "Giấu Mặt", 
-                detail: "Khai: (Qua điện thoại) 'Mày chỉ có 30 phút'."
-            },
-            {
-                name: "NV Đường Sắt", 
-                role: "Bảo Trì", 
-                detail: "Khai: 'Tôi thấy một gã khả nghi lảng vảng ở khu bảo trì đường ray'."
-            },
-            {
-                name: "Người Gác Tháp", 
-                role: "Gác Chuông", 
-                detail: "Khai: 'Không có ai lên tháp chuông cả'."
-            }
-        ],
-        evidence: [
-            {
-                name: "Âm Thanh Nền", 
-                icon: "🔊", 
-                desc: "Tiếng chuông Big Ben là thật, nhưng tiếng tàu hỏa lại có độ vang vọng, chứng tỏ địa điểm là ở dưới lòng đất, gần ga tàu điện ngầm."
-            },
-            {
-                name: "Bản Đồ Tàu Điện", 
-                icon: "🗺️", 
-                locked: true, 
-                code: "5060", 
-                desc: "Chỉ có một ga tàu bỏ hoang nằm ngay dưới chân tháp đồng hồ. Đó là Ga Bóng Ma số 9."
-            },
-            {
-                name: "Vệt Dầu Mỡ", 
-                icon: "🛢️", 
-                desc: "Trên áo nạn nhân dính dầu mỡ đặc trưng của đường ray tàu hỏa."
-            }
-        ],
-        opts: { 
-            s: ["Kẻ Bắt Cóc", "NV Đường Sắt", "Người Gác Tháp"], 
-            w: ["Bom Hẹn Giờ", "Súng", "Dao"], 
-            l: ["Ga Tàu Bỏ Hoang", "Tháp Chuông", "Nhà Kho"] 
-        },
-        sol: {s: "Kẻ Bắt Cóc", w: "Bom Hẹn Giờ", l: "Ga Tàu Bỏ Hoang"}
-    },
-    {
-        id: 53,
-        title: "Giải Cứu", 
-        diff: "TB",
-        desc: "Đột kích vào Ga Bóng Ma số 9.",
-        story: [
-            "Bạn ập vào ga tàu bỏ hoang. Trợ lý của bạn bị trói trên ghế, quả bom chỉ còn 1 phút.",
-            "Một bóng đen lao ra tấn công bạn rồi bỏ chạy vào đường hầm.",
-            "Bạn phải chọn: Đuổi theo hắn hay gỡ bom cứu trợ lý?",
-            "Mã gỡ bom (gợi ý: cắt dây màu gì?): 0007."
-        ],
-        suspects: [
-            {
-                name: "Sát Thủ", 
-                role: "Bóng Đêm", 
-                detail: "Khai: (Bỏ chạy)."
-            },
-            {
-                name: "Trợ Lý", 
-                role: "Nạn Nhân", 
-                detail: "Khai: 'Cứu em! Dây màu ĐỎ! Hắn bảo cắt dây ĐỎ là nổ đấy!'."
-            },
-            {
-                name: "Bạn", 
-                role: "Thám Tử", 
-                detail: "Suy nghĩ: Hắn là kẻ lừa đảo, hay Trợ lý đang hoảng loạn?"
-            }
-        ],
-        evidence: [
-            {
-                name: "Sơ Đồ Bom", 
-                icon: "💣", 
-                locked: true, 
-                code: "0007", 
-                desc: "Bản vẽ kỹ thuật tìm thấy dưới đất ghi chú: 'Xanh là Kích Hoạt, Đỏ là Ngắt'. Trợ lý đã nghe nhầm hoặc bị lừa."
-            },
-            {
-                name: "Dao Găm", 
-                icon: "🗡️", 
-                desc: "Của sát thủ đánh rơi. Trên cán dao khắc logo của tổ chức 'Chim Ưng'."
-            },
-            {
-                name: "Vết Máu", 
-                icon: "🩸", 
-                desc: "Bạn đã bắn trúng vai hắn trước khi hắn chạy thoát."
-            }
-        ],
-        opts: { 
-            s: ["Sát Thủ", "Trợ Lý", "Bạn"], 
-            w: ["Cắt Dây Đỏ (Gỡ Bom)", "Cắt Dây Xanh", "Bỏ Chạy"], 
-            l: ["Ga Tàu Bỏ Hoang", "Đường Hầm", "Sở Cảnh Sát"] 
-        },
-        sol: {s: "Sát Thủ", w: "Cắt Dây Đỏ (Gỡ Bom)", l: "Ga Tàu Bỏ Hoang"}
-    },
-    {
-        id: 54,
-        title: "Mật Mã Giáo Sư", 
-        diff: "KHÓ",
-        desc: "Truy tìm manh mối từ chiếc dao găm.",
-        story: [
-            "Từ logo trên con dao găm, bạn tìm ra hang ổ của tổ chức 'Chim Ưng' tại một biệt thự cổ ngoại ô.",
-            "Biệt thự trống trơn, nhưng trong thư phòng có một két sắt khổng lồ.",
-            "Trên bàn là một ván cờ vua đang chơi dở. Quân Vua đen đã bị chiếu hết.",
-            "Mã két sắt (4 số): ????"
-        ],
-        suspects: [
-            {
-                name: "Quản Gia", 
-                role: "Biệt Thự", 
-                detail: "Khai: 'Ông chủ đã đi du lịch từ hôm qua'.<br>Thái độ: Trung thành tuyệt đối."
-            },
-            {
-                name: "Giáo Sư", 
-                role: "Vắng Mặt", 
-                detail: "Nghi vấn: Chủ nhân bí ẩn của biệt thự."
-            },
-            {
-                name: "Hàng Xóm", 
-                role: "Nhân Chứng", 
-                detail: "Khai: 'Ngôi nhà này luôn đóng kín cửa'."
-            }
-        ],
-        evidence: [
-            {
-                name: "Bàn Cờ Vua", 
-                icon: "♟️", 
-                desc: "Số lượng các quân cờ còn lại trên bàn: 8 Tốt, 2 Mã, 4 Xe, 6 Tượng (tính cả 2 bên). Mã gợi ý: 8246."
-            },
-            {
-                name: "Bức Tranh Cổ", 
-                icon: "🖼️", 
-                locked: true, 
-                code: "8246", 
-                desc: "Khi mở két, bên trong là một danh sách các quan chức nhận hối lộ và sơ đồ tấn công Sở Cảnh Sát."
-            },
-            {
-                name: "Lò Sưởi", 
-                icon: "🔥", 
-                desc: "Nhiều tài liệu đã bị đốt cháy, nhưng danh sách trong két là thứ quan trọng nhất hắn giữ lại để tống tiền."
-            }
-        ],
-        opts: { 
-            s: ["Quản Gia", "Giáo Sư", "Hàng Xóm"], 
-            w: ["Danh Sách Đen", "Bom", "Súng"], 
-            l: ["Thư Phòng", "Hầm Rượu", "Sân Vườn"] 
-        },
-        sol: {s: "Giáo Sư", w: "Danh Sách Đen", l: "Thư Phòng"}
-    },
-    {
-        id: 55,
-        title: "Cuộc Tấn Công", 
-        diff: "CỰC KHÓ",
-        desc: "Sở Cảnh Sát thất thủ.",
-        story: [
-            "Bạn mang danh sách đen về Sở Cảnh Sát. Đột nhiên, điện toàn tòa nhà vụt tắt. Tiếng súng nổ vang trời.",
-            "Một nhóm lính đánh thuê đeo mặt nạ hơi cay đột kích vào tòa nhà.",
-            "Mục tiêu của chúng: Tiêu hủy danh sách đen và giết bạn.",
-            "Mã kho vũ khí của cảnh sát: 9111."
-        ],
-        suspects: [
-            {
-                name: "Đội Trưởng Lính", 
-                role: "Đánh Thuê", 
-                detail: "Khai: 'Giao cái list ra đây, tao sẽ tha mạng'."
-            },
-            {
-                name: "Cảnh Sát Trưởng", 
-                role: "Chỉ Huy", 
-                detail: "Khai: 'Chúng quá đông! Chúng ta phải rút vào phòng an toàn'."
-            },
-            {
-                name: "Phó Cảnh Sát", 
-                role: "Nội Gián 2", 
-                detail: "Khai: (Ẩn mình trong đám cảnh sát)."
-            }
-        ],
-        evidence: [
-            {
-                name: "Lựu Đạn Khói", 
-                icon: "💣", 
-                desc: "Chúng dùng khói để che mắt camera và cảm biến nhiệt."
-            },
-            {
-                name: "Cửa Hậu", 
-                icon: "🚪", 
-                locked: true, 
-                code: "9111", 
-                desc: "Cửa hậu được mở từ bên trong. Có kẻ phản bội thứ 2 đã mở đường cho chúng."
-            },
-            {
-                name: "Điện Thoại", 
-                icon: "📱", 
-                desc: "Của Phó Cảnh Sát có tin nhắn: 'Đã mở cửa sau. Xử lý thằng thám tử đi'."
-            }
-        ],
-        opts: { 
-            s: ["Đội Trưởng Lính", "Cảnh Sát Trưởng", "Phó Cảnh Sát"], 
-            w: ["Súng Trường Tấn Công", "Dao", "Bom Khói"], 
-            l: ["Sảnh Chính", "Cửa Hậu", "Phòng An Toàn"] 
-        },
-        sol: {s: "Phó Cảnh Sát", w: "Súng Trường Tấn Công", l: "Cửa Hậu"}
-    },
-    {
-        id: 56,
-        title: "Đường Cùng", 
-        diff: "RẤT KHÓ",
-        desc: "Bị dồn vào chân tường.",
-        story: [
-            "Bạn và Cảnh Sát Trưởng bị dồn lên sân thượng tòa nhà. Trực thăng của 'Giáo Sư' đang bay lơ lửng phía trên.",
-            "Tên Phó Cảnh Sát (Nội Gián) chĩa súng vào hai người. Hắn yêu cầu bạn ném danh sách đen xuống.",
-            "Bạn chỉ có một khẩu súng với 1 viên đạn duy nhất.",
-            "Mã kích hoạt bẫy sân thượng: 0000."
-        ],
-        suspects: [
-            {
-                name: "Phó Cảnh Sát", 
-                role: "Nội Gián", 
-                detail: "Khai: 'Kết thúc rồi thám tử. Mày quá tò mò'."
-            },
-            {
-                name: "Giáo Sư", 
-                role: "Trùm", 
-                detail: "Ra hiệu: 'Bắn nó đi' (Từ trực thăng)."
-            },
-            {
-                name: "CS Trưởng", 
-                role: "Đồng Đội", 
-                detail: "Khai: 'Bắn thùng xăng phía sau hắn!'."
-            }
-        ],
-        evidence: [
-            {
-                name: "Thùng Phuy Xăng", 
-                icon: "🛢️", 
-                locked: true, 
-                code: "0000", 
-                desc: "Đặt cạnh máy phát điện dự phòng. Một viên đạn vào đây sẽ gây nổ lớn."
-            },
-            {
-                name: "Gió Lớn", 
-                icon: "💨", 
-                desc: "Gió đang thổi mạnh về phía trực thăng. Khói đen sẽ làm phi công mất tầm nhìn."
-            },
-            {
-                name: "Khẩu Súng", 
-                icon: "🔫", 
-                desc: "Chỉ còn 1 viên đạn. Phải bắn chính xác."
-            }
-        ],
-        opts: { 
-            s: ["Bạn", "Phó Cảnh Sát", "CS Trưởng"], 
-            w: ["Bắn Thùng Xăng (Gây Nổ)", "Bắn Nội Gián", "Đầu Hàng"], 
-            l: ["Sân Thượng", "Trực Thăng", "Cầu Thang"] 
-        },
-        sol: {s: "Bạn", w: "Bắn Thùng Xăng (Gây Nổ)", l: "Sân Thượng"}
-    },
-    {
-        id: 57,
-        title: "Sự Trả Thù", 
-        diff: "KHÓ",
-        desc: "Vụ nổ lớn nhưng 'Giáo Sư' vẫn thoát.",
-        story: [
-            "Vụ nổ thùng xăng đã thổi bay tên nội gián và khiến trực thăng phải hạ cánh khẩn cấp xuống một bãi phế liệu gần đó.",
-            "Bạn đuổi theo đến bãi phế liệu. Xác chiếc trực thăng bốc cháy, nhưng không thấy xác 'Giáo Sư'.",
-            "Hắn đang ẩn nấp trong mê cung xe hơi cũ nát.",
-            "Mã cần cẩu nam châm: 5555."
-        ],
-        suspects: [
-            {
-                name: "Giáo Sư", 
-                role: "Kẻ Thù", 
-                detail: "Khai: 'Ta sẽ chôn vùi mày ở đây'."
-            },
-            {
-                name: "Phi Công", 
-                role: "Tử Vong", 
-                detail: "Khai: (Đã chết trong cabin)."
-            },
-            {
-                name: "Bạn", 
-                role: "Thám Tử", 
-                detail: "Suy nghĩ: Phải dùng mưu trí, hắn có súng máy."
-            }
-        ],
-        evidence: [
-            {
-                name: "Máy Cần Cẩu", 
-                icon: "🏗️", 
-                locked: true, 
-                code: "5555", 
-                desc: "Bạn leo lên buồng điều khiển cần cẩu nam châm khổng lồ."
-            },
-            {
-                name: "Xe Hơi Cũ", 
-                icon: "🚗", 
-                desc: "Giáo Sư đang nấp sau chiếc xe màu đỏ. Nam châm có thể hút chiếc xe lên."
-            },
-            {
-                name: "Vết Máu", 
-                icon: "🩸", 
-                desc: "Dẫn đường đến chỗ nấp của hắn."
-            }
-        ],
-        opts: { 
-            s: ["Bạn", "Giáo Sư", "Phi Công"], 
-            w: ["Dùng Nam Châm Hút Xe", "Súng Lục", "Lao Vào"], 
-            l: ["Bãi Phế Liệu", "Buồng Lái Cần Cẩu", "Xác Trực Thăng"] 
-        },
-        sol: {s: "Bạn", w: "Dùng Nam Châm Hút Xe", l: "Bãi Phế Liệu"}
-    },
-    {
-        id: 58,
-        title: "Chiếc Mặt Nạ Vỡ", 
-        diff: "RẤT KHÓ",
-        desc: "Bộ mặt thật của trùm tội phạm.",
-        story: [
-            "Chiếc xe bị nam châm hút lên cao rồi thả rơi xuống đất. 'Giáo Sư' bị thương nặng, bò ra khỏi xe.",
-            "Hắn tháo chiếc mặt nạ dưỡng khí ra. Khuôn mặt hắn khiến bạn sững sờ.",
-            "Hắn chính là... Người thầy thám tử cũ của bạn, người được cho là đã chết 5 năm trước.",
-            "Mã huy hiệu cảnh sát cũ: 1985."
-        ],
-        suspects: [
-            {
-                name: "Thầy Cũ", 
-                role: "Giáo Sư", 
-                detail: "Khai: 'Công lý là dối trá. Chỉ có quyền lực và tiền bạc là thật'."
-            },
-            {
-                name: "Bạn", 
-                role: "Thám Tử", 
-                detail: "Cảm xúc: Bàng hoàng, thất vọng."
-            },
-            {
-                name: "Đội Đặc Nhiệm", 
-                role: "Hỗ Trợ", 
-                detail: "Đang tới gần (Tiếng còi hú)."
-            }
-        ],
-        evidence: [
-            {
-                name: "Huy Hiệu Cảnh Sát", 
-                icon: "👮", 
-                locked: true, 
-                code: "1985", 
-                desc: "Huy hiệu cũ kỹ khắc tên ông ta, rơi ra từ túi áo vest."
-            },
-            {
-                name: "Khẩu Súng Vàng", 
-                icon: "🔫", 
-                desc: "Vũ khí biểu tượng của Giáo Sư. Hắn định giơ súng lên bắn bạn lần cuối."
-            },
-            {
-                name: "Vết Sẹo Cũ", 
-                icon: "🤕", 
-                desc: "Vết sẹo trên tay hắn là do đỡ đạn cho bạn trong một nhiệm vụ quá khứ."
-            }
-        ],
-        opts: { 
-            s: ["Thầy Cũ", "Bạn", "Đội Đặc Nhiệm"], 
-            w: ["Súng Vàng", "Lời Nói", "Còng Tay"], 
-            l: ["Bãi Phế Liệu", "Quá Khứ", "Bệnh Viện"] 
-        },
-        sol: {s: "Thầy Cũ", w: "Súng Vàng", l: "Bãi Phế Liệu"}
-    },
-    {
-        id: 59,
-        title: "Sự Thật Cuối Cùng", 
-        diff: "HUYỀN THOẠI",
-        desc: "Kết thúc Phần 1: Một cái bẫy hoàn hảo.",
-        story: [
-            "Khi đội đặc nhiệm ập đến, 'Giáo Sư' bất ngờ tự sát bằng súng của mình. Trước khi chết, hắn cười: 'Món quà cuối cùng dành cho trò...'.",
-            "Bạn cầm khẩu súng lên xem. Đột nhiên, Cảnh Sát Trưởng bước ra từ xe bọc thép, chỉ tay vào bạn: 'Bắt lấy hắn! Hắn đã giết Giáo Sư để bịt đầu mối!'.",
-            "Hóa ra, Cảnh Sát Trưởng cũng là người của tổ chức. Bạn đã bị gài bẫy trở thành kẻ giết người.",
-            "Mã còng số 8: 0000."
-        ],
-        suspects: [
-            {
-                name: "CS Trưởng", 
-                role: "Trùm Cuối", 
-                detail: "Khai: 'Giáo Sư chỉ là con tốt. Tao mới là Vua'."
-            },
-            {
-                name: "Bạn", 
-                role: "Thám Tử", 
-                detail: "Tình trạng: Bị bao vây, cầm hung khí."
-            },
-            {
-                name: "Giáo Sư", 
-                role: "Đã Chết", 
-                detail: "Vai trò: Vật tế thần."
-            }
-        ],
-        evidence: [
-            {
-                name: "Khẩu Súng", 
-                icon: "🔫", 
-                desc: "Đã bị tráo đạn. Viên đạn giết Giáo Sư khớp với súng của bạn."
-            },
-            {
-                name: "Camera Gắn Áo", 
-                icon: "📹", 
-                locked: true, 
-                code: "0000", 
-                desc: "Cảnh sát trưởng đã tắt camera của mình. Không có bằng chứng bạn vô tội."
-            },
-            {
-                name: "Lối Thoát", 
-                icon: "🏃", 
-                desc: "Một chiếc moto phân khối lớn của tên lính đánh thuê còn sót lại gần đó. Chạy trốn hay đầu hàng?"
-            }
-        ],
-        opts: { 
-            s: ["CS Trưởng", "Bạn", "Giáo Sư"], 
-            w: ["Dàn Dựng (Đổ Tội)", "Súng", "Luật Pháp"], 
-            l: ["Hiện Trường Vụ Án", "Nhà Tù", "Cuộc Sống Lưu Vong"] 
-        },
-        sol: {s: "CS Trưởng", w: "Dàn Dựng (Đổ Tội)", l: "Hiện Trường Vụ Án"}
-    }
-];
