@@ -1058,4 +1058,272 @@ const CASES = [
         },
         sol: { s: "Trợ Lý Livestream", w: "Màng Nilon Giấu Trong Khẩu Trang", l: "Phòng Studio Livestream" }
     }
+    // ... [Dán tiếp ngay sau dấu ngoặc nhọn } của vụ án số 40 (id: 39) của bạn] ...
+    ,
+    {
+        id: 40,
+        title: "Chương I: Kẻ Đưa Tin Im Lặng",
+        diff: "CỰC KHÓ",
+        desc: "Đầu mối đầu tiên về Hội Kín Ánh Trăng bị cắt đứt.",
+        story: [
+            "Một người đưa tin gọi cho bạn, nói rằng anh ta có danh sách của 'Hội Kín Ánh Trăng'. Nhưng khi bạn đến bốt điện thoại công cộng, anh ta đã chết.",
+            "Nạn nhân gục ngay trong bốt điện thoại, trên tay vẫn cầm chặt ống nghe. Không có vết thương hở.",
+            "Bên ngoài bốt có 3 người đang đứng trú mưa, không ai tiếp xúc trực tiếp với nạn nhân."
+        ],
+        suspects: [
+            { name: "Cảnh Sát Tuần Tra", role: "Tuần Tra", detail: "Khai: 'Tôi đứng trú mưa ở hiên nhà đối diện, anh ta tự nhiên ngã gục'." },
+            { name: "Thợ Điện", role: "Sửa Chữa", detail: "Khai: 'Tôi vừa kiểm tra đường dây điện thoại khu này 15 phút trước'." },
+            { name: "Kẻ Lang Thang", role: "Vô Gia Cư", detail: "Khai: 'Tôi nhặt rác quanh đây, thấy gã thợ điện bôi cái gì đó vào điện thoại'." }
+        ],
+        evidence: [
+            { name: "Ống Nghe Điện Thoại", icon: "📞", desc: "Phần viền ống nghe áp vào tai và má nạn nhân được bôi một lớp chất độc thẩm thấu qua da cực mạnh. Chỉ cần đổ mồ hôi, độc sẽ ngấm." },
+            { name: "Sổ Ghi Chép", icon: "📓", desc: "Nạn nhân kịp xé một trang giấy ghi địa chỉ một tiệm rửa ảnh retro trước khi chết." },
+            { name: "Găng Tay Cao Su", icon: "🧤", desc: "Thợ điện vứt lại trong thùng rác, bên ngoài dính chất độc trùng khớp với trên ống nghe." }
+        ],
+        opts: { 
+            s: ["Kẻ Lang Thang", "Cảnh Sát Tuần Tra", "Thợ Điện"], 
+            w: ["Khí Gas Trong Bốt", "Bắn Tỉa Giảm Thanh", "Độc Bôi Lên Ống Nghe"], 
+            l: ["Trạm Biến Áp", "Bốt Điện Thoại Công Cộng", "Trụ Sở Cảnh Sát"] 
+        },
+        sol: {s: "Thợ Điện", w: "Độc Bôi Lên Ống Nghe", l: "Bốt Điện Thoại Công Cộng"}
+    },
+    {
+        id: 41,
+        title: "Chương II: Bức Cuốn Phim Nhuốm Máu",
+        diff: "RẤT KHÓ",
+        desc: "Cuộc truy tìm tại tiệm ảnh phim phong cách vintage.",
+        story: [
+            "Từ manh mối trước, bạn tìm đến tiệm rửa ảnh phim cổ điển. Ông chủ tiệm bị phát hiện treo cổ trong buồng tối (Darkroom).",
+            "Buồng tối khóa trái từ bên trong. Không khí sặc sụa mùi hóa chất tráng phim.",
+            "Một cuộn phim chưa kịp rửa nằm lăn lóc trên sàn."
+        ],
+        suspects: [
+            { name: "Thanh Tra Tham Nhũng", role: "Cảnh Sát", detail: "Khai: 'Tôi nhận được tin báo án nên đến phá cửa. Ông ta tự sát'." },
+            { name: "Thợ Rửa Ảnh Phụ", role: "Nhân Viên", detail: "Khai: 'Thầy tôi đang rửa một cuộn phim mật, cấm tôi vào'." },
+            { name: "Người Mẫu", role: "Khách Hàng", detail: "Khai: 'Tôi đến lấy ảnh chân dung nhưng tiệm đóng cửa'." }
+        ],
+        evidence: [
+            { name: "Cuộn Phim", icon: "🎞️", desc: "Cuộn phim bằng chứng đã bị kéo tuột ra ngoài cho phơi sáng toàn bộ, làm hỏng hoàn toàn dữ liệu. Người tự sát sẽ không làm việc thừa thãi này." },
+            { name: "Sợi Dây Thừng", icon: "➰", desc: "Nút thắt thòng lọng là loại dùng trong huấn luyện đặc nhiệm cảnh sát. Thanh tra đã giết ông chủ tiệm, dàn cảnh treo cổ rồi giả vờ là người 'phá cửa chốt trong' để hợp thức hóa." },
+            { name: "Bao Diêm", icon: "柴", desc: "Ghi địa chỉ một bến cảng, rơi ra từ túi áo của Thanh tra." }
+        ],
+        opts: { 
+            s: ["Người Mẫu", "Thợ Rửa Ảnh Phụ", "Thanh Tra Tham Nhũng"], 
+            w: ["Ép Uống Thuốc Độc", "Dàn Dựng Treo Cổ", "Ngạt Khí Hóa Chất"], 
+            l: ["Phòng Trưng Bày", "Buồng Tối Rửa Ảnh", "Nhà Kho"] 
+        },
+        sol: {s: "Thanh Tra Tham Nhũng", w: "Dàn Dựng Treo Cổ", l: "Buồng Tối Rửa Ảnh"}
+    },
+    {
+        id: 42,
+        title: "Chương III: Kẻ Bịt Miệng Phân Tử",
+        diff: "KHÓ",
+        desc: "Thanh tra tham nhũng bị diệt khẩu ngay tại đồn.",
+        story: [
+            "Bạn chuẩn bị bắt giữ viên Thanh Tra thì hắn hoảng loạn định nổ máy xe bỏ trốn. Vừa vặn chìa khóa, xe nổ tung giữa bãi đỗ đồn cảnh sát.",
+            "Phân tích mảnh bom cho thấy đây là một loại bom điều khiển bằng sóng vô tuyến phức tạp."
+        ],
+        suspects: [
+            { name: "Kỹ Sư Vô Tuyến", role: "Chuyên Gia", detail: "Khai: 'Tôi đến sửa bộ đàm cho bộ phận điều phối'." },
+            { name: "Vợ Thanh Tra", role: "Người Nhà", detail: "Khai: 'Tôi mang đồ ăn trưa cho chồng, không ngờ anh ấy...'" },
+            { name: "Lính Gác Cổng", role: "Bảo Vệ", detail: "Khai: 'Gã kỹ sư kia cứ lảng vảng gần bãi xe cả buổi sáng'." }
+        ],
+        evidence: [
+            { name: "Mảnh Bo Mạch", icon: "📟", desc: "Tìm thấy linh kiện bộ thu sóng radio thường dùng trong thiết bị bộ đàm cảnh sát, được độ chế thành kíp nổ." },
+            { name: "Bộ Đàm Cầm Tay", icon: "📻", desc: "Kỹ sư đã thay đổi tần số bộ đàm của mình. Chỉ cần hắn bấm nút 'Gọi', tần số đó sẽ kích hoạt quả bom dưới gầm xe." },
+            { name: "Sổ Tay Kỹ Sư", icon: "📓", desc: "Ghi chép lịch trình vận chuyển của một lô hàng tại Cầu Cảng Số 4." }
+        ],
+        opts: { 
+            s: ["Vợ Thanh Tra", "Lính Gác Cổng", "Kỹ Sư Vô Tuyến"], 
+            w: ["Súng Bắn Tỉa Xuyên Kính", "Bom Kích Hoạt Bằng Radio", "Cắt Dây Phanh Xe"], 
+            l: ["Bãi Đỗ Xe Đồn Cảnh Sát", "Phòng Bộ Đàm", "Cổng Chính"] 
+        },
+        sol: {s: "Kỹ Sư Vô Tuyến", w: "Bom Kích Hoạt Bằng Radio", l: "Bãi Đỗ Xe Đồn Cảnh Sát"}
+    },
+    {
+        id: 43,
+        title: "Chương IV: Cầu Cảng Khóc Thầm",
+        diff: "TB",
+        desc: "Truy vết lô hàng đến Cầu Cảng Số 4.",
+        story: [
+            "Đến bến cảng theo ghi chép của gã kỹ sư, bạn phát hiện một tay buôn lậu bị đè nát bét dưới một container hàng hóa thép.",
+            "Cần cẩu bốc dỡ đột nhiên tuột cáp. Quản lý bến cảng đổ lỗi cho hệ thống hỏng."
+        ],
+        suspects: [
+            { name: "Quản Lý Bến Cảng", role: "Quản Lý", detail: "Khai: 'Hệ thống thủy lực của cần cẩu dạo này rất rệu rã'." },
+            { name: "Thợ Vận Hành Cẩu", role: "Công Nhân", detail: "Khai: 'Tôi bị đau bụng nên nhờ sếp trực thay ca 15 phút'." },
+            { name: "Thủy Thủ Tàu", role: "Bốc Xếp", detail: "Khai: 'Tôi đang buộc dây neo, nghe tiếng rầm là chạy tới'." }
+        ],
+        evidence: [
+            { name: "Bảng Điều Khiển Cẩu", icon: "🎛️", desc: "Nút 'Emergency Release' (Thả khẩn cấp) có dấu vân tay in hằn rất mạnh của Quản Lý. Hắn đã tự tay bấm nút thả rơi container để diệt khẩu tay buôn lậu." },
+            { name: "Hồ Sơ Hàng Hóa", icon: "📁", desc: "Lô hàng trong container chứa đầy mặt nạ dùng cho một buổi dạ tiệc sắp diễn ra." },
+            { name: "Dây Cáp Cẩu", icon: "⛓️", desc: "Hoàn toàn không bị đứt, chứng tỏ không phải tai nạn đứt cáp." }
+        ],
+        opts: { 
+            s: ["Quản Lý Bến Cảng", "Thợ Vận Hành Cẩu", "Thủy Thủ Tàu"], 
+            w: ["Bắn Tỉa", "Cần Cẩu Thả Rơi Container", "Đẩy Xuống Biển"], 
+            l: ["Phòng Điều Khiển", "Boong Tàu", "Cầu Cảng Số 4"] 
+        },
+        sol: {s: "Quản Lý Bến Cảng", w: "Cần Cẩu Thả Rơi Container", l: "Cầu Cảng Số 4"}
+    },
+    {
+        id: 44,
+        title: "Chương V: Dạ Tiệc Mặt Nạ",
+        diff: "CỰC KHÓ",
+        desc: "Sự kiện từ thiện là bức bình phong của Hội Kín.",
+        story: [
+            "Tại buổi dạ tiệc mặt nạ của giới thượng lưu, một chính trị gia đang bộc bạch sự hối hận trên bục phát biểu thì đột ngột sùi bọt mép tử vong.",
+            "Không ai lại gần ông ta. Không uống nước, không ăn đồ ăn."
+        ],
+        suspects: [
+            { name: "Vũ Công Múa Lụa", role: "Biểu Diễn", detail: "Khai: 'Tôi chỉ múa ở phía dưới bục phát biểu'." },
+            { name: "Thư Ký Sự Kiện", role: "Tổ Chức", detail: "Khai: 'Tôi là người set-up micro và âm thanh trước khi sếp lên'." },
+            { name: "Vệ Sĩ Riêng", role: "An Ninh", detail: "Khai: 'Tôi đứng ngay sau lưng sếp, không có ai ám sát cả'." }
+        ],
+        evidence: [
+            { name: "Chiếc Micro", icon: "🎙️", desc: "Đầu lưới của micro được Thư Ký gắn một cây kim cực nhỏ tẩm độc tố thấm qua da. Khi chính trị gia kề môi sát micro để nói lớn, kim đâm nhẹ vào môi gây tử vong." },
+            { name: "Ly Rượu Vang", icon: "🍷", desc: "Sạch sẽ, được vệ sĩ kiểm tra kỹ." },
+            { name: "Thiệp Mời Giả", icon: "💌", desc: "Tìm thấy trong túi áo nạn nhân, hẹn gặp tại một nhà kho bỏ hoang ngoại ô." }
+        ],
+        opts: { 
+            s: ["Vũ Công Múa Lụa", "Thư Ký Sự Kiện", "Vệ Sĩ Riêng"], 
+            w: ["Kim Độc Giấu Trong Micro", "Phóng Tiêu Tẩm Độc", "Thuốc Độc Trong Không Khí"], 
+            l: ["Bàn Tiệc VIP", "Sảnh Nhảy Múa", "Bục Phát Biểu"] 
+        },
+        sol: {s: "Thư Ký Sự Kiện", w: "Kim Độc Giấu Trong Micro", l: "Bục Phát Biểu"}
+    },
+    {
+        id: 45,
+        title: "Chương VI: Cạm Bẫy Bàn Cờ Lưới",
+        diff: "RẤT KHÓ",
+        desc: "Bước sai một ô, trả giá bằng mạng sống.",
+        story: [
+            "Lần theo tấm thiệp, bạn đến nhà kho bỏ hoang. Sàn nhà được chia thành các ô lưới caro vuông vức. Một đồng nghiệp của bạn bị trói ở giữa.",
+            "Chỉ cần đạp sai một ô, mìn dưới sàn sẽ nổ. Dù bạn giải mã thành công ma trận lưới để cứu đồng nghiệp, một tên gác cổng bên ngoài đã bị giết để cắt đứt dấu vết."
+        ],
+        suspects: [
+            { name: "Chuyên Gia Lập Trình", role: "Hacker Hội Kín", detail: "Khai: 'Tôi chỉ tạo ra thuật toán cho cái bẫy này, tôi không giết gác cổng'." },
+            { name: "Tay Súng Tỉa", role: "Xuyên Quốc Gia", detail: "Khai: 'Tôi được lệnh dọn dẹp hiện trường nếu có biến'." },
+            { name: "Đồng Nghiệp", role: "Con Tin", detail: "Khai: 'Tôi bị bịt mắt, chỉ nghe tiếng súng có gắn giảm thanh'." }
+        ],
+        evidence: [
+            { name: "Vết Đạn Xuyên Sọ", icon: "🎯", desc: "Đường đạn bắn từ trên mái nhà xưởng đối diện xuyên qua khe thông gió, một kỹ năng chỉ có Tay súng tỉa chuyên nghiệp mới làm được." },
+            { name: "Bàn Phím Điều Khiển", icon: "⌨️", desc: "Mã nguồn logic lưới (Grid board logic) điều khiển bẫy mìn vẫn còn mở. Nó chứa chữ ký số của Chuyên gia lập trình." },
+            { name: "Vỏ Đạn Cỡ 7.62mm", icon: "🔫", desc: "Rơi trên mái nhà đối diện, mang ký hiệu của băng đảng." }
+        ],
+        opts: { 
+            s: ["Đồng Nghiệp", "Chuyên Gia Lập Trình", "Tay Súng Tỉa"], 
+            w: ["Bơm Khí Độc", "Bắn Tỉa Từ Xa", "Kích Nổ Bẫy Mìn"], 
+            l: ["Mái Nhà Đối Diện", "Giữa Lưới Mìn", "Phòng Điều Khiển"] 
+        },
+        sol: {s: "Tay Súng Tỉa", w: "Bắn Tỉa Từ Xa", l: "Mái Nhà Đối Diện"}
+    },
+    {
+        id: 46,
+        title: "Chương VII: Bức Tường Im Lặng",
+        diff: "CỰC KHÓ",
+        desc: "Kẻ sát nhân giấu mặt ngay trong đội ngũ.",
+        story: [
+            "Bạn bắt được Tay súng tỉa và đưa về phòng thẩm vấn số 1. Hắn chuẩn bị khai ra tay trong tay áo của Hội Kín.",
+            "Đột nhiên hắn ôm ngực co giật và chết. Chết do hóa chất trợ tim bị tiêm quá liều.",
+            "Phòng thẩm vấn được khóa chặt, camera giám sát quay liên tục."
+        ],
+        suspects: [
+            { name: "Luật Sư Bào Chữa", role: "Đại Diện", detail: "Khai: 'Tôi vừa bước vào định gặp thân chủ thì hắn đã chết'." },
+            { name: "Giám Đốc Cảnh Sát", role: "Cấp Trên", detail: "Khai: 'Tôi đang xem thẩm vấn qua màn hình một chiều từ phòng bên'." },
+            { name: "Trợ Lý Pháp Y", role: "Y Tế Nội Bộ", detail: "Khai: 'Tôi vào lấy mẫu máu nạn nhân trước khi thẩm vấn'." }
+        ],
+        evidence: [
+            { name: "Băng Băng Cá Nhân", icon: "🩹", desc: "Vết lấy máu ở tay nạn nhân bị Trợ lý pháp y băng lại. Thực chất gã trợ lý (người của Hội Kín) đã tiêm thẳng hóa chất độc thay vì rút máu." },
+            { name: "Camera Thẩm Vấn", icon: "📹", desc: "Hoạt động bình thường, ghi lại cảnh nạn nhân tự dưng co giật (vì độc ngấm chậm)." },
+            { name: "Hồ Sơ Y Tế", icon: "📁", desc: "Hắn cố tình giấu bệnh án dị ứng của tay súng để sử dụng loại thuốc gây phản ứng cực sốc." }
+        ],
+        opts: { 
+            s: ["Luật Sư Bào Chữa", "Giám Đốc Cảnh Sát", "Trợ Lý Pháp Y"], 
+            w: ["Tiêm Độc Qua Việc Lấy Máu", "Bắn Súng Xuyên Kính", "Độc Trong Ly Nước"], 
+            l: ["Phòng Quan Sát Một Chiều", "Hành Lang Đồn", "Phòng Thẩm Vấn"] 
+        },
+        sol: {s: "Trợ Lý Pháp Y", w: "Tiêm Độc Qua Việc Lấy Máu", l: "Phòng Thẩm Vấn"}
+    },
+    {
+        id: 47,
+        title: "Chương VIII: Bữa Ăn Đêm Chết Chóc",
+        diff: "RẤT KHÓ",
+        desc: "Kẻ phản trắc bị diệt khẩu giữa chốn đông người.",
+        story: [
+            "Trợ lý pháp y lẩn trốn tại một quán ăn đêm ọp ẹp của thế giới ngầm.",
+            "Hắn được phát hiện gục chết, úp mặt vào bát phở đang ăn dở. Xung quanh khách khứa vẫn ồn ào nhậu nhẹt, không ai thấy dấu hiệu xô xát hay tiếng động lạ.",
+            "Pháp y xác định hắn chết ngay lập tức do một vật cực nhọn đâm xuyên màng nhĩ tiến thẳng vào não."
+        ],
+        suspects: [
+            { name: "Vệ Sĩ Của Trùm", role: "Tay Chân", detail: "Khai: 'Tôi ngồi bàn phía sau hắn. Lúc tôi đứng dậy tính tiền đi về, hắn vẫn đang cắm mặt ăn'." },
+            { name: "Chủ Quán Đêm", role: "Giang Hồ Gác Kiếm", detail: "Khai: 'Quán ồn ào, tôi mải trụng phở trong bếp, rảnh đâu mà nhìn'." },
+            { name: "Gã Say Rượu", role: "Khách Quen", detail: "Khai: 'Tôi gục trên bàn ngủ từ sớm, chả biết cái thá gì cả'." }
+        ],
+        evidence: [
+            { name: "Đũa Thép", icon: "🥢", desc: "Vệ Sĩ đi ngang qua lưng nạn nhân, vờ loạng choạng rồi dùng một chiếc đũa thép đâm cực mạnh vào lỗ tai nạn nhân, rút ra ngay tắp lự. Máu chảy ít và hòa vào nước phở nên không ai chú ý." },
+            { name: "Bát Phở", icon: "🍜", desc: "Được kiểm tra hoàn toàn không có chất độc, bát phở chỉ là bức bình phong che giấu vết máu." },
+            { name: "Tờ Tiền", icon: "💵", desc: "Tờ tiền Vệ Sĩ ném lại trên bàn để trả tiền có dính một chấm máu siêu nhỏ văng ra từ đầu chiếc đũa thép." }
+        ],
+        opts: { 
+            s: ["Gã Say Rượu", "Chủ Quán Đêm", "Vệ Sĩ Của Trùm"], 
+            w: ["Bỏ Độc Vào Nước Dùng", "Đâm Đũa Thép Xuyên Tai", "Súng Bút Giảm Thanh"], 
+            l: ["Nhà Bếp", "Bàn Ăn Quán Đêm", "Hẻm Sau Quán"] 
+        },
+        sol: {s: "Vệ Sĩ Của Trùm", w: "Đâm Đũa Thép Xuyên Tai", l: "Bàn Ăn Quán Đêm"}
+    },
+    {
+        id: 48,
+        title: "Chương IX: Bước Lùi Chiến Thuật",
+        diff: "RẤT KHÓ",
+        desc: "Kẻ trung thành bị hiến tế.",
+        story: [
+            "Dấu vết của tên Vệ Sĩ dẫn bạn thẳng tới dinh thự của Thị Trưởng thành phố. Bất ngờ, bạn thấy tên Vệ Sĩ đã bị bắn gục ngay trước cổng.",
+            "Bên cạnh xác hắn là khẩu súng lục của chính hắn, nhưng vân tay đã bị lau sạch.",
+            "Trong sân, Thị trưởng tỏ ra vô cùng kinh hãi."
+        ],
+        suspects: [
+            { name: "Quản Gia Biệt Thự", role: "Người Làm", detail: "Khai: 'Tôi nghe tiếng súng, chạy ra thì thấy hắn nằm đó'." },
+            { name: "Thị Trưởng", role: "Kẻ Bị Tình Nghi", detail: "Khai: 'Hắn định ám sát tôi, có người đã nổ súng cứu tôi'." },
+            { name: "Thư Ký Thị Trưởng", role: "Bàn Tay Phải", detail: "Khai: 'Sếp tôi vô tội. Kẻ thủ ác là tên Vệ sĩ này'." }
+        ],
+        evidence: [
+            { name: "Vết Đạn", icon: "🎯", desc: "Đường đạn bắn từ trên ban công lầu 2 cắm thẳng xuống. Quản gia không ở trên đó." },
+            { name: "Súng Bắn Tỉa Giảm Thanh", icon: "🔫", desc: "Thư ký của Thị Trưởng đã tự tay thủ tiêu tên Vệ Sĩ (đồng bọn) từ lầu 2 để chặt đứt hoàn toàn manh mối hướng về phía Thị Trưởng - The Architect thực sự." },
+            { name: "Đế Giày", icon: "👞", desc: "Đế giày của Thư Ký dính mạt xi măng từ ban công lầu 2 đang thi công." }
+        ],
+        opts: { 
+            s: ["Thị Trưởng", "Thư Ký Thị Trưởng", "Quản Gia Biệt Thự"], 
+            w: ["Đâm Lén Từ Phía Sau", "Đánh Độc", "Bắn Tỉa Từ Ban Công Lầu 2"], 
+            l: ["Cổng Biệt Thự", "Phòng Khách Thị Trưởng", "Ban Công Lầu 2"] 
+        },
+        sol: {s: "Thư Ký Thị Trưởng", w: "Bắn Tỉa Từ Ban Công Lầu 2", l: "Ban Công Lầu 2"}
+    },
+    {
+        id: 49,
+        title: "Chương Cuối: Bức Màn Nhung Sụp Xuống",
+        diff: "CỰC KHÓ",
+        desc: "Màn kịch lật đổ vị vua của bóng tối.",
+        story: [
+            "Mọi bằng chứng đều chỉ đích danh Thị Trưởng chính là Trùm Cuối (The Architect) của Hội Kín Ánh Trăng.",
+            "Bạn phá cửa tầng thượng tòa thị chính để bắt hắn. Tuy nhiên, Thị Trưởng đang nâng ly rượu vang cười ngạo nghễ bỗng hộc máu, ngã gục chết trước mắt bạn.",
+            "Hắn đã bị chính người thân tín nhất của mình phản bội."
+        ],
+        suspects: [
+            { name: "Thư Ký Thị Trưởng", role: "Bàn Tay Phải", detail: "Khai: 'Ông ta sợ tội nên tự sát thôi, giờ tôi sẽ tiếp quản di sản của ông ta'.<br>Thái độ: Chiến thắng." },
+            { name: "Phu Nhân Thị Trưởng", role: "Vợ", detail: "Khai: 'Tôi không thể sống cùng một con quái vật nữa'." },
+            { name: "Đội Trưởng Đặc Nhiệm", role: "Cảnh Sát", detail: "Khai: 'Tôi vừa đạp cửa xông vào cùng cậu mà'." }
+        ],
+        evidence: [
+            { name: "Ly Rượu Vang", icon: "🍷", desc: "Ly rượu của Thị trưởng đã được Thư Ký hạ độc Xyanua từ trước. Hắn vắt chanh bỏ vỏ Thị trưởng để chiếm đoạt vị trí 'The Architect' mới." },
+            { name: "Bản Di Chúc Quyền Lực", icon: "📜", desc: "Toàn bộ tài sản ngầm và mạng lưới Hội Kín vừa được ký chuyển giao cho Thư Ký." },
+            { name: "Gương Mặt Mới Của Hội Kín", icon: "👑", desc: "Bằng việc bắt giữ Thư Ký ngay tại trận với lọ độc dược còn giấu trong tay áo, bạn đã chính thức đập tan Hội Kín Ánh Trăng vĩnh viễn." }
+        ],
+        opts: { 
+            s: ["Thư Ký Thị Trưởng", "Đội Trưởng Đặc Nhiệm", "Phu Nhân Thị Trưởng"], 
+            w: ["Súng Bắn Xuyên Kính", "Độc Trong Ly Rượu Vang", "Thuốc Nổ"], 
+            l: ["Phòng Ngủ Phu Nhân", "Phòng Đợi", "Tầng Thượng Tòa Thị Chính"] 
+        },
+        sol: {s: "Thư Ký Thị Trưởng", w: "Độc Trong Ly Rượu Vang", l: "Tầng Thượng Tòa Thị Chính"}
+    }
 ];
