@@ -1,2138 +1,1061 @@
 const CASES = [
     {
         id: 0,
-        title: "Vũ Điệu Cuối Cùng", 
-        diff: "DỄ",
-        desc: "Cái chết bí ẩn trong phòng thay đồ bị khóa kín.",
+        title: "Hiệp Đấu Khắc Nghiệt",
+        diff: "CỰC KHÓ",
+        desc: "Võ sĩ gục ngã không do lực đấm.",
         story: [
-            "Vào lúc 20:00 tối, tiếng hét thất thanh vang lên từ hậu trường nhà hát Grand. Nữ vũ công chính Bella được tìm thấy đã chết trong phòng thay đồ riêng của cô.",
-            "Hiện trường là một căn phòng kín. Cửa bị khóa trái từ bên trong, và chìa khóa duy nhất nằm gọn trong túi áo của nạn nhân. Cảnh sát xác nhận cô bị siết cổ đến chết.",
-            "Tuy nhiên, điều kỳ lạ là không hề tìm thấy bất kỳ sợi dây thừng hay hung khí nào tương tự trong phòng. Chỉ có những vật dụng trang điểm vương vãi.",
-            "Khi kiểm tra thùng rác ở góc phòng, thám tử tìm thấy một tờ vé số bị vò nát, bên trên có ghi nguệch ngoạc con số: 1998."
+            "Nhà vô địch MMA gục chết ở hiệp 3 dù chỉ trúng đòn nhẹ.",
+            "Khám nghiệm pháp y phát hiện nồng độ độc tố suy tim thẩm thấu qua da.",
+            "Cả đối thủ và nạn nhân đều không mang vật nhọn, nước uống hoàn toàn bình thường."
         ],
         suspects: [
-            {
-                name: "Nhạc Công", 
-                role: "Nghệ Sĩ", 
-                detail: "Khai báo: 'Tôi đang ngồi thay dây đàn Cello ở sảnh chờ lúc đó'.<br>Vật dụng: Cây đàn Cello cũ kỹ, thiếu mất dây E (dây cao nhất)."
-            },
-            {
-                name: "Đạo Diễn", 
-                role: "Chỉ Đạo", 
-                detail: "Khai báo: 'Tôi ở trên phòng điều khiển âm thanh suốt buổi tập'.<br>Vật dụng: Một xấp kịch bản dày và bút bi."
-            },
-            {
-                name: "Lao Công", 
-                role: "Tạp Vụ", 
-                detail: "Khai báo: 'Tôi đang lau sàn hành lang bên ngoài'.<br>Vật dụng: Xô nước bẩn và cây lau nhà ẩm ướt."
-            }
+            { name: "Đối Thủ", role: "Võ sĩ", detail: "Khai: 'Cú đấm của tôi chưa đủ hạ gục anh ta'." },
+            { name: "Bác Sĩ", role: "Y tế", detail: "Khai: 'Tôi chỉ thoa mỡ Vaseline lên mặt nạn nhân để chống rách da'." },
+            { name: "HLV Riêng", role: "Huấn luyện viên", detail: "Khai: 'Tôi là người quấn băng tay (handwrap) cho cậu ấy trước trận'." }
         ],
         evidence: [
-            {
-                name: "Hộp Đàn Cello", 
-                icon: "🎻", 
-                desc: "Bên trong hộp đàn, giấu dưới lớp nhung lót là một cuộn dây cước trong suốt, rất mảnh nhưng cực kỳ sắc bén. Nó đã được lau chùi sạch sẽ."
-            },
-            {
-                name: "Lỗ Thông Gió", 
-                icon: "💨", 
-                desc: "Một lỗ thông gió nhỏ nằm trên cao gần cửa ra vào. Nó quá nhỏ để người chui qua, nhưng đủ để luồn một sợi dây câu hoặc dây cước qua để kéo chốt cửa từ bên ngoài."
-            },
-            {
-                name: "Vết Hằn", 
-                icon: "〰️", 
-                desc: "Vết hằn trên cổ nạn nhân rất mảnh và sâu, không giống vết của dây thừng hay tay người. Nó giống vết cắt của một sợi dây đàn hoặc dây cước."
-            }
+            { name: "Băng Quấn Tay", icon: "🥊", desc: "Chứa keo tẩm độc. Khi thi đấu cường độ siêu khắc nghiệt, thân nhiệt tăng làm lỗ chân lông giãn nở, độc ngấm qua mồ hôi vào máu." },
+            { name: "Nước Tăng Lực", icon: "💧", desc: "Hoàn toàn sạch. Đối thủ cố tình cất giấu chai nước để đánh lạc hướng điều tra." },
+            { name: "Mỡ Vaseline", icon: "🧴", desc: "Được kiểm tra không có bất kỳ hóa chất lạ nào." }
         ],
-        opts: { 
-            s: ["Đạo Diễn", "Nhạc Công", "Lao Công"], 
-            w: ["Khăn Lụa", "Tay Không", "Dây Đàn/Cước"], 
-            l: ["Phòng Điều Khiển", "Phòng Thay Đồ", "Sân Khấu"] 
+        opts: {
+            s: ["Bác Sĩ", "Đối Thủ", "HLV Riêng"],
+            w: ["Nước Tăng Lực", "Băng Quấn Tay Tẩm Độc", "Mỡ Vaseline"],
+            l: ["Sàn Đấu", "Phòng Thay Đồ", "Phòng Y Tế"]
         },
-        sol: {
-            s: "Nhạc Công", 
-            w: "Dây Đàn/Cước", 
-            l: "Phòng Thay Đồ"
-        }
+        sol: { s: "HLV Riêng", w: "Băng Quấn Tay Tẩm Độc", l: "Phòng Thay Đồ" }
     },
     {
         id: 1,
-        title: "Kẻ Vô Hình", 
-        diff: "TRUNG BÌNH",
-        desc: "Máu của hung thủ vương vãi, nhưng không ai bị thương.",
+        title: "Vệt Trượt Dài Lưỡi Hái",
+        diff: "RẤT KHÓ",
+        desc: "Xe mất lái nhưng phanh không bị cắt.",
         story: [
-            "Tỷ phú John bị ám sát tàn bạo tại thư viện riêng vào lúc 21:00 đêm mưa bão. Ông ấy đã chống trả quyết liệt trước khi chết.",
-            "Tại hiện trường, bên cạnh thi thể nạn nhân, cảnh sát tìm thấy một vũng máu nhỏ không phải của ông John. Xét nghiệm nhanh cho thấy đó là máu nhóm A.",
-            "Điều này chứng tỏ hung thủ đã bị thương trong lúc giằng co. Tuy nhiên, khi thẩm vấn 3 người có mặt trong nhà, không ai có vết thương hở nào trên cơ thể.",
-            "Két sắt của ông John vẫn đóng, mật mã là năm sinh của ông ấy: 1975."
+            "Nạn nhân tử vong do lao chiếc mô tô dáng Tracker xuống vực tại khúc cua đèo.",
+            "Xe vừa được phục chế hoàn chỉnh. Dây phanh không hề bị cắt đứt hay phá hoại.",
+            "Tại hiện trường không có dấu vết va chạm với xe khác."
         ],
         suspects: [
-            {
-                name: "Đầu Bếp", 
-                role: "Làm Bếp", 
-                detail: "Khai báo: 'Tôi đang chặt thịt gà trong bếp'.<br>Quan sát: Ngón tay trỏ trái có băng gạc cũ, anh ta nói bị đứt tay từ sáng."
-            },
-            {
-                name: "Quản Gia", 
-                role: "Quản Lý Nhà", 
-                detail: "Khai báo: 'Tôi đang pha trà ở phòng khách'.<br>Quan sát: Bộ đồ vest chỉn chu, sạch sẽ, không có dấu hiệu xô xát."
-            },
-            {
-                name: "Vợ Nạn Nhân", 
-                role: "Góa Phụ", 
-                detail: "Khai báo: 'Tôi đã uống thuốc ngủ và ngủ say'.<br>Quan sát: Vẻ mặt hoảng sợ tột độ, run rẩy."
-            }
+            { name: "Bạn Gái", role: "Đi cùng đoàn", detail: "Khai: 'Tôi chạy xe khác đi trước anh ấy 5 phút'." },
+            { name: "Thợ Máy", role: "Chủ Gara", detail: "Khai: 'Tôi vừa bảo dưỡng phuộc USD và hệ thống phanh hôm qua'." },
+            { name: "Chủ Nợ", role: "Giang hồ", detail: "Khai: 'Nó chết thì ai trả tiền cho tôi?'." }
         ],
         evidence: [
-            {
-                name: "Con Dao Bếp", 
-                icon: "🔪", 
-                desc: "Một con dao làm bếp được tìm thấy sau vườn. Trên cán dao có dính máu khô. Xét nghiệm cho thấy đó là máu nhóm A."
-            },
-            {
-                name: "Hồ Sơ Y Tế", 
-                icon: "📋", 
-                desc: "Hồ sơ sức khỏe định kỳ của gia đình: Nạn nhân máu O. Vợ máu B. Quản gia máu O. Đầu bếp máu A."
-            },
-            {
-                name: "Băng Gạc", 
-                icon: "🩹", 
-                desc: "Tìm thấy một miếng băng gạc thấm máu tươi bị vo tròn trong thùng rác nhà bếp. Có vẻ hung thủ đã thay băng vết thương sau khi gây án."
-            }
+            { name: "Dây Phanh Đĩa", icon: "🏍️", desc: "Nguyên vẹn không tì vết, loại trừ việc bị cắt cáp." },
+            { name: "Ống Dầu Phanh", icon: "🛢️", desc: "Bị rút cạn dầu và thay bằng nước lã. Khi đổ đèo, ma sát làm nước sôi tạo bọt khí, gây mất áp suất phanh hoàn toàn." },
+            { name: "Kìm Cắt Sắt", icon: "✂️", desc: "Nằm trong cốp xe của Chủ nợ, nhưng lưỡi kìm không dính kim loại mạt." }
         ],
-        opts: { 
-            s: ["Quản Gia", "Vợ Nạn Nhân", "Đầu Bếp"], 
-            w: ["Súng Lục", "Con Dao", "Thuốc Độc"], 
-            l: ["Nhà Bếp", "Thư Viện", "Phòng Ngủ"] 
+        opts: {
+            s: ["Chủ Nợ", "Thợ Máy", "Bạn Gái"],
+            w: ["Cắt Dây Phanh", "Tráo Dầu Phanh Bằng Nước", "Đạp Ngã Xe"],
+            l: ["Khúc Cua Đèo", "Gara Sửa Xe", "Bãi Tập Kết"]
         },
-        sol: {s: "Đầu Bếp", w: "Con Dao", l: "Thư Viện"}
+        sol: { s: "Thợ Máy", w: "Tráo Dầu Phanh Bằng Nước", l: "Gara Sửa Xe" }
     },
     {
         id: 2,
-        title: "Bóng Ma Tháp Đồng Hồ", 
+        title: "Cái Chết Bốc Hơi",
         diff: "KHÓ",
-        desc: "Thời gian tử vong và bằng chứng ngoại phạm không khớp nhau.",
+        desc: "Mùi thơm của bánh mì nướng hòa lẫn mùi tử thần.",
         story: [
-            "Người gác tháp chuông già bị đẩy ngã từ đỉnh tháp xuống đất tử vong. Đồng hồ trên tay nạn nhân vỡ nát, dừng lại ở lúc 10:00 đêm.",
-            "Tuy nhiên, cỗ máy đồng hồ khổng lồ của tháp đã bị hỏng từ chiều, nó chạy chậm hơn thực tế đúng 15 phút.",
-            "Cảnh sát khoanh vùng được 3 nghi phạm, nhưng cả 3 đều có bằng chứng ngoại phạm dựa trên tiếng chuông đồng hồ điểm lúc 10 giờ.",
-            "Trong túi áo nạn nhân có cuốn sổ nhật ký khóa mã: 1200."
+            "Chủ tiệm bánh và cà phê mộc mạc ngã gục ngay trước cửa lò nướng.",
+            "Phổi nạn nhân bị tổn thương nặng do hít phải khí độc hóa học bay hơi.",
+            "Các loại bột mì, cà phê, bơ tỏi trong xưởng đều được kiểm định an toàn 100%."
         ],
         suspects: [
-            {
-                name: "Thợ Sửa", 
-                role: "Kỹ Thuật", 
-                detail: "Khai: 'Tôi nghe thấy chuông tháp điểm 10 tiếng khi đang ngồi ở quán rượu'.<br>Khoảng cách: Quán rượu cách tháp 10 phút đi bộ."
-            },
-            {
-                name: "Người Vợ", 
-                role: "Nội Trợ", 
-                detail: "Khai: 'Tôi ở nhà nấu súp. Tôi nhìn đồng hồ treo tường đúng 10h thì nghe tiếng hét thất thanh'."
-            },
-            {
-                name: "Thị Trưởng", 
-                role: "Quan Chức", 
-                detail: "Khai: 'Tôi đang họp trực tuyến. Tiếng chuông 10h ồn ào đã làm gián đoạn cuộc họp của tôi'."
-            }
+            { name: "Bếp Phó", role: "Thợ bánh", detail: "Khai: 'Tôi nhào bột xong là đi giao hàng ngay'." },
+            { name: "Vợ Nạn Nhân", role: "Thu ngân", detail: "Khai: 'Anh ấy ở một mình trong xưởng nướng bánh cả sáng'." },
+            { name: "Kẻ Cạnh Tranh", role: "Chủ quán đối diện", detail: "Khai: 'Tôi không thèm bước chân vào cái tiệm rách đó'." }
         ],
         evidence: [
-            {
-                name: "Cơ Chế Đồng Hồ", 
-                icon: "⚙️", 
-                desc: "Đồng hồ tháp chạy chậm 15 phút. Nghĩa là khi nó điểm 10 tiếng chuông, thời gian thực tế đã là 10:15."
-            },
-            {
-                name: "Nhật Ký", 
-                icon: "📓", 
-                desc: "Trang cuối cùng nạn nhân viết vội: 'Gã thợ sửa máy đang lén lút làm gì đó với bánh răng số 4'."
-            },
-            {
-                name: "Bản Đồ", 
-                icon: "🗺️", 
-                desc: "Nếu Thợ Sửa gây án lúc 10:00 (thực tế), hắn đi bộ 10 phút đến quán rượu (10:10). Hắn ngồi đó và đến 10:15 thì chuông mới điểm 10h. Hắn đã dùng độ trễ thời gian để tạo bằng chứng ngoại phạm!"
-            }
+            { name: "Cốc Cà Phê", icon: "☕", desc: "Cốc uống dở của nạn nhân không có độc, chỉ là hồng trà bình thường." },
+            { name: "Nhiệt Kế Lò", icon: "🌡️", desc: "Đầu nhiệt kế thủy ngân bị bẻ gãy một góc nhỏ xíu và nhét sâu vào trong mẻ bánh. Nhiệt độ lò làm thủy ngân bay hơi thành khí độc." },
+            { name: "Khẩu Trang Than Hoạt Tính", icon: "😷", desc: "Được tìm thấy giấu dưới đáy balo của Bếp Phó." }
         ],
-        opts: { 
-            s: ["Người Vợ", "Thợ Sửa", "Thị Trưởng"], 
-            w: ["Gậy Sắt", "Cờ Lê", "Tay Không (Đẩy ngã)"], 
-            l: ["Quán Rượu", "Đỉnh Tháp", "Tòa Thị Chính"] 
+        opts: {
+            s: ["Vợ Nạn Nhân", "Kẻ Cạnh Tranh", "Bếp Phó"],
+            w: ["Cà Phê Tẩm Độc", "Bột Mì Chứa Hóa Chất", "Nhiệt Kế Thủy Ngân Rơi Vào Lò"],
+            l: ["Quầy Pha Chế", "Xưởng Nướng Bánh", "Nhà Kho"]
         },
-        sol: {s: "Thợ Sửa", w: "Tay Không (Đẩy ngã)", l: "Đỉnh Tháp"}
+        sol: { s: "Bếp Phó", w: "Nhiệt Kế Thủy Ngân Rơi Vào Lò", l: "Xưởng Nướng Bánh" }
     },
     {
         id: 3,
-        title: "Viên Ngọc Bị Nguyền", 
-        diff: "RẤT KHÓ",
-        desc: "Viên ngọc biến mất không để lại dấu chân trên sàn đầy bột.",
+        title: "Độ Trễ Tử Thần",
+        diff: "CỰC KHÓ",
+        desc: "Độc dược tẩm ở nơi không ngờ tới nhất.",
         story: [
-            "Viên ngọc Ruby 'Mắt Rồng' trị giá triệu đô được trưng bày trên một cái bệ giữa phòng. Để chống trộm, Giám đốc đã cho rải một lớp bột mì trắng xóa khắp sàn nhà vào ban đêm.",
-            "Sáng hôm sau, viên ngọc biến mất. Kỳ lạ thay, lớp bột mì trên sàn hoàn toàn nguyên vẹn, không có bất kỳ dấu chân nào đi từ cửa vào đến bệ đá.",
-            "Phòng trưng bày không có cửa sổ, chỉ có một cửa chính có lính canh 24/7. Trên trần nhà, ngay phía trên bệ đá là một ô thông gió.",
-            "Hệ thống laser bảo vệ có mã tắt là: 0909."
+            "Một lập trình viên đột tử khi đang rà soát code cho dự án game. Khám nghiệm cho thấy nhiễm độc tiếp xúc.",
+            "Cốc nước rỗng bên cạnh an toàn. Nạn nhân có thói quen vừa gõ phím HE Keyboard (phím cơ nam châm) vừa dụi mắt do thức khuya.",
+            "Chỉ có những người trong team nội bộ mới vào được phòng làm việc."
         ],
         suspects: [
-            {
-                name: "Kỹ Sư", 
-                role: "Bảo Trì", 
-                detail: "Khai: 'Tôi đang sửa hệ thống thông gió trên tầng áp mái suốt đêm qua'."
-            },
-            {
-                name: "Ảo Thuật Gia", 
-                role: "Khách VIP", 
-                detail: "Khai: 'Tôi là khách tham quan VIP'.<br>Hành lý: Một vali đạo cụ ảo thuật lớn."
-            },
-            {
-                name: "Giám Đốc", 
-                role: "Quản Lý", 
-                detail: "Khai: 'Tôi là người duy nhất có chìa khóa cửa chính, nhưng tôi không hề vào đó'."
-            }
+            { name: "Trưởng Dự Án", role: "Quản lý", detail: "Khai: 'Tiến độ đang gấp, tôi không có lý do gì để giết coder chính'." },
+            { name: "Tester", role: "Kiểm thử", detail: "Khai: 'Hôm qua tôi có mượn máy anh ấy để test bug bảng ngọc 5 phút'." },
+            { name: "Lao Công", role: "Tạp vụ", detail: "Khai: 'Tôi lau bàn sạch sẽ mỗi tối'." }
         ],
         evidence: [
-            {
-                name: "Sàn Bột Mì", 
-                icon: "❄️", 
-                desc: "Lớp bột phẳng lì chứng tỏ kẻ trộm không hề chạm chân xuống sàn. Hắn phải tiếp cận viên ngọc từ phía trên."
-            },
-            {
-                name: "Hộp Dụng Cụ", 
-                icon: "🧰", 
-                desc: "Trong hộp đồ nghề của Kỹ Sư, cảnh sát tìm thấy một chiếc cần câu máy thu gọn, dây cước siêu bền và một nam châm cực mạnh."
-            },
-            {
-                name: "Ô Thông Gió", 
-                icon: "🔲", 
-                desc: "Các con ốc vít của ô thông gió trên trần nhà có dấu hiệu bị tháo ra và vặn lại mới đây. Kỹ Sư đã nằm từ ống thông gió và dùng cần câu để lấy viên ngọc."
-            }
+            { name: "Cốc Nước", icon: "💧", desc: "Đã cạn, không có dấu vết của chất độc, chỉ là vỏ bọc." },
+            { name: "Bàn Phím Cơ", icon: "⌨️", desc: "Chỉ riêng phím Spacebar không có dấu vân tay của nạn nhân. Tester đã bôi chất độc thấm qua da lên phím này. Khi nạn nhân gõ code và dụi mắt, độc ngấm thẳng vào niêm mạc." },
+            { name: "Lọ Nước Nhỏ Mắt", icon: "👁️", desc: "Nằm lăn lóc trên bàn, dung dịch bên trong là nước muối sinh lý bình thường." }
         ],
-        opts: { 
-            s: ["Giám Đốc", "Ảo Thuật Gia", "Kỹ Sư"], 
-            w: ["Tay Không", "Dây Thừng", "Cần Câu & Nam Châm"], 
-            l: ["Cửa Chính", "Ống Thông Gió", "Hành Lang"] 
+        opts: {
+            s: ["Tester", "Trưởng Dự Án", "Lao Công"],
+            w: ["Nước Nhỏ Mắt Tẩm Độc", "Cốc Nước", "Độc Trên Phím Spacebar"],
+            l: ["Khu Nghỉ Ngơi", "Phòng Máy Chủ", "Bàn Làm Việc"]
         },
-        sol: {s: "Kỹ Sư", w: "Cần Câu & Nam Châm", l: "Ống Thông Gió"}
+        sol: { s: "Tester", w: "Độc Trên Phím Spacebar", l: "Bàn Làm Việc" }
     },
     {
         id: 4,
-        title: "Dạ Tiệc Ly Biệt", 
-        diff: "CỰC KHÓ",
-        desc: "Đầu độc công khai trước mặt mọi người.",
+        title: "Ánh Sáng Trong Buồng Tối",
+        diff: "RẤT KHÓ",
+        desc: "Chết do điện giật nhưng không rò rỉ dây cáp.",
         story: [
-            "Trong bữa tiệc mừng thọ, ông Chủ tịch đột ngột ôm ngực và tử vong ngay tại bàn tiệc. Bác sĩ pháp y kết luận ông chết do trụy tim cấp tính bị kích thích bởi dược lực.",
-            "Điều đáng nói là ông ta cùng uống chung một chai rượu vang với 4 vị khách khác. Mọi người đều bình an vô sự.",
-            "Ly rượu của ông ta cũng được kiểm tra, hoàn toàn sạch sẽ, không có độc.",
-            "Mã số tủ thuốc cá nhân của ông chủ tịch là: 3388."
+            "Nhiếp ảnh gia phong cách retro chết cháy đen tay trong buồng tối rửa ảnh.",
+            "Công tắc đèn an toàn, máy ảnh không rò điện. Cửa khóa trái từ bên trong.",
+            "Trong phòng tràn ngập mùi hóa chất rửa phim."
         ],
         suspects: [
-            {
-                name: "Bác Sĩ Riêng", 
-                role: "Y Tế", 
-                detail: "Khai: 'Tôi vừa kê cho ông ấy một đơn thuốc bổ mới sáng nay'."
-            },
-            {
-                name: "Người Hầu", 
-                role: "Phục Vụ", 
-                detail: "Khai: 'Tôi đã rửa ly rất kỹ bằng nước nóng và lau khô'."
-            },
-            {
-                name: "Thư Ký", 
-                role: "Trợ Lý", 
-                detail: "Khai: 'Chính tay tôi đã khui rượu và rót cho mọi người, kể cả tôi cũng uống'."
-            }
+            { name: "Trợ Lý Ảnh", role: "Hậu kỳ", detail: "Khai: 'Tôi ra ngoài mua thêm giấy in ảnh lúc anh ấy vào buồng tối'." },
+            { name: "Người Mẫu", role: "Mẫu ảnh", detail: "Khai: 'Tôi đang tẩy trang ở sảnh ngoài'." },
+            { name: "Đối Thủ", role: "Thợ ảnh", detail: "Khai: 'Tôi đứng bên kia đường chụp lén tiệm của hắn'." }
         ],
         evidence: [
-            {
-                name: "Chai Rượu", 
-                icon: "🍷", 
-                desc: "Rượu vang đỏ bình thường, không có độc tố. Những người khác uống không sao, chứng tỏ nguồn độc không nằm trong rượu."
-            },
-            {
-                name: "Lọ Thuốc Bổ", 
-                icon: "💊", 
-                desc: "Lọ thuốc được dán nhãn 'Vitamin' thực chất chứa Digoxin - một loại thuốc trợ tim cực mạnh nếu dùng quá liều."
-            },
-            {
-                name: "Hồ Sơ Bệnh Án", 
-                icon: "📄", 
-                desc: "Chủ tịch bị bệnh tim tiềm ẩn. Rượu có tác dụng làm tăng hấp thụ Digoxin. Bác sĩ đã cố tình kê đơn thuốc này, biết rằng khi ông ta uống rượu trong tiệc, cơn đau tim sẽ đến như một cái chết tự nhiên."
-            }
+            { name: "Máy Ảnh Phim", icon: "📷", desc: "Nguyên vẹn, không có dấu vết chập cháy." },
+            { name: "Khay Hóa Chất", icon: "🧪", desc: "Khay nhựa chứa dung dịch hãm phim đã bị đục một lỗ nhỏ, nối với mạch điện 220V giấu dưới sàn. Khi nạn nhân nhúng tay vào rửa phim, dòng điện lập tức kích hoạt." },
+            { name: "Cuộn Phim", icon: "🎞️", desc: "Bị cháy sáng hoàn toàn. Trợ lý đã lấy cớ phim hỏng để ép nạn nhân phải tự tay vào buồng tối rửa lại." }
         ],
-        opts: { 
-            s: ["Thư Ký", "Bác Sĩ Riêng", "Người Hầu"], 
-            w: ["Dao Găm", "Thuốc Chuột", "Tương Tác Thuốc & Rượu"], 
-            l: ["Nhà Bếp", "Bàn Tiệc", "Phòng Khám"] 
+        opts: {
+            s: ["Người Mẫu", "Trợ Lý Ảnh", "Đối Thủ"],
+            w: ["Súng Giật Điện", "Rò Điện Máy Ảnh", "Khay Hóa Chất Nối Mạch Điện"],
+            l: ["Phòng Thay Đồ", "Buồng Tối Rửa Ảnh", "Sảnh Lễ Tân"]
         },
-        sol: {s: "Bác Sĩ Riêng", w: "Tương Tác Thuốc & Rượu", l: "Bàn Tiệc"}
+        sol: { s: "Trợ Lý Ảnh", w: "Khay Hóa Chất Nối Mạch Điện", l: "Buồng Tối Rửa Ảnh" }
     },
     {
         id: 5,
-        title: "Tiếng Đàn Violin", 
-        diff: "TRUNG BÌNH",
-        desc: "Nhạc trưởng chết ngay trên sân khấu khi đang biểu diễn.",
+        title: "Tin Nhắn Báo Tử",
+        diff: "CỰC KHÓ",
+        desc: "Bằng chứng ngoại phạm bằng ứng dụng di động.",
         story: [
-            "Trong buổi hòa nhạc, khi nhạc trưởng vung đũa chỉ huy, ông đột ngột ngã gục. Nguyên nhân chết là do bị điện giật.",
-            "Đũa chỉ huy của ông làm bằng gỗ, không dẫn điện.",
-            "Tuy nhiên, sàn sân khấu nơi ông đứng có dấu hiệu ẩm ướt.",
-            "Mã tủ đồ của nghệ sĩ Piano: 4567."
+            "Cô gái bị đâm chết tại chung cư lúc 20:30. Bạn trai cô ta là nghi phạm số một.",
+            "Tuy nhiên, ứng dụng theo dõi cảm xúc nội bộ cài trên máy tính nạn nhân ghi nhận cô ấy tự tay bấm nút 'Tức giận' gửi thông báo tức thì cho bạn trai lúc 21:00.",
+            "App này mã hóa nội bộ, không có độ trễ, chứng minh lúc 21:00 nạn nhân vẫn còn sống để bấm."
         ],
         suspects: [
-            {
-                name: "Nghệ Sĩ Piano", 
-                role: "Đồng Nghiệp", 
-                detail: "Khai: 'Tôi ghen tị với ông ấy, nhưng tôi không giết người'.<br>Hành động: Lau mồ hôi liên tục."
-            },
-            {
-                name: "Kỹ Thuật Viên", 
-                role: "Hậu Đài", 
-                detail: "Khai: 'Tôi kiểm tra mic và dây điện rồi, mọi thứ an toàn'."
-            },
-            {
-                name: "Vợ Nhạc Trưởng", 
-                role: "Góa Phụ", 
-                detail: "Khai: 'Tôi ngồi ở hàng ghế đầu xem chồng biểu diễn'."
-            }
+            { name: "Bạn Trai", role: "Người yêu", detail: "Khai: 'Lúc 21:00 tôi đang họp ở công ty, sếp tôi có thể làm chứng tôi vừa nhận thông báo tức thì từ cô ấy'." },
+            { name: "Người Giao Hàng", role: "Shipper", detail: "Khai: 'Tôi giao đồ ăn lúc 20:20, cô ấy nhận xong đóng cửa ngay'." },
+            { name: "Bảo Vệ", role: "An ninh", detail: "Khai: 'Tôi không thấy người lạ nào lên tầng này'." }
         ],
         evidence: [
-            {
-                name: "Đôi Giày Da", 
-                icon: "👞", 
-                desc: "Đế giày của nhạc trưởng đã bị đóng thêm đinh sắt dẫn điện. Ai đó đã tráo giày của ông trước buổi diễn."
-            },
-            {
-                name: "Bình Nước", 
-                icon: "💧", 
-                desc: "Tìm thấy trong tủ của Nghệ Sĩ Piano. Hắn đã đổ nước ra sàn chỗ bục chỉ huy để tạo mạch điện."
-            },
-            {
-                name: "Dây Điện Trần", 
-                icon: "⚡", 
-                desc: "Một sợi dây điện hở được luồn khéo léo dưới thảm sàn sân khấu."
-            }
+            { name: "Hệ Thống Mạng", icon: "🌐", desc: "Log server ghi nhận ứng dụng không hề bị hack hay chỉnh sửa độ trễ. Nút bấm thật sự được kích hoạt lúc 21:00." },
+            { name: "Cục Đá Lạnh", icon: "🧊", desc: "Bên cạnh chuột máy tính có một vũng nước nhỏ. Bạn trai đã đặt một cục đá lạnh kẹp tăm nhọn lơ lửng trên phím click chuột. Đá tan dần, đến 21:00 thì rớt xuống tạo lực click tự động." },
+            { name: "Dao Gọt Hoa Quả", icon: "🔪", desc: "Hung khí bị ném ở thùng rác tầng trệt, không có vân tay." }
         ],
-        opts: { 
-            s: ["Kỹ Thuật Viên", "Vợ Nhạc Trưởng", "Nghệ Sĩ Piano"], 
-            w: ["Súng", "Điện Giật (Giày & Nước)", "Đũa Chỉ Huy"], 
-            l: ["Phòng Kỹ Thuật", "Phòng Thay Đồ", "Sân Khấu"] 
+        opts: {
+            s: ["Người Giao Hàng", "Bảo Vệ", "Bạn Trai"],
+            w: ["Hack Độ Trễ App", "Bẫy Click Chuột Bằng Đá Lạnh", "Nhờ Đồng Phạm Bấm Hộ"],
+            l: ["Phòng Ngủ", "Hành Lang", "Bàn Máy Tính"]
         },
-        sol: {s: "Nghệ Sĩ Piano", w: "Điện Giật (Giày & Nước)", l: "Sân Khấu"}
+        sol: { s: "Bạn Trai", w: "Bẫy Click Chuột Bằng Đá Lạnh", l: "Bàn Máy Tính" }
     },
     {
         id: 6,
-        title: "Chuyến Bay Định Mệnh", 
-        diff: "KHÓ",
-        desc: "Án mạng trong buồng lái khóa kín trên độ cao 10.000m.",
+        title: "Đạn Tàng Hình",
+        diff: "RẤT KHÓ",
+        desc: "Lỗ đạn trên ngực nhưng không có đầu đạn.",
         story: [
-            "Chuyến bay 404 đang bay qua Đại Tây Dương thì Cơ trưởng đột ngột tử vong. Buồng lái được khóa chặt từ bên trong.",
-            "Cơ phó, người duy nhất có chìa khóa dự phòng, khai rằng anh ta đang ngủ trong khoang nghỉ ngơi lúc sự việc xảy ra.",
-            "Trên bảng điều khiển, hộp đen ghi lại âm thanh cuối cùng là tiếng Cơ phó cãi vã gay gắt với nạn nhân về nợ nần.",
-            "Đặc biệt, mặt nạ dưỡng khí của Cơ trưởng đã bị cắt đứt ống dẫn một cách tinh vi."
+            "Ông trùm sòng bạc bị ám sát giữa phòng làm việc. Một lỗ đạn xuyên tim, nhưng xung quanh không có vỏ đạn hay đầu đạn nào.",
+            "Áo sơ mi của nạn nhân ướt sũng nước xung quanh vết thương.",
+            "Cửa sổ phòng mở hé, bên ngoài là tòa nhà đang thi công."
         ],
         suspects: [
-            {
-                name: "Cơ Phó", 
-                role: "Phi Công", 
-                detail: "Khai: 'Tôi ngủ say như chết'.<br>Thái độ: Lo lắng, mồ hôi đầm đìa."
-            },
-            {
-                name: "Tiếp Viên Trưởng", 
-                role: "Tiếp Viên", 
-                detail: "Khai: 'Tôi chỉ mang cà phê vào cho họ lúc đầu giờ'."
-            },
-            {
-                name: "Vệ Sĩ", 
-                role: "Hành Khách", 
-                detail: "Khai: 'Tôi thấy Cơ phó đi vào buồng lái lúc 2h sáng'."
-            }
+            { name: "Sát Thủ Đánh Thuê", role: "Giang hồ", detail: "Khai: 'Tôi có súng, nhưng hôm nay tôi chưa nhận hợp đồng nào'." },
+            { name: "Con Nợ", role: "Khách VIP", detail: "Khai: 'Tôi đến xin khất nợ nhưng vệ sĩ không cho vào'." },
+            { name: "Thư Ký", role: "Trợ lý", detail: "Khai: 'Tôi nghe tiếng cửa sổ vỡ kính nên chạy vào'." }
         ],
         evidence: [
-            {
-                name: "Cốc Cà Phê", 
-                icon: "☕", 
-                desc: "Trong cốc còn cặn thuốc ngủ liều cao. Cơ trưởng đã bị đánh thuốc trước."
-            },
-            {
-                name: "Hộp Đen", 
-                icon: "📼", 
-                desc: "Ghi âm: 'Cậu dám làm thế à?'. Tiếng vật lộn và tiếng cắt ống thở."
-            },
-            {
-                name: "Dao Găm", 
-                icon: "🔪", 
-                desc: "Tìm thấy trong túi áo khoác của Cơ Phó, dính vết cao su từ ống thở."
-            }
+            { name: "Súng Lục", icon: "🔫", desc: "Súng của sát thủ xét nghiệm không có mùi thuốc súng mới bắn." },
+            { name: "Tủ Lạnh", icon: "❄️", desc: "Trong phòng thi công đối diện có một tủ đông mini. Sát thủ đã tự đúc đạn bằng nước đá đông cứng. Sau khi bắn xuyên tim, đạn đá tự tan ra thành nước, xóa sạch dấu vết rãnh khương tuyến." },
+            { name: "Máy Sấy Tóc", icon: "💨", desc: "Nằm trong phòng tắm, hoàn toàn không liên quan." }
         ],
-        opts: { 
-            s: ["Tiếp Viên Trưởng", "Cơ Phó", "Vệ Sĩ"], 
-            w: ["Súng", "Cắt Ống Khí & Thuốc Ngủ", "Dây Thừng"], 
-            l: ["Nhà Vệ Sinh", "Khoang Hành Khách", "Buồng Lái"] 
+        opts: {
+            s: ["Con Nợ", "Thư Ký", "Sát Thủ Đánh Thuê"],
+            w: ["Súng Bắn Bằng Đạn Đá Lạnh", "Đâm Bằng Dao Đá", "Mũi Tên Tẩm Độc"],
+            l: ["Phòng Tắm", "Phòng Làm Việc", "Tòa Nhà Đang Thi Công (Đối Diện)"]
         },
-        sol: {s: "Cơ Phó", w: "Cắt Ống Khí & Thuốc Ngủ", l: "Buồng Lái"}
+        sol: { s: "Sát Thủ Đánh Thuê", w: "Súng Bắn Bằng Đạn Đá Lạnh", l: "Tòa Nhà Đang Thi Công (Đối Diện)" }
     },
     {
         id: 7,
-        title: "Bức Họa Bị Đánh Cắp", 
-        diff: "TRUNG BÌNH",
-        desc: "Tranh biến mất trong 60 giây tắt đèn.",
+        title: "Ảo Ảnh Khôn Cùng",
+        diff: "KHÓ",
+        desc: "Nhận diện khuôn mặt hoàn hảo, nhưng vẫn là giả mạo.",
         story: [
-            "Tại buổi triển lãm tranh quý, đèn đột ngột vụt tắt trong đúng 1 phút. Khi đèn sáng lại, bức tranh 'Hoàng Hôn' trị giá 5 triệu đô đã không cánh mà bay.",
-            "Khung kính bảo vệ hoàn toàn nguyên vẹn, không hề bị đập vỡ hay cạy phá. Chỉ có người giữ chìa khóa mới mở được nó.",
-            "Camera an ninh ghi lại được cảnh một bóng người đeo găng tay trắng thao tác rất nhanh tại vị trí bức tranh.",
-            "Mã két sắt chứa chìa khóa dự phòng: 1234."
+            "Giám đốc kho lưu trữ bị đâm chết trong kho. Cửa kho dùng khóa sinh trắc học nhận diện khuôn mặt cực kỳ gắt gao, không ai khác mở được.",
+            "Camera cửa ghi lại hình ảnh giám đốc tự mở cửa đi vào lúc 23:00, nhưng pháp y khẳng định ông ta đã chết từ 21:00.",
+            "Kẻ gian đã thoát ra và khóa cửa lại."
         ],
         suspects: [
-            {
-                name: "Họa Sĩ", 
-                role: "Tác Giả", 
-                detail: "Khai: 'Tôi đang đứng ngắm tác phẩm của mình'.<br>Trang phục: Áo vest có túi lớn."
-            },
-            {
-                name: "Bảo Vệ", 
-                role: "An Ninh", 
-                detail: "Khai: 'Tôi đứng canh ngay cửa ra vào'.<br>Vật dụng: Chùm chìa khóa thắt lưng."
-            },
-            {
-                name: "Nhà Sưu Tầm", 
-                role: "Khách VIP", 
-                detail: "Khai: 'Tôi đang uống rượu vang ở sảnh'."
-            }
+            { name: "Chuyên Gia Đồ Họa", role: "Nhân viên", detail: "Khai: 'Hệ thống nhận diện của chúng ta là AI cao cấp, không thể dùng ảnh in hay mặt nạ 3D lừa được'." },
+            { name: "Phó Giám Đốc", role: "Cấp dưới", detail: "Khai: 'Tôi đang uống rượu với đối tác cả đêm'." },
+            { name: "Bảo Vệ Kho", role: "An ninh", detail: "Khai: 'Hệ thống không báo lỗi gì cả'." }
         ],
         evidence: [
-            {
-                name: "Khung Kính", 
-                icon: "🖼️", 
-                desc: "Không có dấu vân tay lạ. Ổ khóa được mở bằng chìa khóa chuẩn."
-            },
-            {
-                name: "Băng Ghi Hình", 
-                icon: "📹", 
-                desc: "Góc quay khuất cho thấy Bảo Vệ lén đưa chùm chìa khóa cho Họa Sĩ trước khi đèn tắt."
-            },
-            {
-                name: "Găng Tay Trắng", 
-                icon: "🧤", 
-                desc: "Tìm thấy trong túi áo vest của Họa Sĩ, dính bụi sơn tranh."
-            }
+            { name: "Log Sinh Trắc Học", icon: "👁️", desc: "Hệ thống ghi nhận tỷ lệ khớp khuôn mặt là 99.9%. Chuyên gia đồ họa đã dùng công cụ AI tạo ảnh Deepfake siêu thực, đảm bảo không thay đổi khuôn mặt và chiếu lên iPad độ phân giải cực cao để lừa camera nhận diện chiều sâu." },
+            { name: "Mặt Nạ Silicon", icon: "🎭", desc: "Tìm thấy trong thùng rác, nhưng hệ thống cửa đã được nâng cấp để chống lại mặt nạ này. Đây chỉ là nghi binh." },
+            { name: "Màn Hình iPad", icon: "📱", desc: "Màn hình dính dấu vân tay của Chuyên gia đồ họa." }
         ],
-        opts: { 
-            s: ["Bảo Vệ", "Nhà Sưu Tầm", "Họa Sĩ"], 
-            w: ["Búa", "Chìa Khóa (Đồng Phạm)", "Dao Rọc Giấy"], 
-            l: ["Kho", "Phòng Tranh", "Sảnh Chính"] 
+        opts: {
+            s: ["Bảo Vệ Kho", "Phó Giám Đốc", "Chuyên Gia Đồ Họa"],
+            w: ["Mặt Nạ Silicon", "Hack Mã Khóa Cửa", "Hình Ảnh Deepfake Lừa AI"],
+            l: ["Phòng Giám Đốc", "Cửa Kho Lưu Trữ", "Phòng An Ninh"]
         },
-        sol: {s: "Họa Sĩ", w: "Chìa Khóa (Đồng Phạm)", l: "Phòng Tranh"}
+        sol: { s: "Chuyên Gia Đồ Họa", w: "Hình Ảnh Deepfake Lừa AI", l: "Cửa Kho Lưu Trữ" }
     },
     {
         id: 8,
-        title: "Thư Viện Ma Ám", 
-        diff: "DỄ",
-        desc: "Tai nạn hy hữu hay mưu sát được tính toán?",
+        title: "Bản Dịch Huyết Dụ",
+        diff: "RẤT KHÓ",
+        desc: "Chữ ký tan biến sau khi hợp đồng được ký.",
         story: [
-            "Thủ thư già được phát hiện tử vong do một giá sách khổng lồ đổ sập đè lên người.",
-            "Cảnh sát ban đầu nghĩ là tai nạn do giá sách cũ mối mọt. Nhưng khi khám nghiệm, họ thấy chân giá sách có vết cưa rất gọn.",
-            "Máy tính của nạn nhân đang mở một email tống tiền chưa kịp gửi.",
-            "Mật khẩu máy tính là 4 số 0."
+            "Luật sư đại diện bị siết cổ tại nhà riêng. Kẻ thủ ác cố tìm cách cướp lại một bản hợp đồng nhượng quyền.",
+            "Tuy nhiên, bản hợp đồng còn lại trên bàn chỉ là một tờ giấy trắng ở phần chữ ký nạn nhân.",
+            "Thư ký xác nhận đã phiên dịch qua audio và in hợp đồng trước đó vài giờ."
         ],
         suspects: [
-            {
-                name: "Nam Sinh Viên", 
-                role: "Người Đọc", 
-                detail: "Khai: 'Em đang tìm sách ở khu vực khác'.<br>Balo: Rất nặng và cồng kềnh."
-            },
-            {
-                name: "Lao Công", 
-                role: "Tạp Vụ", 
-                detail: "Khai: 'Tôi lau dọn ở tầng 1'.<br>Thái độ: Bình thản."
-            },
-            {
-                name: "Giáo Sư", 
-                role: "Giảng Viên", 
-                detail: "Khai: 'Tôi có hẹn với nạn nhân nhưng chưa kịp gặp'."
-            }
+            { name: "Khách Hàng", role: "Đối tác", detail: "Khai: 'Hắn hứa sẽ ký, nhưng lúc tôi đến thì hắn đã chết'." },
+            { name: "Thư Ký", role: "Dịch thuật", detail: "Khai: 'Tôi dùng tool dịch file audio xong in ra cho sếp ký rồi đi về'." },
+            { name: "Vợ Luật Sư", role: "Người nhà", detail: "Khai: 'Tôi thấy anh ấy cãi nhau với khách hàng qua điện thoại'." }
         ],
         evidence: [
-            {
-                name: "Chân Giá Sách", 
-                icon: "📚", 
-                desc: "Bị cưa 2/3, chỉ cần một lực đẩy nhẹ là đổ. Mùn cưa vương vãi."
-            },
-            {
-                name: "Email Tống Tiền", 
-                icon: "💻", 
-                desc: "Nội dung: 'Tôi biết cậu đã gian lận luận án, hãy đưa 10.000$'. Người nhận: Nam Sinh Viên."
-            },
-            {
-                name: "Cưa Cầm Tay", 
-                icon: "🪚", 
-                desc: "Giấu dưới đáy balo của Nam Sinh Viên, lưỡi cưa dính gỗ và sơn giá sách."
-            }
+            { name: "Bút Mực", icon: "🖋️", desc: "Khách hàng đã tráo cây bút yêu thích của luật sư bằng một cây bút bơm mực tàng hình (sẽ bay màu hoàn toàn khi hơ nóng hoặc sau 1 giờ)." },
+            { name: "Lò Sưởi Điện", icon: "🔥", desc: "Bật ở mức tối đa chĩa thẳng vào bàn làm việc, ép mực bay hơi nhanh hơn." },
+            { name: "Sợi Dây Thừng", icon: "🪢", desc: "Dùng để siết cổ, có vương sợi vải từ bộ vest của Khách Hàng." }
         ],
-        opts: { 
-            s: ["Lao Công", "Giáo Sư", "Nam Sinh Viên"], 
-            w: ["Súng", "Gạch", "Cưa & Đẩy Ngã"], 
-            l: ["Phòng Học", "Căng Tin", "Thư Viện"] 
+        opts: {
+            s: ["Vợ Luật Sư", "Khách Hàng", "Thư Ký"],
+            w: ["Đổi Bản In Xóa Chữ", "Bút Mực Bay Màu (Nhiệt)", "Súng Lục"],
+            l: ["Phòng Khách", "Phòng Làm Việc", "Phòng Ngủ"]
         },
-        sol: {s: "Nam Sinh Viên", w: "Cưa & Đẩy Ngã", l: "Thư Viện"}
+        sol: { s: "Khách Hàng", w: "Bút Mực Bay Màu (Nhiệt)", l: "Phòng Làm Việc" }
     },
     {
         id: 9,
-        title: "Vụ Nổ Phòng Thí Nghiệm", 
-        diff: "RẤT KHÓ",
-        desc: "Một cái bẫy chết người bằng hóa học.",
+        title: "Tiếng Gầm Vô Hình",
+        diff: "KHÓ",
+        desc: "Gây án mà không cần chạm vào nạn nhân.",
         story: [
-            "Tiến sĩ Hóa học chết cháy trong phòng thí nghiệm sau một vụ nổ lớn. Hệ thống chữa cháy tự động đã kích hoạt nhưng không cứu được ông.",
-            "Nguyên nhân vụ nổ được xác định là do phản ứng giữa Natri kim loại và Nước.",
-            "Tiến sĩ là người rất cẩn thận, không bao giờ để nước gần Natri. Ai đó đã gài bẫy ông.",
-            "Mã két sắt chứa nhật ký nghiên cứu: 2025."
+            "Người đàn ông sống cạnh công trường tử vong trên ghế sofa, màng nhĩ chảy máu, mạch máu não vỡ do áp lực.",
+            "Cửa nhà khóa kín, không có dấu vết vật lộn hay vũ khí.",
+            "Trên tai nạn nhân vẫn đang đeo tai nghe chống ồn chủ động (ANC)."
         ],
         suspects: [
-            {
-                name: "Trợ Lý", 
-                role: "Cộng Sự", 
-                detail: "Khai: 'Tôi ra ngoài mua cà phê'.<br>Động cơ: Ghen tị vì không được công nhận."
-            },
-            {
-                name: "Đối Thủ Cạnh Tranh", 
-                role: "Giáo Sư", 
-                detail: "Khai: 'Tôi không hề đến gần khu vực đó'."
-            },
-            {
-                name: "Nghiên Cứu Sinh", 
-                role: "Học Trò", 
-                detail: "Khai: 'Tôi đang làm bài tập ở thư viện'."
-            }
+            { name: "Thợ Khoan", role: "Công nhân", detail: "Khai: 'Tôi khoan cắt bê tông từ sáng, ồn là việc của tôi'." },
+            { name: "Bạn Cùng Phòng", role: "Sinh viên", detail: "Khai: 'Tôi đi học cả ngày, anh ấy thích yên tĩnh nên hay đeo tai nghe'." },
+            { name: "Kẻ Thù Cũ", role: "Hacker", detail: "Khai: 'Tôi không thèm động tay với hắn'." }
         ],
         evidence: [
-            {
-                name: "Lọ Hóa Chất Vỡ", 
-                icon: "🧪", 
-                desc: "Mảnh vỡ của lọ Natri nằm vương vãi trên sàn ướt."
-            },
-            {
-                name: "Nhật Ký", 
-                icon: "📓", 
-                desc: "Ghi chép: 'Trợ lý đã lén lút thay đổi vị trí các lọ hóa chất nhiều lần'."
-            },
-            {
-                name: "Hệ Thống Phun Nước", 
-                icon: "🚿", 
-                desc: "Van cảm biến khói bị can thiệp để phun nước ngay khi có khói nhẹ, kích hoạt phản ứng nổ của Natri."
-            }
+            { name: "Máy Khoan Bê Tông", icon: "🕳️", desc: "Tạo ra tiếng ồn lớn nhưng không đủ gây vỡ mạch máu não ngay lập tức." },
+            { name: "Tai Nghe Chống Ồn", icon: "🎧", desc: "Hacker (Kẻ Thù Cũ) đã xâm nhập vào điện thoại nạn nhân, điều khiển tai nghe phát ra sóng hạ âm (tần số cực thấp) ở âm lượng tối đa liên tục trong nhiều giờ, gây phá hủy não bộ." },
+            { name: "Điện Thoại Nạn Nhân", icon: "📱", desc: "Ứng dụng nghe nhạc bị cài đè một file âm thanh lạ ẩn." }
         ],
-        opts: { 
-            s: ["Nghiên Cứu Sinh", "Trợ Lý", "Đối Thủ Cạnh Tranh"], 
-            w: ["Súng", "Bom Hẹn Giờ", "Bẫy Hóa Chất (Natri + Nước)"], 
-            l: ["Hành Lang", "Sân Trường", "Phòng Thí Nghiệm"] 
+        opts: {
+            s: ["Thợ Khoan", "Bạn Cùng Phòng", "Kẻ Thù Cũ"],
+            w: ["Đập Đá Vào Đầu", "Tai Nghe Phát Sóng Hạ Âm", "Chất Độc Khí"],
+            l: ["Công Trường", "Phòng Ngủ", "Ghế Sofa"]
         },
-        sol: {s: "Trợ Lý", w: "Bẫy Hóa Chất (Natri + Nước)", l: "Phòng Thí Nghiệm"}
+        sol: { s: "Kẻ Thù Cũ", w: "Tai Nghe Phát Sóng Hạ Âm", l: "Ghế Sofa" }
     },
     {
         id: 10,
-        title: "Ngôi Mộ Cổ Ai Cập", 
-        diff: "KHÓ",
-        desc: "Lời nguyền của Pharaoh hay lòng tham con người?",
+        title: "Tầm Nhìn Của Kẻ Mù",
+        diff: "TRUNG BÌNH",
+        desc: "Sự thật nằm trong lời nói dối vụng về.",
         story: [
-            "Trưởng đoàn khảo cổ chết gục ngay bên cạnh quan tài Pharaoh vừa được mở nắp. Trên cổ không có vết thương, nhưng mặt tím tái.",
-            "Mọi người đồn đại về lời nguyền chết chóc. Nhưng thám tử ngửi thấy mùi hạnh nhân đắng thoang thoảng trong không khí.",
-            "Cửa hầm mộ đã bị đóng kín từ bên ngoài sau khi đoàn đi vào.",
-            "Mã số khắc trên nắp quan tài: 1000."
+            "Án mạng xảy ra ở ngõ hẻm vắng. Một người đàn ông mù đi ngang qua tự xưng là nhân chứng duy nhất.",
+            "Ông ta khai với cảnh sát: 'Tôi nghe thấy tiếng bước chân, rồi nạn nhân hét lên. Kẻ đó bỏ chạy, lướt qua tôi, hắn mặc một chiếc áo khoác da màu đỏ'."
         ],
         suspects: [
-            {
-                name: "Đồng Nghiệp", 
-                role: "Nhà Khảo Cổ", 
-                detail: "Khai: 'Tôi đang chép văn bia ở góc phòng'.<br>Biểu hiện: Đeo mặt nạ phòng độc từ trước."
-            },
-            {
-                name: "Hướng Dẫn Viên", 
-                role: "Dẫn Đường", 
-                detail: "Khai: 'Tôi đứng canh cửa, không thấy ai ra vào'."
-            },
-            {
-                name: "Kẻ Trộm Mộ", 
-                role: "Tội Phạm", 
-                detail: "Khai: 'Tôi chỉ đi theo để kiếm chút vàng'."
-            }
+            { name: "Kẻ Mù (Nhân chứng)", role: "Người qua đường", detail: "Khai: 'Tôi bị mù bẩm sinh, tai tôi rất thính'." },
+            { name: "Tên Trộm", role: "Giang hồ", detail: "Khai: 'Tôi có mặc áo khoác đỏ, nhưng tôi chỉ đi ngang qua đó nhặt đồ'." },
+            { name: "Vợ Nạn Nhân", role: "Người nhà", detail: "Khai: 'Tôi đang ở nhà nấu cơm chờ anh ấy'." }
         ],
         evidence: [
-            {
-                name: "Mùi Hạnh Nhân", 
-                icon: "💨", 
-                desc: "Dấu hiệu đặc trưng của khí độc Xyanua."
-            },
-            {
-                name: "Mảnh Gốm Cổ", 
-                icon: "🏺", 
-                desc: "Bên trong mảnh gốm vỡ có chứa hỗn hợp axit và muối xyanua, tạo ra khí độc khi vỡ."
-            },
-            {
-                name: "Mặt Nạ Phòng Độc", 
-                icon: "😷", 
-                desc: "Chỉ có Đồng Nghiệp là người duy nhất đeo mặt nạ kỹ càng trước khi quan tài mở."
-            }
+            { name: "Áo Khoác Đỏ", icon: "🧥", desc: "Tên trộm thực sự có mặc áo đỏ, nhưng một người mù bẩm sinh không thể nào biết được màu sắc của chiếc áo khi ai đó lướt qua." },
+            { name: "Cây Gậy Dò Đường", icon: "🦯", desc: "Phần tay cầm của gậy dính vệt máu khô của nạn nhân." },
+            { name: "Ví Tiền Nạn Nhân", icon: "👛", desc: "Được giấu sâu trong túi áo của Kẻ Mù." }
         ],
-        opts: { 
-            s: ["Kẻ Trộm Mộ", "Hướng Dẫn Viên", "Đồng Nghiệp"], 
-            w: ["Dao Găm", "Khí Độc Xyanua", "Lời Nguyền"], 
-            l: ["Sa Mạc", "Lăng Mộ", "Khách Sạn"] 
+        opts: {
+            s: ["Tên Trộm", "Vợ Nạn Nhân", "Kẻ Mù (Nhân chứng)"],
+            w: ["Súng", "Gậy Dò Đường", "Dao Phay"],
+            l: ["Trong Nhà", "Hẻm Vắng", "Quán Nhậu"]
         },
-        sol: {s: "Đồng Nghiệp", w: "Khí Độc Xyanua", l: "Lăng Mộ"}
+        sol: { s: "Kẻ Mù (Nhân chứng)", w: "Gậy Dò Đường", l: "Hẻm Vắng" }
     },
     {
         id: 11,
-        title: "Bóng Ma Trên Đỉnh Tuyết", 
-        diff: "TRUNG BÌNH",
-        desc: "Một cái chết lạnh lẽo trên đỉnh núi không người.",
+        title: "Giọt Lệ Độc Tôn",
+        diff: "KHÓ",
+        desc: "Tìm độc tố trong biển nước.",
         story: [
-            "Đội cứu hộ tìm thấy thi thể một nhà leo núi nghiệp dư bị vùi lấp trong tuyết. Xung quanh thi thể chỉ có đúng một hàng dấu chân của chính nạn nhân.",
-            "Khám nghiệm hiện trường cho thấy nạn nhân chết do vết thương chí mạng ở đầu, không phải do lạnh hay kiệt sức.",
-            "Trong chiếc lều cách đó 500m, người bạn đồng hành đang run rẩy vì sợ hãi, nói rằng nạn nhân đã tự ý bỏ đi trong đêm bão.",
-            "Chiếc ba lô của nạn nhân bị khóa bằng mã số: 5555."
+            "Giám đốc nhân sự bị đầu độc ngay giữa cuộc họp căng thẳng. Cô uống nước lọc, cà phê, và ăn trái cây cùng mọi người.",
+            "Tất cả đồ ăn thức uống trên bàn đều sạch. Cảnh sát không tìm thấy manh mối độc dược nào đường tiêu hóa."
         ],
         suspects: [
-            {
-                name: "Bạn Leo Núi", 
-                role: "Đồng Hành", 
-                detail: "Khai: 'Cậu ấy tự bỏ đi giữa đêm. Tôi sợ quá không dám ra ngoài'.<br>Trang bị: Đầy đủ dụng cụ leo núi chuyên nghiệp."
-            },
-            {
-                name: "Đội Trưởng", 
-                role: "Cứu Hộ", 
-                detail: "Khai: 'Chúng tôi nhận được tín hiệu SOS lúc 4h sáng'."
-            },
-            {
-                name: "Chủ Nhà Trọ", 
-                role: "Kinh Doanh", 
-                detail: "Khai: 'Hai người họ đã cãi nhau to tiếng về tiền bạc trước khi lên núi'."
-            }
+            { name: "Trưởng Phòng", role: "Cấp dưới", detail: "Khai: 'Tôi ngồi cạnh cô ấy, tự tay rót nước cho cô ấy'." },
+            { name: "Nhân Viên Mới", role: "Thực tập", detail: "Khai: 'Tôi phụ trách gọt trái cây mang vào phòng'." },
+            { name: "Thư Ký", role: "Trợ lý", detail: "Khai: 'Tôi dọn tài liệu lên bàn trước khi họp'." }
         ],
         evidence: [
-            {
-                name: "Giày Trượt Tuyết", 
-                icon: "🎿", 
-                desc: "Đế giày trượt tuyết rất rộng và phẳng. Nếu đi trên tuyết mới, nó sẽ không để lại dấu chân sâu như giày thường. Hung thủ đã dùng nó để tiếp cận và rời đi mà không để lại dấu vết."
-            },
-            {
-                name: "Chiếc Ba Lô", 
-                icon: "🎒", 
-                desc: "Bên trong thiếu mất bình dưỡng khí dự phòng - thứ quan trọng nhất để sống sót. Người bạn đồng hành đã lén lấy nó."
-            },
-            {
-                name: "Gậy Leo Núi", 
-                icon: "🦯", 
-                desc: "Gậy của người bạn đồng hành có vết máu đã được lau chùi vội vàng bằng tuyết."
-            }
+            { name: "Cốc Nước", icon: "🥛", desc: "Hoàn toàn sạch." },
+            { name: "Trái Cây", icon: "🍎", desc: "Không có độc." },
+            { name: "Lọ Thuốc Nhỏ Mắt", icon: "💧", desc: "Nạn nhân hay bị khô mắt. Trưởng phòng đã bơm Cyanua lỏng vào lọ thuốc này. Khi nạn nhân nhỏ mắt, độc ngấm trực tiếp qua màng nhầy võng mạc gây tử vong tức tưởi." }
         ],
-        opts: { 
-            s: ["Đội Trưởng", "Bạn Leo Núi", "Chủ Nhà Trọ"], 
-            w: ["Lở Tuyết", "Súng Săn", "Gậy Leo Núi"], 
-            l: ["Lều Trại", "Trạm Nghỉ", "Sườn Núi"] 
+        opts: {
+            s: ["Thư Ký", "Trưởng Phòng", "Nhân Viên Mới"],
+            w: ["Trái Cây Tẩm Độc", "Nước Lọc Chứa Cyanua", "Thuốc Nhỏ Mắt Chứa Độc"],
+            l: ["Phòng Nghỉ", "Phòng Họp", "Khu Pha Chế"]
         },
-        sol: {s: "Bạn Leo Núi", w: "Gậy Leo Núi", l: "Sườn Núi"}
+        sol: { s: "Trưởng Phòng", w: "Thuốc Nhỏ Mắt Chứa Độc", l: "Phòng Họp" }
     },
     {
         id: 12,
-        title: "Mật Mã Hacker", 
-        diff: "RẤT KHÓ",
-        desc: "Vụ án mạng trong phòng server đóng kín.",
+        title: "Đá Bào Vang Đỏ",
+        diff: "TRUNG BÌNH",
+        desc: "Tại sao chỉ có một người chết khi uống cùng một chai rượu?",
         story: [
-            "CEO của một tập đoàn công nghệ lớn được phát hiện tử vong ngay tại bàn làm việc trong phòng máy chủ bảo mật cao.",
-            "Nguyên nhân cái chết là do điện giật cực mạnh. Tuy nhiên, không có dây điện hở hay nước đổ ra sàn.",
-            "Trên màn hình máy tính của nạn nhân hiện lên dòng chữ 'GAME OVER'.",
-            "Hệ thống log ghi nhận quyền truy cập admin cuối cùng vào lúc 23:00. Mã đăng nhập: 1010."
+            "Hai đối tác làm ăn cạn ly rượu vang chúc mừng hợp đồng mới. 10 phút sau, ông A chết vì ngộ độc, ông B vẫn bình an.",
+            "Cả hai rót rượu từ cùng một chai, uống từ cùng một bộ ly do phục vụ mang tới."
         ],
         suspects: [
-            {
-                name: "Hacker Mũ Trắng", 
-                role: "Tester", 
-                detail: "Khai: 'Tôi được thuê để test bảo mật, nhưng chưa kịp làm gì'."
-            },
-            {
-                name: "Kỹ Sư Phần Cứng", 
-                role: "Bảo Trì", 
-                detail: "Khai: 'Tôi đã cảnh báo về lỗi rò rỉ điện ở bàn phím từ tuần trước'."
-            },
-            {
-                name: "Thư Ký Riêng", 
-                role: "Trợ Lý", 
-                detail: "Khai: 'Ông ấy gọi tôi pha cà phê lúc 22:30'."
-            }
+            { name: "Ông B", role: "Đối tác", detail: "Khai: 'Tôi uống cạn ly ngay lập tức vì quá khát, ông A thì nhâm nhi từ từ'." },
+            { name: "Người Phục Vụ", role: "Bồi bàn", detail: "Khai: 'Tôi dùng kẹp gắp đá cho cả hai người theo yêu cầu'." },
+            { name: "Vợ Ông A", role: "Người nhà", detail: "Khai: 'Tôi gọi điện cho anh ấy lúc vừa ký xong hợp đồng'." }
         ],
         evidence: [
-            {
-                name: "Bàn Phím Cơ", 
-                icon: "⌨️", 
-                desc: "Bàn phím kim loại đã bị đấu nối trực tiếp với nguồn điện cao thế 220V bên trong case máy tính."
-            },
-            {
-                name: "Laptop Cá Nhân", 
-                icon: "💻", 
-                desc: "Nhật ký truy cập cho thấy Kỹ Sư Phần Cứng đã đăng nhập vào hệ thống điện tòa nhà và tắt aptomat an toàn."
-            },
-            {
-                name: "Sàn Nhà", 
-                icon: "🔲", 
-                desc: "Hoàn toàn khô ráo, loại trừ khả năng tai nạn do nước."
-            }
+            { name: "Chai Rượu", icon: "🍾", desc: "Kiểm nghiệm an toàn." },
+            { name: "Viên Đá Lạnh", icon: "🧊", desc: "Ông B là người đã âm thầm cho độc vào phần lõi của viên đá lạnh. Vì ông B uống ực cạn ly ngay khi đá chưa tan, ông ta không sao. Ông A uống chậm, đá tan ra giải phóng chất độc vào rượu." },
+            { name: "Khăn Lau Ly", icon: "🧻", desc: "Sạch sẽ." }
         ],
-        opts: { 
-            s: ["Hacker Mũ Trắng", "Thư Ký Riêng", "Kỹ Sư Phần Cứng"], 
-            w: ["Nước", "Bàn Phím Nhiễm Điện", "Dây Cáp"], 
-            l: ["Nhà Riêng", "Văn Phòng CEO", "Phòng Server"] 
+        opts: {
+            s: ["Người Phục Vụ", "Vợ Ông A", "Ông B"],
+            w: ["Viên Đá Lạnh Chứa Độc", "Rượu Vang Độc", "Viền Ly Có Độc"],
+            l: ["Quầy Pha Chế", "Bàn Tiệc VIP", "Hành Lang"]
         },
-        sol: {s: "Kỹ Sư Phần Cứng", w: "Bàn Phím Nhiễm Điện", l: "Phòng Server"}
+        sol: { s: "Ông B", w: "Viên Đá Lạnh Chứa Độc", l: "Bàn Tiệc VIP" }
     },
     {
         id: 13,
-        title: "Con Tàu Ma", 
-        diff: "KHÓ",
-        desc: "Sự biến mất bí ẩn giữa đại dương.",
+        title: "Áo Khoác Hai Mặt",
+        diff: "DỄ",
+        desc: "Kẻ thủ ác biến mất trước camera an ninh.",
         story: [
-            "Thuyền trưởng của tàu du lịch 5 sao đột nhiên biến mất trong đêm khi tàu đang ở giữa Thái Bình Dương.",
-            "Camera an ninh hành lang cho thấy ông ta đi vào phòng lúc 22:00 và không bao giờ trở ra.",
-            "Trong phòng thuyền trưởng, cửa sổ ban công mở toang, gió biển lùa vào lạnh buốt. Trên sàn nhà có vũng nước biển mặn chát.",
-            "Két sắt cá nhân của thuyền trưởng bị khóa. Mã két: 3333."
+            "Kẻ cướp đâm gục nhân viên siêu thị rồi bỏ chạy. Camera ghi lại hắn mặc áo khoác màu vàng rực rỡ.",
+            "Cảnh sát phong tỏa siêu thị lập tức, không ai lọt ra ngoài. Nhưng họ kiểm tra tất cả khách hàng đều không ai mặc áo vàng."
         ],
         suspects: [
-            {
-                name: "Thủy Thủ Trưởng", 
-                role: "Thủy Thủ", 
-                detail: "Khai: 'Tôi đang trực trên đài chỉ huy'.<br>Động cơ: Mâu thuẫn về lộ trình tàu."
-            },
-            {
-                name: "Đầu Bếp Trưởng", 
-                role: "Đầu Bếp", 
-                detail: "Khai: 'Tôi đang chuẩn bị thực đơn sáng dưới bếp'."
-            },
-            {
-                name: "Hành Khách VIP", 
-                role: "Khách", 
-                detail: "Khai: 'Tôi đang ngắm trăng ở boong trên'."
-            }
+            { name: "Khách Hàng Nam", role: "Khách", detail: "Khai: 'Tôi mặc áo khoác đen từ lúc ở nhà đi'." },
+            { name: "Thu Ngân", role: "Nhân viên", detail: "Khai: 'Tôi sợ quá nấp dưới quầy'." },
+            { name: "Bảo Vệ", role: "An ninh", detail: "Khai: 'Tôi khóa cửa ngay sau tiếng la'." }
         ],
         evidence: [
-            {
-                name: "Lan Can Ban Công", 
-                icon: "🌊", 
-                desc: "Có vết trầy xước mới, như thể có vật nặng bị kéo qua."
-            },
-            {
-                name: "Nhật Ký Hàng Hải", 
-                icon: "📖", 
-                desc: "Trang cuối cùng viết về việc Thủy Thủ Trưởng đe dọa sẽ 'cho ông ta bơi cùng cá mập'."
-            },
-            {
-                name: "Đoạn Dây Thừng", 
-                icon: "🪢", 
-                desc: "Một đoạn dây thừng bị cắt đứt vương lại ở góc ban công. Nó dùng để trói hoặc kéo nạn nhân."
-            }
+            { name: "Camera Cửa", icon: "📹", desc: "Không có bóng dáng áo vàng nào chạy ra." },
+            { name: "Chiếc Áo Khoác Đen", icon: "🧥", desc: "Áo của Khách Hàng Nam là loại áo khoác gió hai mặt. Mặt trong màu vàng, mặt ngoài màu đen. Hắn lộn ngược áo lại ngay sau khi gây án để hòa vào đám đông." },
+            { name: "Con Dao Nhỏ", icon: "🔪", desc: "Giấu dưới đế giày của Khách Hàng Nam." }
         ],
-        opts: { 
-            s: ["Đầu Bếp Trưởng", "Thủy Thủ Trưởng", "Hành Khách VIP"], 
-            w: ["Dao Găm", "Súng Lục", "Đẩy Xuống Biển"], 
-            l: ["Boong Tàu", "Phòng Thuyền Trưởng", "Nhà Bếp"] 
+        opts: {
+            s: ["Bảo Vệ", "Thu Ngân", "Khách Hàng Nam"],
+            w: ["Cởi Áo Vứt Đi", "Áo Khoác Lộn Hai Mặt", "Đồng Phạm Tráo Áo"],
+            l: ["Bãi Gửi Xe", "Cửa Ra Vào", "Trong Siêu Thị"]
         },
-        sol: {s: "Thủy Thủ Trưởng", w: "Đẩy Xuống Biển", l: "Phòng Thuyền Trưởng"}
+        sol: { s: "Khách Hàng Nam", w: "Áo Khoác Lộn Hai Mặt", l: "Trong Siêu Thị" }
     },
     {
         id: 14,
-        title: "Cú Swing Tử Thần", 
-        diff: "DỄ", 
-        desc: "Tai nạn thể thao hay mưu sát có chủ đích?",
+        title: "Cuộc Gặp Trong Chớp Mắt",
+        diff: "KHÓ",
+        desc: "Dùng găng tay không chỉ để chống vân tay.",
         story: [
-            "Một đại gia bất động sản gục chết ngay trên sân golf hố số 9. Nguyên nhân là chấn thương sọ não nghiêm trọng do vật cứng đập vào.",
-            "Thi thể nằm sấp trên cỏ, bên cạnh là quả bóng golf của ông ta.",
-            "Ba người chơi cùng nhóm đều khẳng định họ đứng ở xa khi nạn nhân phát bóng.",
-            "Mã khóa túi gậy golf của nạn nhân: 8888."
+            "Kỹ sư trưởng bảo trì điện mạng gục chết khi đang sửa tủ biến áp. Tay bị cháy đen do điện giật 10.000V.",
+            "Găng tay cao su cách điện của ông ta hoàn toàn nguyên vẹn, không rách, không hở."
         ],
         suspects: [
-            {
-                name: "Caddie", 
-                role: "Nhặt Bóng", 
-                detail: "Khai: 'Tôi đang đi tìm bóng ở bụi cây phía trước'."
-            },
-            {
-                name: "Đối Tác", 
-                role: "Doanh Nhân", 
-                detail: "Khai: 'Tôi đang đứng ở khu phát bóng, cách xa ông ấy 200m'."
-            },
-            {
-                name: "Vợ Nạn Nhân", 
-                role: "Vợ", 
-                detail: "Khai: 'Tôi ngồi chờ trên xe điện, uống nước'."
-            }
+            { name: "Thợ Phụ", role: "Công nhân", detail: "Khai: 'Tôi đưa găng tay cho sếp rồi đi mua nước'." },
+            { name: "Chủ Đầu Tư", role: "Sếp lớn", detail: "Khai: 'Tôi đang hối thúc tiến độ qua điện thoại'." },
+            { name: "Thư Ký", role: "Hành chính", detail: "Khai: 'Tôi xếp lịch sửa chữa này từ tuần trước'." }
         ],
         evidence: [
-            {
-                name: "Gậy Sắt Số 7", 
-                icon: "⛳", 
-                desc: "Cây gậy của Đối Tác bị móp méo bất thường ở phần đầu gậy. Có vết máu nhỏ đã được lau sơ qua."
-            },
-            {
-                name: "Điện Thoại", 
-                icon: "📱", 
-                desc: "Tin nhắn đe dọa từ Đối Tác gửi nạn nhân: 'Nếu mày không ký hợp đồng, tao sẽ đập nát đầu mày'."
-            },
-            {
-                name: "Bóng Golf", 
-                icon: "⚪", 
-                desc: "Nằm cách xác 2 mét, sạch sẽ, không dính máu. Chứng tỏ nạn nhân bị đánh chứ không phải bị bóng bay trúng."
-            }
+            { name: "Kìm Cắt Dây", icon: "🗜️", desc: "Bọc nhựa cách điện tốt." },
+            { name: "Găng Tay Cao Su", icon: "🧤", desc: "Thợ phụ đã dùng một cây kim tiêm đâm vô số lỗ li ti xỏ xuyên qua lòng bàn tay của chiếc găng. Mắt thường không thấy, nhưng khi nạn nhân đổ mồ hôi cầm vào dây điện, mồ hôi dẫn điện xuyên qua các lỗ kim gây tử vong." },
+            { name: "Cây Kim Tiêm", icon: "💉", desc: "Tìm thấy trong thùng rác gần đó." }
         ],
-        opts: { 
-            s: ["Vợ Nạn Nhân", "Đối Tác", "Caddie"], 
-            w: ["Bóng Golf Bay Trúng", "Gậy Golf", "Hòn Đá"], 
-            l: ["Nhà Câu Lạc Bộ", "Xe Điện", "Sân Golf (Hố 9)"] 
+        opts: {
+            s: ["Chủ Đầu Tư", "Thợ Phụ", "Thư Ký"],
+            w: ["Cắt Dây Cáp", "Găng Tay Bị Đâm Lỗ Kim", "Tạt Nước Vào Tủ Điện"],
+            l: ["Phòng Họp", "Phòng Kỹ Thuật", "Hành Lang"]
         },
-        sol: {s: "Đối Tác", w: "Gậy Golf", l: "Sân Golf (Hố 9)"}
+        sol: { s: "Thợ Phụ", w: "Găng Tay Bị Đâm Lỗ Kim", l: "Phòng Kỹ Thuật" }
     },
     {
         id: 15,
-        title: "Bí Ẩn Studio Ảnh", 
-        diff: "TRUNG BÌNH",
-        desc: "Cái chết đẹp như một bức tranh.",
+        title: "Phản Ứng Cẩu Trặc",
+        diff: "RẤT KHÓ",
+        desc: "Sự thù hằn giấu trong ống thông gió.",
         story: [
-            "Người mẫu ảnh nổi tiếng Lana đột tử trong buổi chụp hình chủ đề 'Nữ thần băng giá'. Cô chết trong tư thế ngồi trên ngai vàng.",
-            "Phòng chụp được thiết kế kín mít, sử dụng rất nhiều đá khô (CO2 rắn) để tạo hiệu ứng khói mờ ảo.",
-            "Khám nghiệm cho thấy nồng độ Oxy trong máu nạn nhân cực thấp.",
-            "Mã khóa máy ảnh của nhiếp ảnh gia: 2468."
+            "Nạn nhân tử vong tại văn phòng làm việc riêng do sốc phản vệ cấp tính với lông chó.",
+            "Văn phòng ở tầng 15, cấm mang thú cưng, nạn nhân không hề tiếp xúc với bất kỳ con vật nào trong tháng qua."
         ],
         suspects: [
-            {
-                name: "Nhiếp Ảnh Gia", 
-                role: "Chụp Ảnh", 
-                detail: "Khai: 'Tôi chỉ tập trung vào ống kính, không để ý xung quanh'."
-            },
-            {
-                name: "Trợ Lý Ánh Sáng", 
-                role: "Hậu Cần", 
-                detail: "Khai: 'Tôi ra ngoài lấy thêm hắt sáng'."
-            },
-            {
-                name: "Stylist", 
-                role: "Tạo Mẫu", 
-                detail: "Khai: 'Tôi là người chuẩn bị bối cảnh đá khô'."
-            }
+            { name: "Đồng Nghiệp A", role: "Nhân viên", detail: "Khai: 'Tôi nuôi chó, nhưng hôm nay tôi mặc đồ sạch đi làm'." },
+            { name: "Trưởng Phòng", role: "Sếp", detail: "Khai: 'Tôi dị ứng mèo, không ưa động vật'." },
+            { name: "Bảo Trì Tòa Nhà", role: "Kỹ thuật", detail: "Khai: 'Hệ thống gió đang chạy bình thường'." }
         ],
         evidence: [
-            {
-                name: "Không Khí", 
-                icon: "☁️", 
-                desc: "Nồng độ khí CO2 trong phòng cao gấp 20 lần mức an toàn do lượng đá khô quá lớn được thả vào nước nóng."
-            },
-            {
-                name: "Thẻ Nhớ Máy Ảnh", 
-                icon: "📷", 
-                desc: "Những bức ảnh cuối cùng chụp được cảnh Stylist lén đổ thêm một lượng lớn đá khô vào bồn ngay sát chân nạn nhân."
-            },
-            {
-                name: "Cửa Thoát Hiểm", 
-                icon: "🚪", 
-                desc: "Bị chặn lại bởi các thùng thiết bị, khiến không khí không thể lưu thông."
-            }
+            { name: "Áo Khoác", icon: "🧥", desc: "Áo của Đồng Nghiệp A hoàn toàn sạch lông." },
+            { name: "Màng Lọc Gió", icon: "💨", desc: "Đồng Nghiệp A đã bí mật gom một lượng lớn lông chó của mình, nhét vào phía sau màng lọc của cửa gió điều hòa chĩa thẳng vào bàn nạn nhân. Khi bật máy lạnh, lông bay vô hình trong không khí." },
+            { name: "Thùng Rác", icon: "🗑️", desc: "Có vỏ túi nilon chứa lông động vật." }
         ],
-        opts: { 
-            s: ["Trợ Lý Ánh Sáng", "Nhiếp Ảnh Gia", "Stylist"], 
-            w: ["Dây Siết", "Thuốc Độc", "Ngạt Khí (Đá Khô CO2)"], 
-            l: ["Phòng Thay Đồ", "Studio Chụp Ảnh", "Sảnh Chờ"] 
+        opts: {
+            s: ["Trưởng Phòng", "Đồng Nghiệp A", "Bảo Trì Tòa Nhà"],
+            w: ["Bỏ Độc Vào Cà Phê", "Lông Chó Trong Ống Thông Gió", "Bôi Lông Chó Lên Bàn"],
+            l: ["Phòng Vệ Sinh", "Bàn Làm Việc", "Phòng Kỹ Thuật"]
         },
-        sol: {s: "Stylist", w: "Ngạt Khí (Đá Khô CO2)", l: "Studio Chụp Ảnh"}
+        sol: { s: "Đồng Nghiệp A", w: "Lông Chó Trong Ống Thông Gió", l: "Bàn Làm Việc" }
     },
     {
         id: 16,
-        title: "Bóng Tối Đồn Cảnh Sát", 
-        diff: "CỰC KHÓ",
-        desc: "Chết trong buồng giam được canh gác 24/7.",
+        title: "Dòng Chữ Vô Hình",
+        diff: "DỄ",
+        desc: "Sự thật nằm dưới đáy chén.",
         story: [
-            "Một nhân chứng quan trọng được phát hiện treo cổ trong buồng giam biệt lập. Cảnh sát trưởng kết luận là tự sát.",
-            "Tuy nhiên, nút thắt dây thừng quá chuyên nghiệp so với khả năng của nạn nhân. Và camera giám sát buồng giam đã bị tắt đúng 5 phút.",
-            "Chỉ có người có quyền cao nhất mới tắt được camera và mở cửa buồng giam.",
-            "Mã đăng nhập hệ thống camera: 9900."
+            "Người chồng bị đâm chết tại bàn ăn. Người vợ nói có kẻ gian đột nhập đánh cắp tài sản.",
+            "Tài sản duy nhất bị mất là một cuốn sổ tiết kiệm. Trên bàn còn một chén canh đang ăn dở."
         ],
         suspects: [
-            {
-                name: "CS Trực Ban", 
-                role: "Lính Gác", 
-                detail: "Khai: 'Tôi đi vệ sinh lúc đó, khi quay lại thì camera đã tắt'."
-            },
-            {
-                name: "Cảnh Sát Trưởng", 
-                role: "Chỉ Huy", 
-                detail: "Khai: 'Tôi đang họp với cấp trên qua điện thoại trong phòng làm việc'."
-            },
-            {
-                name: "Lao Công", 
-                role: "Tạp Vụ", 
-                detail: "Khai: 'Tôi đang lau sàn ở sảnh ngoài'."
-            }
+            { name: "Người Vợ", role: "Vợ", detail: "Khai: 'Hắn trùm kín mặt, cầm dao xông vào'." },
+            { name: "Kẻ Đột Nhập", role: "Kẻ cướp", detail: "Vết chân bùn đất mờ nhạt từ cửa sổ." },
+            { name: "Hàng Xóm", role: "Nhân chứng", detail: "Khai: 'Tôi nghe tiếng la hét lúc 7h tối'." }
         ],
         evidence: [
-            {
-                name: "Dây Giày", 
-                icon: "👟", 
-                desc: "Nạn nhân bị treo cổ bằng dây giày, nhưng giày của nạn nhân là loại giày lười không dây. Dây này được mang từ ngoài vào."
-            },
-            {
-                name: "Nhật Ký Hệ Thống", 
-                icon: "💻", 
-                desc: "Tài khoản Admin của Cảnh Sát Trưởng đã đăng nhập để xóa dữ liệu camera trong 5 phút đó."
-            },
-            {
-                name: "Chùm Chìa Khóa", 
-                icon: "🗝️", 
-                desc: "Chìa khóa vạn năng chỉ có Cảnh Sát Trưởng giữ."
-            }
+            { name: "Chén Canh", icon: "🥣", desc: "Đáy chén có một vết xước hình chữ thập (X) - dấu hiệu giang hồ đòi nợ? Không, đây là chén mới mua." },
+            { name: "Vết Bùn Đất", icon: "👣", desc: "Vết giày in trên thảm hướng TỪ TRONG RA NGOÀI cửa sổ, không phải từ ngoài vào. Người vợ đã tạo hiện trường giả." },
+            { name: "Dao Thái Thịt", icon: "🔪", desc: "Được rửa sạch cất trong bếp, có phản ứng với thuốc thử máu." }
         ],
-        opts: { 
-            s: ["CS Trực Ban", "Lao Công", "Cảnh Sát Trưởng"], 
-            w: ["Súng Lục", "Dàn Dựng Treo Cổ", "Thuốc Độc"], 
-            l: ["Phòng Trực Ban", "Phòng Cảnh Sát Trưởng", "Buồng Giam"] 
+        opts: {
+            s: ["Kẻ Đột Nhập", "Hàng Xóm", "Người Vợ"],
+            w: ["Độc Trong Canh", "Tự Sát", "Dàn Dựng Hiện Trường Đột Nhập"],
+            l: ["Bàn Ăn", "Cửa Sổ", "Nhà Bếp"]
         },
-        sol: {s: "Cảnh Sát Trưởng", w: "Dàn Dựng Treo Cổ", l: "Buồng Giam"}
+        sol: { s: "Người Vợ", w: "Dàn Dựng Hiện Trường Đột Nhập", l: "Bàn Ăn" }
     },
     {
         id: 17,
-        title: "Lính Cứu Hỏa Phản Bội", 
-        diff: "TRUNG BÌNH",
-        desc: "Chết cháy vì bình dưỡng khí rỗng.",
+        title: "Chiếc Phao Định Mệnh",
+        diff: "TB",
+        desc: "Sát hại nạn nhân giữa biển khơi bằng một cây kim.",
         story: [
-            "Đội trưởng đội cứu hỏa hy sinh trong đám cháy một nhà kho. Nguyên nhân là ngạt khói do hết dưỡng khí.",
-            "Điều lạ lùng là bình khí của ông mới được thay trước khi vào đám cháy 5 phút.",
-            "Van bình khí không bị hỏng, nhưng bên trong hoàn toàn trống rỗng.",
-            "Mã tủ thiết bị cứu hỏa: 1144."
+            "Du khách không biết bơi tử vong do đuối nước khi đang dùng phao nằm thư giãn trên biển.",
+            "Phao xẹp lép khi được vớt lên. Nạn nhân hoảng loạn và chìm."
         ],
         suspects: [
-            {
-                name: "Lính Mới", 
-                role: "Tân Binh", 
-                detail: "Khai: 'Tôi là người thay bình khí cho Đội trưởng. Tôi chắc chắn nó đầy'."
-            },
-            {
-                name: "Chủ Nhà Kho", 
-                role: "Nạn Nhân", 
-                detail: "Khai: 'Tôi chạy thoát ra ngoài ngay khi thấy lửa'."
-            },
-            {
-                name: "Đội Phó", 
-                role: "Chỉ Huy", 
-                detail: "Khai: 'Tôi chỉ huy bên ngoài, không vào trong'."
-            }
+            { name: "Chủ Cho Thuê Phao", role: "Dịch vụ", detail: "Khai: 'Tôi bơm phao căng cứng trước khi giao'." },
+            { name: "Bạn Gái", role: "Đi cùng", detail: "Khai: 'Tôi bơi ở gần đó, quay lại thì phao đã xẹp'." },
+            { name: "Người Lướt Ván", role: "Du khách", detail: "Khai: 'Ván của tôi vô tình quệt trúng phao của anh ta'." }
         ],
         evidence: [
-            {
-                name: "Bình Khí", 
-                icon: "🧯", 
-                desc: "Bình khí này có một lỗ thủng nhỏ xíu ở đáy đã được hàn lại sơ sài, khí đã rò rỉ hết từ trước. Lính Mới cố tình đưa bình hỏng này."
-            },
-            {
-                name: "Bật Lửa Zippo", 
-                icon: "🔥", 
-                desc: "Tìm thấy tại điểm khởi phát cháy, khắc tên Chủ Nhà Kho (đây là vụ phóng hỏa trục lợi bảo hiểm)."
-            },
-            {
-                name: "Tài Khoản Bank", 
-                icon: "💳", 
-                desc: "Lính Mới vừa nhận một khoản tiền lớn từ Chủ Nhà Kho."
-            }
+            { name: "Vết Rách", icon: "🏄", desc: "Không có vết rách lớn nào do ván lướt sóng gây ra." },
+            { name: "Lỗ Kim Tiêm", icon: "📍", desc: "Có 5 lỗ châm kim cực nhỏ ở mặt dưới phao. Chủ ý của Bạn Gái là để phao xịt từ từ khi nạn nhân bơi ra xa bờ, khiến hắn đuối nước từ từ mà không tạo ra tiếng nổ bục phao." },
+            { name: "Cây Kim Băng", icon: "🧷", desc: "Giấu trong túi xách chống nước của Bạn Gái." }
         ],
-        opts: { 
-            s: ["Chủ Nhà Kho", "Lính Mới", "Đội Phó"], 
-            w: ["Sập Tường", "Đẩy Vào Lửa", "Bình Khí Hỏng (Ngạt Khói)"], 
-            l: ["Trạm Cứu Hỏa", "Hiện Trường Đám Cháy", "Xe Cứu Hỏa"] 
+        opts: {
+            s: ["Chủ Cho Thuê Phao", "Bạn Gái", "Người Lướt Ván"],
+            w: ["Đâm Kim Vào Phao", "Đâm Ván Trượt", "Cho Thuê Phao Rách"],
+            l: ["Bãi Biển", "Giữa Biển", "Quầy Cho Thuê"]
         },
-        sol: {s: "Lính Mới", w: "Bình Khí Hỏng (Ngạt Khói)", l: "Hiện Trường Đám Cháy"}
+        sol: { s: "Bạn Gái", w: "Đâm Kim Vào Phao", l: "Giữa Biển" }
     },
     {
         id: 18,
-        title: "Giàn Giáo Tử Thần", 
+        title: "Băng Keo Phản Chủ",
         diff: "KHÓ",
-        desc: "Tai nạn lao động hay âm mưu được tính toán?",
+        desc: "Hệ thống bảo mật vân tay bị qua mặt.",
         story: [
-            "Kiến trúc sư trưởng rơi từ tầng 10 của tòa nhà đang xây dựng xuống đất tử vong. Giàn giáo nơi ông đứng bị sập một góc.",
-            "Các công nhân khai rằng giàn giáo mới được lắp đặt và kiểm tra kỹ lưỡng.",
-            "Tại vị trí sập, các chốt khóa giàn giáo đã biến mất.",
-            "Mã hộp đựng bản vẽ: 2233."
+            "Két sắt chứa tài liệu mật bị mở toang. Không có dấu hiệu cạy phá. Khóa két là loại nhận diện vân tay cao cấp.",
+            "Giám đốc (người duy nhất có vân tay) bị đâm chết tại bàn làm việc trước khi két bị mở."
         ],
         suspects: [
-            {
-                name: "Chủ Thầu", 
-                role: "Quản Lý", 
-                detail: "Khai: 'Chúng tôi đang tranh cãi gay gắt về chất lượng vật liệu'."
-            },
-            {
-                name: "Thợ Xây", 
-                role: "Công Nhân", 
-                detail: "Khai: 'Tôi là người lắp giàn giáo đó, tôi thề tôi đã siết ốc kỹ'."
-            },
-            {
-                name: "Thư Ký Dự Án", 
-                role: "Trợ Lý", 
-                detail: "Khai: 'Tôi đưa mũ bảo hộ cho ông ấy rồi đi xuống'."
-            }
+            { name: "Phó Giám Đốc", role: "Cấp dưới", detail: "Khai: 'Tôi phát hiện xác chết lúc sáng nay'." },
+            { name: "Thư Ký", role: "Trợ lý", detail: "Khai: 'Sếp vừa gọi tôi vào lấy báo cáo thì đã gục rồi'." },
+            { name: "Bảo Vệ", role: "An ninh", detail: "Khai: 'Tôi không nghe tiếng động gì lạ'." }
         ],
         evidence: [
-            {
-                name: "Mũ Bảo Hộ", 
-                icon: "⛑️", 
-                desc: "Vỡ nát do va đập."
-            },
-            {
-                name: "Cờ Lê Đa Năng", 
-                icon: "🔧", 
-                desc: "Tìm thấy trong cốp xe của Chủ Thầu. Trên cờ lê có dính mỡ bò trùng loại với mỡ trên giàn giáo."
-            },
-            {
-                name: "Chốt Khóa", 
-                icon: "🔩", 
-                desc: "Được tìm thấy trong túi quần của Chủ Thầu. Hắn đã tháo chốt khi Kiến trúc sư không để ý."
-            }
+            { name: "Băng Keo Trong", icon: "🩹", desc: "Thư ký đã dán một đoạn băng keo trong lên nút quét vân tay từ hôm trước. Khi Giám đốc mở két, vân tay in lên băng dính. Thư ký sát hại giám đốc, gỡ đoạn băng dính đó ra ấn lại vào máy quét để mở két." },
+            { name: "Ngón Tay Nạn Nhân", icon: "🖐️", desc: "Không có vết mực hay dấu hiệu bị ép nhấn vào két (do khoảng cách từ xác đến két khá xa)." },
+            { name: "Báo Cáo", icon: "📄", desc: "Bị vứt tung tóe trên sàn." }
         ],
-        opts: { 
-            s: ["Thư Ký Dự Án", "Chủ Thầu", "Thợ Xây"], 
-            w: ["Đẩy Ngã", "Tháo Chốt Giàn Giáo", "Gạch Rơi"], 
-            l: ["Văn Phòng", "Tầng 10", "Công Trường Xây Dựng"] 
+        opts: {
+            s: ["Bảo Vệ", "Phó Giám Đốc", "Thư Ký"],
+            w: ["Chặt Ngón Tay", "Băng Keo Lấy Vân Tay", "Hack Mật Khẩu"],
+            l: ["Hành Lang", "Phòng Giám Đốc", "Phòng Kế Toán"]
         },
-        sol: {s: "Chủ Thầu", w: "Tháo Chốt Giàn Giáo", l: "Công Trường Xây Dựng"}
+        sol: { s: "Thư Ký", w: "Băng Keo Lấy Vân Tay", l: "Phòng Giám Đốc" }
     },
     {
         id: 19,
-        title: "Xe Bom", 
-        diff: "KHÓ",
-        desc: "Vụ nổ rung chuyển bãi đỗ xe.",
+        title: "Án Mạng Chuyến Xe Đêm",
+        diff: "RẤT KHÓ",
+        desc: "Nạn nhân chết gục ở ghế sau xe công nghệ.",
         story: [
-            "Chiếc xe hơi của một nhà báo điều tra phát nổ ngay khi anh ta vừa vặn chìa khóa khởi động. Nạn nhân tử vong tại chỗ.",
-            "Chuyên gia bom mìn xác định bom được gài dưới gầm xe, kích hoạt bằng hệ thống đề nổ.",
-            "Nhà báo này đang nắm giữ bằng chứng tham nhũng của một quan chức lớn.",
-            "Mã camera bãi xe: 4455."
+            "Tài xế xe Be Group hốt hoảng báo cảnh sát khi vị khách ngồi băng ghế sau gục chết trên đường ra ngoại ô.",
+            "Cửa kính đóng kín, xe chạy liên tục không dừng. Nạn nhân tử vong do hít phải khí độc Carbon Monoxide (CO).",
+            "Tài xế ở ghế trước vẫn hoàn toàn tỉnh táo."
         ],
         suspects: [
-            {
-                name: "Vệ Sĩ", 
-                role: "Bảo Vệ", 
-                detail: "Khai: 'Tôi được lệnh theo dõi anh ta, nhưng tôi không giết người'."
-            },
-            {
-                name: "Thợ Rửa Xe", 
-                role: "Nhân Viên", 
-                detail: "Khai: 'Sáng nay anh ấy có mang xe đến rửa'."
-            },
-            {
-                name: "Chính Trị Gia", 
-                role: "Quan Chức", 
-                detail: "Khai: 'Tôi không biết gì về vụ này'."
-            }
+            { name: "Tài Xế Xe Be", role: "Lái xe", detail: "Khai: 'Tôi chạy bật điều hòa suốt tuyến, anh ta ngủ gật rồi đi luôn'." },
+            { name: "Vợ Nạn Nhân", role: "Người đặt xe", detail: "Khai: 'Tôi dùng app gọi xe cho chồng đi công tác'." },
+            { name: "Thợ Sửa Xe", role: "Bảo dưỡng", detail: "Khai: 'Xe này tuần trước vừa thay lốc lạnh'." }
         ],
         evidence: [
-            {
-                name: "Mảnh Kíp Nổ", 
-                icon: "💣", 
-                desc: "Loại kíp nổ quân dụng C4, không bán ngoài thị trường."
-            },
-            {
-                name: "Băng Ghi Hình", 
-                icon: "📹", 
-                desc: "Ghi lại cảnh Vệ Sĩ lẻn xuống gầm xe trong lúc xe đang được rửa (Thợ rửa xe không để ý)."
-            },
-            {
-                name: "Máy Ghi Âm", 
-                icon: "🎙️", 
-                desc: "Trong túi nạn nhân, ghi lại cuộc gọi đe dọa từ Vệ Sĩ."
-            }
+            { name: "Ống Xả (Pô xe)", icon: "💨", desc: "Tài xế đã khoét một lỗ nhỏ ở ống xả, dùng ống cao su luồn khí thải CO trực tiếp vào hốc gió điều hòa dưới gầm ghế sau. Hắn ta mở hé cửa sổ ghế lái của mình để thoát khí." },
+            { name: "Nước Giải Khát", icon: "🧃", desc: "Chai nước khách uống không có độc." },
+            { name: "Camera Hành Trình", icon: "📹", desc: "Đã bị rút thẻ nhớ trước chuyến đi." }
         ],
-        opts: { 
-            s: ["Thợ Rửa Xe", "Chính Trị Gia", "Vệ Sĩ"], 
-            w: ["Bom Gài Gầm Xe", "Đâm Xe", "Súng Tỉa"], 
-            l: ["Gara Rửa Xe", "Bãi Đỗ Xe", "Tòa Soạn Báo"] 
+        opts: {
+            s: ["Thợ Sửa Xe", "Vợ Nạn Nhân", "Tài Xế Xe Be"],
+            w: ["Đầu Độc Nước Uống", "Luồn Khí CO Vào Ghế Sau", "Chặn Cửa Gây Ngạt"],
+            l: ["Nhà Nạn Nhân", "Gara Sửa Xe", "Trên Xe Hơi"]
         },
-        sol: {s: "Vệ Sĩ", w: "Bom Gài Gầm Xe", l: "Bãi Đỗ Xe"}
+        sol: { s: "Tài Xế Xe Be", w: "Luồn Khí CO Vào Ghế Sau", l: "Trên Xe Hơi" }
     },
     {
         id: 20,
-        title: "Phấn Trắng Tử Thần", 
-        diff: "TRUNG BÌNH",
-        desc: "Vụ ám sát ngay trên bục giảng.",
+        title: "Lời Nguyền Nam Châm",
+        diff: "KHÓ",
+        desc: "Dữ liệu bị xóa sạch không cần mật khẩu.",
         story: [
-            "Thầy giáo dạy Hóa ngã gục ngay trên bục giảng khi đang viết bài. Ông chết do hít phải một lượng lớn bụi phấn độc.",
-            "Hộp phấn màu trắng ông đang dùng đã bị tẩm chất độc Cyanua dạng bột.",
-            "Chỉ có giáo viên và lao công mới có chìa khóa tủ đựng phấn.",
-            "Mã tủ văn phòng phẩm: 6677."
+            "Máy chủ chứa dữ liệu tham nhũng của tòa án bị xóa trắng hoàn toàn. Người giữ chìa khóa phòng server bị đánh ngất.",
+            "Cửa phòng server làm bằng kính cường lực không thể phá vỡ, mã khóa vân tay bình thường.",
+            "Hung thủ không hề bước chân vào phòng máy chủ."
         ],
         suspects: [
-            {
-                name: "Phó Hiệu Trưởng", 
-                role: "Đồng Nghiệp", 
-                detail: "Khai: 'Tôi muốn lên chức Hiệu trưởng, nhưng ông ấy là đối thủ lớn nhất'.<br>Thái độ: Giả vờ đau buồn."
-            },
-            {
-                name: "Học Sinh Cá Biệt", 
-                role: "Học Trò", 
-                detail: "Khai: 'Em ghét ổng vì hay mắng em, nhưng em không giết người'."
-            },
-            {
-                name: "Lao Công", 
-                role: "Tạp Vụ", 
-                detail: "Khai: 'Sáng nào tôi cũng thay phấn mới cho các lớp'."
-            }
+            { name: "Quan Chức", role: "Nghi phạm tham nhũng", detail: "Khai: 'Tôi đang bị tạm giam lấy đâu ra khả năng làm việc đó'." },
+            { name: "Luật Sư", role: "Bào chữa", detail: "Khai: 'Tôi đến thăm thân chủ và chỉ đứng ngoài hành lang tòa án'." },
+            { name: "Kỹ Sư IT", role: "Quản trị mạng", detail: "Khai: 'Server offline lúc 3h sáng, tôi đang ngủ ở nhà'." }
         ],
         evidence: [
-            {
-                name: "Viên Phấn Độc", 
-                icon: "🖍️", 
-                desc: "Viên phấn này nặng hơn bình thường do đã bị ngâm tẩm hóa chất. Nó được lấy từ ngăn tủ riêng của Thầy Phó Hiệu Trưởng."
-            },
-            {
-                name: "Khăn Lau Bảng", 
-                icon: "🧽", 
-                desc: "Bình thường, không có độc."
-            },
-            {
-                name: "Găng Tay Cao Su", 
-                icon: "🧤", 
-                desc: "Tìm thấy trong cặp của Phó Hiệu Trưởng, dính bột phấn trắng."
-            }
+            { name: "Cửa Kính Phòng Server", icon: "🔲", desc: "Hoàn toàn nguyên vẹn. Bàn đặt ổ cứng nằm sát ngay mặt kính bên trong." },
+            { name: "Nam Châm Neodymium", icon: "🧲", desc: "Luật sư đã lén áp một khối nam châm đất hiếm cực mạnh vào mặt ngoài của lớp kính cường lực, ngay sát vị trí ổ cứng HDD bên trong. Từ trường cực mạnh đã phá hủy toàn bộ đĩa từ mà không cần đột nhập." },
+            { name: "Cáp Mạng", icon: "🔌", desc: "Không có dấu hiệu bị hack qua mạng LAN." }
         ],
-        opts: { 
-            s: ["Học Sinh Cá Biệt", "Phó Hiệu Trưởng", "Lao Công"], 
-            w: ["Dao", "Phấn Tẩm Độc Cyanua", "Nước Uống Có Độc"], 
-            l: ["Phòng Giáo Viên", "Sân Trường", "Lớp Học"] 
+        opts: {
+            s: ["Kỹ Sư IT", "Luật Sư", "Quan Chức"],
+            w: ["Hack Qua Mạng", "Đập Vỡ Cửa Kính", "Nam Châm Phá Ổ Cứng"],
+            l: ["Phòng Server", "Hành Lang Tòa Án", "Nhà Tạm Giam"]
         },
-        sol: {s: "Phó Hiệu Trưởng", w: "Phấn Tẩm Độc Cyanua", l: "Lớp Học"}
+        sol: { s: "Luật Sư", w: "Nam Châm Phá Ổ Cứng", l: "Hành Lang Tòa Án" }
     },
     {
         id: 21,
-        title: "Tiệm Bánh Nửa Đêm", 
-        diff: "TRUNG BÌNH",
-        desc: "Cái chết ngọt ngào trong kho nguyên liệu.",
+        title: "Cuộc Gọi Tử Thần",
+        diff: "TB",
+        desc: "Bị đâm chết trong lúc đang nghe điện thoại.",
         story: [
-            "Chủ tiệm bánh danh tiếng được tìm thấy đã chết trong kho bột mì khóa kín. Nạn nhân bị vùi lấp trong đống bột trắng xóa, nguyên nhân tử vong là ngạt thở.",
-            "Cửa kho chỉ có thể khóa từ bên ngoài. Tuy nhiên, chìa khóa duy nhất lại nằm trong túi tạp dề của nạn nhân.",
-            "Hệ thống camera an ninh đã bị ai đó bôi kem che kín ống kính vào đúng thời điểm xảy ra vụ án (23:00).",
-            "Két tiền trống rỗng, mã số két là ngày sinh con gái chủ tiệm: 2468."
+            "Ông chủ bị đâm từ phía sau khi đang nói chuyện điện thoại bằng tai nghe Bluetooth trong văn phòng.",
+            "Nhân chứng duy nhất là người đang ở đầu dây bên kia: 'Tôi nghe ông ấy kêu Á lên một tiếng rồi im bặt, sau đó là tiếng bước chân chạy'."
         ],
         suspects: [
-            {
-                name: "Phụ Bếp", 
-                role: "Thợ Bánh", 
-                detail: "Khai: 'Tôi đang nướng mẻ bánh cuối cùng'.<br>Biểu hiện: Tay run rẩy, dính đầy bột."
-            },
-            {
-                name: "Vợ Nạn Nhân", 
-                role: "Thu Ngân", 
-                detail: "Khai: 'Tôi đang tính sổ sách ở quầy thu ngân'.<br>Động cơ: Gần đây hai vợ chồng hay cãi nhau về tiền bạc."
-            },
-            {
-                name: "Đối Thủ", 
-                role: "Cạnh Tranh", 
-                detail: "Khai: 'Tôi chỉ đi ngang qua mua bánh mì thôi'."
-            }
+            { name: "Thư Ký", role: "Đang gọi điện", detail: "Khai: 'Tôi gọi báo cáo công việc từ nhà riêng, nghe thấy mọi chuyện'." },
+            { name: "Bảo Vệ", role: "Trực đêm", detail: "Khai: 'Tôi thấy phòng sếp sáng đèn nhưng không dám vào'." },
+            { name: "Đối Tác", role: "Kẻ thù", detail: "Khai: 'Tôi đe dọa ông ta, nhưng sát thủ không phải là tôi'." }
         ],
         evidence: [
-            {
-                name: "Bao Bột Mì", 
-                icon: "🥡", 
-                desc: "Bị rạch toang bằng một vật sắc nhọn, không phải tự nhiên bục vỡ."
-            },
-            {
-                name: "Chìa Khóa Kho", 
-                icon: "🗝️", 
-                desc: "Chìa khóa nằm trong túi nạn nhân, nhưng Phụ Bếp có một bản sao bí mật giấu dưới đế giày."
-            },
-            {
-                name: "Camera Bị Che", 
-                icon: "📹", 
-                desc: "Loại kem dùng để che camera là kem bơ đặc biệt, chỉ có Phụ Bếp mới biết công thức pha chế."
-            }
+            { name: "Điện Thoại", icon: "📱", desc: "Nhật ký cuộc gọi ghi nhận cuộc gọi với Thư ký kéo dài 5 phút." },
+            { name: "Ứng Dụng Thu Âm", icon: "🎙️", desc: "Thư ký thực chất đang trốn sau rèm cửa phòng sếp. Cô ta bật một đoạn ghi âm câu hỏi của mình, kết nối Bluetooth với tai nghe sếp, sau đó vòng ra sau lưng đâm nạn nhân để ngụy tạo ngoại phạm là 'đang gọi từ nhà'." },
+            { name: "Dao Găm", icon: "🔪", desc: "Dính máu và bị ném lại hiện trường." }
         ],
-        opts: { 
-            s: ["Vợ Nạn Nhân", "Đối Thủ", "Phụ Bếp"], 
-            w: ["Dao Làm Bánh", "Đẩy Ngã & Đổ Bột (Ngạt Thở)", "Súng"], 
-            l: ["Khu Vực Nướng", "Kho Bột Mì", "Quầy Thu Ngân"] 
+        opts: {
+            s: ["Đối Tác", "Bảo Vệ", "Thư Ký"],
+            w: ["Súng Lục", "Dao Găm Cùng File Ghi Âm Giả", "Thuốc Độc"],
+            l: ["Văn Phòng Sếp", "Nhà Riêng Thư Ký", "Quầy Lễ Tân"]
         },
-        sol: {s: "Phụ Bếp", w: "Đẩy Ngã & Đổ Bột (Ngạt Thở)", l: "Kho Bột Mì"}
+        sol: { s: "Thư Ký", w: "Dao Găm Cùng File Ghi Âm Giả", l: "Văn Phòng Sếp" }
     },
     {
         id: 22,
-        title: "Thẩm Mỹ Viện Tử Thần", 
+        title: "Giai Điệu Ru Ngủ",
         diff: "KHÓ",
-        desc: "Ca phẫu thuật làm đẹp biến thành thảm kịch.",
+        desc: "Mùi hương thoang thoảng kết liễu cuộc đời.",
         story: [
-            "Một nữ đại gia bất động sản đột ngột tử vong ngay trên bàn mổ trong khi đang thực hiện phẫu thuật căng da mặt.",
-            "Bác sĩ phẫu thuật khẳng định mọi quy trình đều chuẩn xác. Tuy nhiên, giám định pháp y phát hiện nạn nhân chết do thiếu oxy脑 trầm trọng.",
-            "Hệ thống cung cấp khí gây mê và oxy dường như đã bị can thiệp.",
-            "Mã tủ hồ sơ bệnh án: 1111."
+            "Nạn nhân chết trong lúc tắm bồn nước nóng, cửa phòng tắm chốt trong. Chết do suy hô hấp.",
+            "Không có máy sấy tóc rò điện, nước trong bồn không có thuốc độc."
         ],
         suspects: [
-            {
-                name: "Bác Sĩ Trưởng", 
-                role: "Phẫu Thuật", 
-                detail: "Khai: 'Tôi đã phẫu thuật cho hàng ngàn người, không thể có sai sót'.<br>Hoàn cảnh: Đang nợ nần do cờ bạc."
-            },
-            {
-                name: "Y Tá Phụ Tá", 
-                role: "Trợ Lý", 
-                detail: "Khai: 'Tôi là người chuẩn bị các bình khí trước ca mổ'."
-            },
-            {
-                name: "Chồng Nạn Nhân", 
-                role: "Người Nhà", 
-                detail: "Khai: 'Tôi ngồi chờ bên ngoài suốt 4 tiếng đồng hồ'."
-            }
+            { name: "Người Chồng", role: "Người nhà", detail: "Khai: 'Tôi xem tivi ngoài phòng khách, cô ấy tắm rất lâu'." },
+            { name: "Người Giúp Việc", role: "Tạp vụ", detail: "Khai: 'Tôi đã cọ rửa bồn tắm sạch sẽ từ chiều'." },
+            { name: "Bạn Gái Cũ", role: "Kẻ thù", detail: "Khai: 'Tôi có gửi tặng một hộp quà làm đẹp nặc danh'." }
         ],
         evidence: [
-            {
-                name: "Bình Khí Oxy", 
-                icon: "💨", 
-                desc: "Bình dán nhãn Oxy nhưng bên trong lại chứa khí Nitơ nguyên chất (gây ngạt thở tức thì)."
-            },
-            {
-                name: "Sổ Tay Cá Nhân", 
-                icon: "📒", 
-                desc: "Ghi chép của Y Tá cho thấy cô ta đang bị xã hội đen đe dọa đòi nợ thay cho người yêu."
-            },
-            {
-                name: "Hợp Đồng BH", 
-                icon: "📄", 
-                desc: "Chồng nạn nhân vừa mua gói bảo hiểm nhân thọ trị giá cực lớn cho vợ tuần trước."
-            }
+            { name: "Nến Thơm", icon: "🕯️", desc: "Bạn gái cũ đã gửi tặng một hộp nến thơm cao cấp. Phần sáp nến được trộn lẫn với hóa chất gây tê liệt hô hấp khi bay hơi ở nhiệt độ cao. Nạn nhân thắp nến khi tắm và lịm đi." },
+            { name: "Sữa Tắm", icon: "🛁", desc: "Chai sữa tắm hoàn toàn bình thường." },
+            { name: "Quạt Thông Gió", icon: "💨", desc: "Bị hỏng từ trước, khiến khí độc tụ lại trong phòng kín." }
         ],
-        opts: { 
-            s: ["Bác Sĩ Trưởng", "Chồng Nạn Nhân", "Y Tá Phụ Tá"], 
-            w: ["Tráo Bình Khí (Gây Ngạt)", "Thuốc Mê Quá Liều", "Dao Mổ"], 
-            l: ["Phòng Phẫu Thuật", "Sảnh Chờ", "Phòng Hồi Sức"] 
+        opts: {
+            s: ["Người Giúp Việc", "Người Chồng", "Bạn Gái Cũ"],
+            w: ["Sữa Tắm Có Độc", "Nến Thơm Tẩm Khí Độc", "Điện Giật Nước"],
+            l: ["Phòng Khách", "Phòng Tắm", "Sân Vườn"]
         },
-        sol: {s: "Y Tá Phụ Tá", w: "Tráo Bình Khí (Gây Ngạt)", l: "Phòng Phẫu Thuật"}
+        sol: { s: "Bạn Gái Cũ", w: "Nến Thơm Tẩm Khí Độc", l: "Phòng Tắm" }
     },
     {
         id: 23,
-        title: "Bí Mật Dưới Luống Hoa", 
+        title: "Chiếc Thảm Phản Chủ",
         diff: "RẤT KHÓ",
-        desc: "Người làm vườn hay kẻ sát nhân giấu mặt?",
+        desc: "Độc ngấm từ bước chân đầu tiên về nhà.",
         story: [
-            "Cảnh sát tìm thấy thi thể ông chủ biệt thự bị chôn sơ sài dưới luống hoa hồng mới trồng. Nạn nhân chết do chấn thương sọ não bởi vật cứng.",
-            "Đất ở khu vực này vừa được xới lên sáng nay. Người làm vườn thề rằng ông ta chỉ trồng hoa theo lệnh.",
-            "Trong nhà không có dấu hiệu đột nhập, nhưng có vết đất bẩn kéo dài từ cửa sau vào phòng khách.",
-            "Mã khóa nhà kho dụng cụ: 7890."
+            "Vị quan tòa nghiêm khắc gục chết khi vừa bước vào thư viện nhà mình. Chết do ngộ độc chất tiếp xúc qua da.",
+            "Ông ta có thói quen tháo giày và đi chân trần trên thảm trong nhà.",
+            "Không có thức ăn hay đồ uống nào có độc."
         ],
         suspects: [
-            {
-                name: "Quản Gia", 
-                role: "Quản Lý", 
-                detail: "Khai: 'Tôi đi chợ từ sớm và mới về'.<br>Thái độ: Rất bình tĩnh, giày sạch bóng."
-            },
-            {
-                name: "Người Làm Vườn", 
-                role: "Nhân Viên", 
-                detail: "Khai: 'Tôi đang tỉa cây ở sân trước cả buổi sáng'."
-            },
-            {
-                name: "Con Trai", 
-                role: "Thừa Kế", 
-                detail: "Khai: 'Tôi ngủ trong phòng đến trưa mới dậy'."
-            }
+            { name: "Tội Phạm Cũ", role: "Kẻ trả thù", detail: "Khai: 'Tôi theo dõi ông ta về nhà, nhưng chưa kịp hành động'." },
+            { name: "Quản Gia", role: "Người làm", detail: "Khai: 'Tôi giặt thảm và dọn dẹp mỗi ngày'." },
+            { name: "Con Trai Ngỗ Nghịch", role: "Người nhà", detail: "Khai: 'Ông ta cắt viện trợ của tôi, tôi hận ông ta'." }
         ],
         evidence: [
-            {
-                name: "Cái Xẻng", 
-                icon: "⛏️", 
-                desc: "Lưỡi xẻng dính đất và vết máu đã khô. Đây chính là hung khí."
-            },
-            {
-                name: "Đôi Găng Tay", 
-                icon: "🧤", 
-                desc: "Tìm thấy đôi găng tay làm vườn dính máu được giấu kỹ dưới gầm giường của Quản Gia."
-            },
-            {
-                name: "Vết Đất", 
-                icon: "👣", 
-                desc: "Vết đất dẫn từ vườn vào nhà, nhưng lại dừng trước cửa phòng Quản Gia, không phải phòng con trai hay cửa chính."
-            }
+            { name: "Thảm Chùi Chân", icon: "🚪", desc: "Thảm chùi chân TRƯỚC cửa nhà bị Con Trai tẩm bột độc cực mạnh. Khi quan tòa giẫm giày lên, độc dính vào đế giày. Khi tháo giày bằng tay, độc dính vào tay. Sau đó ông ta dụi mắt và tử vong." },
+            { name: "Thảm Thư Viện", icon: "🧶", desc: "Hoàn toàn sạch, không có độc." },
+            { name: "Cốc Trà", icon: "🍵", desc: "Đang pha dở, chưa kịp uống." }
         ],
-        opts: { 
-            s: ["Con Trai", "Người Làm Vườn", "Quản Gia"], 
-            w: ["Cuốc Chim", "Hòn Đá", "Xẻng"], 
-            l: ["Phòng Khách", "Vườn Hoa", "Nhà Kho"] 
+        opts: {
+            s: ["Tội Phạm Cũ", "Quản Gia", "Con Trai Ngỗ Nghịch"],
+            w: ["Thảm Thư Viện Có Độc", "Bột Độc Ở Thảm Chùi Chân Ngoài Cửa", "Trà Có Độc"],
+            l: ["Cửa Ra Vào", "Thư Viện", "Nhà Bếp"]
         },
-        sol: {s: "Quản Gia", w: "Xẻng", l: "Vườn Hoa"}
+        sol: { s: "Con Trai Ngỗ Nghịch", w: "Bột Độc Ở Thảm Chùi Chân Ngoài Cửa", l: "Cửa Ra Vào" }
     },
     {
         id: 24,
-        title: "Cái Chết Của Hacker", 
+        title: "Giọt Nước Chân Không",
         diff: "CỰC KHÓ",
-        desc: "Một vụ ám sát công nghệ cao không dấu vết.",
+        desc: "Phi hành gia tử vong trong buồng mô phỏng.",
         story: [
-            "Một hacker nổi tiếng được phát hiện tử vong tại bàn làm việc. Tư thế chết cứng đơ, tay dính chặt vào bàn phím máy tính.",
-            "Nguyên nhân tử vong là điện giật cường độ cao. Tuy nhiên, dây nguồn máy tính vẫn ổn định, không có nước đổ ra sàn.",
-            "Hacker này đang tống tiền một tập đoàn lớn về lỗ hổng bảo mật.",
-            "Mã đăng nhập máy tính nạn nhân: 1010."
+            "Chuyên gia hàng không tử vong trong buồng huấn luyện chân không. Chết do đuối nước (nước tràn vào phổi).",
+            "Buồng giả lập hoàn toàn khô ráo, bộ đồ phi hành gia không bị rách, mũ bảo hiểm khóa chặt."
         ],
         suspects: [
-            {
-                name: "Kỹ Sư Điện", 
-                role: "Thợ Sửa", 
-                detail: "Khai: 'Tôi đến sửa đường dây internet theo yêu cầu lúc 9h sáng'."
-            },
-            {
-                name: "Bạn Gái", 
-                role: "Người Yêu", 
-                detail: "Khai: 'Anh ấy bảo đang bận việc lớn, đừng làm phiền'."
-            },
-            {
-                name: "Chủ Nợ", 
-                role: "Giang Hồ", 
-                detail: "Khai: 'Nó nợ tôi tiền, tôi chỉ đến đòi nợ chứ không giết nó'."
-            }
+            { name: "Kỹ Sư Vận Hành", role: "Điều khiển", detail: "Khai: 'Tôi chỉ giảm áp suất theo đúng quy trình bài tập'." },
+            { name: "Đồng Đội", role: "Học viên", detail: "Khai: 'Tôi tập ở buồng kế bên, mọi thứ bình thường'." },
+            { name: "Vợ Nạn Nhân", role: "Bảo hiểm", detail: "Khai: 'Anh ấy hay phàn nàn về hệ thống làm mát của bộ đồ'." }
         ],
         evidence: [
-            {
-                name: "Bàn Phím Cơ", 
-                icon: "⌨️", 
-                desc: "Vỏ bàn phím bằng kim loại đã bị đấu nối trực tiếp với dòng điện 220V từ bên trong case máy tính."
-            },
-            {
-                name: "Cầu Dao Tổng", 
-                icon: "⚡", 
-                desc: "Nhật ký SmartHome cho thấy hệ thống điện đã bị can thiệp kỹ thuật. Dấu vân tay của Kỹ Sư Điện in trên cầu dao."
-            },
-            {
-                name: "Cốc Nước", 
-                icon: "💧", 
-                desc: "Nước trong cốc vẫn đầy, loại trừ khả năng nạn nhân làm đổ nước gây chập điện."
-            }
+            { name: "Bộ Quần Áo Vũ Trụ", icon: "👨‍🚀", desc: "Hệ thống ống dẫn nước làm mát bên trong bộ đồ bị Kỹ sư vận hành đục một lỗ rò rỉ ngay gần cổ áo. Khi môi trường là chân không, nước làm mát trào ra, tạo thành các khối nước lơ lửng bọc kín mũi và miệng nạn nhân, gây đuối nước trong mũ bảo hiểm." },
+            { name: "Van Xả Áp Suất", icon: "⚙️", desc: "Hoạt động hoàn toàn bình thường." },
+            { name: "Bình Dưỡng Khí", icon: "🧯", desc: "Còn nguyên 100% khí Oxy." }
         ],
-        opts: { 
-            s: ["Chủ Nợ", "Kỹ Sư Điện", "Bạn Gái"], 
-            w: ["Nước", "Dây Cáp", "Bàn Phím Nhiễm Điện"], 
-            l: ["Cửa Chính", "Nhà Tắm", "Phòng Làm Việc"] 
+        opts: {
+            s: ["Đồng Đội", "Vợ Nạn Nhân", "Kỹ Sư Vận Hành"],
+            w: ["Bơm Nước Vào Mũ", "Ống Làm Mát Rò Rỉ Trong Mũ", "Cắt Cáp Dưỡng Khí"],
+            l: ["Phòng Thay Đồ", "Phòng Điều Khiển", "Buồng Chân Không"]
         },
-        sol: {s: "Kỹ Sư Điện", w: "Bàn Phím Nhiễm Điện", l: "Phòng Làm Việc"}
+        sol: { s: "Kỹ Sư Vận Hành", w: "Ống Làm Mát Rò Rỉ Trong Mũ", l: "Buồng Chân Không" }
     },
     {
         id: 25,
-        title: "Thư Tuyệt Mệnh Giả", 
-        diff: "TRUNG BÌNH",
-        desc: "Tự sát hay bị dàn dựng hiện trường?",
+        title: "Tia Chớp Chết Người",
+        diff: "TB",
+        desc: "Gây án nhờ thời tiết.",
         story: [
-            "Người chồng được tìm thấy trong tư thế treo cổ tại phòng ngủ. Bên cạnh là một lá thư tuyệt mệnh được đánh máy, nói về áp lực công việc.",
-            "Vợ nạn nhân là người phát hiện đầu tiên và gọi cảnh sát. Cô ta khóc lóc thảm thiết.",
-            "Tuy nhiên, cảnh sát thấy chiếc ghế dùng để đứng lên treo cổ nằm quá xa so với vị trí nạn nhân.",
-            "Mã mở khóa laptop của nạn nhân: 2023."
+            "Nạn nhân bị sét đánh cháy đen khi đang chơi golf. Sự việc tưởng chừng là tai nạn xui xẻo do cơn giông bất chợt.",
+            "Nhưng pháp y phát hiện nồng độ sắt và nam châm rải rác trên quần áo nạn nhân cao bất thường."
         ],
         suspects: [
-            {
-                name: "Người Vợ", 
-                role: "Góa Phụ", 
-                detail: "Khai: 'Anh ấy bị trầm cảm cả tháng nay rồi'.<br>Động cơ: Ngoại tình và muốn chiếm tài sản."
-            },
-            {
-                name: "Đồng Nghiệp", 
-                role: "Bạn Bè", 
-                detail: "Khai: 'Hôm qua anh ấy vẫn vui vẻ bàn về dự án mới'."
-            },
-            {
-                name: "Em Trai", 
-                role: "Người Thân", 
-                detail: "Khai: 'Anh tôi không bao giờ tự sát, anh ấy rất yêu đời'."
-            }
+            { name: "Caddie Cũ", role: "Bị sa thải", detail: "Khai: 'Tôi giận ông ta, nhưng làm sao tôi sai khiến được tia sét?'." },
+            { name: "Bạn Chơi Golf", role: "Đối tác", detail: "Khai: 'Tôi thấy trời chuyển mây nên gọi ông ấy vào, nhưng ông ấy cố đánh thêm 1 lỗ'." },
+            { name: "Vợ Nạn Nhân", role: "Phu nhân", detail: "Khai: 'Tôi đã ủi đồ cho anh ấy đi chơi sáng nay'." }
         ],
         evidence: [
-            {
-                name: "Chiếc Ghế", 
-                icon: "🪑", 
-                desc: "Chiếc ghế bị đổ nằm cách chân nạn nhân 2 mét. Không thể nào tự đá ghế xa đến thế."
-            },
-            {
-                name: "File Thư", 
-                icon: "💻", 
-                desc: "Kiểm tra metadata cho thấy file này được tạo ra và in SAU khi nạn nhân đã chết (dựa trên giờ tử vong pháp y)."
-            },
-            {
-                name: "Dây Thừng", 
-                icon: "➰", 
-                desc: "Nút thắt dây là loại nút thắt hàng hải phức tạp, chồng nạn nhân không biết thắt, nhưng người tình của vợ là thủy thủ."
-            }
+            { name: "Bộ Quần Áo Golf", icon: "👕", desc: "Vợ nạn nhân đã bí mật ngâm áo khoác của chồng vào dung dịch chứa bột kim loại dẫn điện cực mạnh trước khi ủi. Khi đứng trên bãi cỏ rộng, nạn nhân trở thành một cột thu lôi di động hoàn hảo." },
+            { name: "Gậy Golf Đánh Dở", icon: "⛳", desc: "Gậy Titanium bình thường, không đủ để thu hút sét nhanh đến vậy." },
+            { name: "Túi Đựng Gậy", icon: "🎒", desc: "Bị ướt mưa, không có manh mối." }
         ],
-        opts: { 
-            s: ["Em Trai", "Người Vợ", "Đồng Nghiệp"], 
-            w: ["Súng", "Dàn Dựng Treo Cổ", "Thuốc Độc"], 
-            l: ["Phòng Khách", "Phòng Ngủ", "Ban Công"] 
+        opts: {
+            s: ["Bạn Chơi Golf", "Caddie Cũ", "Vợ Nạn Nhân"],
+            w: ["Gậy Golf Gắn Nam Châm", "Áo Tẩm Bột Kim Loại Thu Lôi", "Gài Mìn Trọng Lượng"],
+            l: ["Nhà Câu Lạc Bộ", "Sân Golf", "Phòng Giặt Giũ Ở Nhà"]
         },
-        sol: {s: "Người Vợ", w: "Dàn Dựng Treo Cổ", l: "Phòng Ngủ"}
+        sol: { s: "Vợ Nạn Nhân", w: "Áo Tẩm Bột Kim Loại Thu Lôi", l: "Phòng Giặt Giũ Ở Nhà" }
     },
     {
         id: 26,
-        title: "Trộm Kim Cương", 
-        diff: "KHÓ",
-        desc: "Viên kim cương 'Ngôi Sao Xanh' biến mất không dấu vết.",
+        title: "Nấc Cụt Cuối Cùng",
+        diff: "DỄ",
+        desc: "Phản xạ cơ thể trở thành nhược điểm chí mạng.",
         story: [
-            "Tại cửa hàng trang sức cao cấp, viên kim cương quý nhất đã biến mất khỏi tủ kính trưng bày. Tủ kính không hề bị đập vỡ, cũng không có dấu hiệu cạy khóa.",
-            "Chỉ có 3 người giữ chìa khóa của tủ kính này: Quản Lý, Bảo Vệ Trưởng và Chủ Cửa Hàng.",
-            "Hệ thống báo động laser không hề reo lên trong suốt đêm qua.",
-            "Mã truy cập phòng camera an ninh: 5555."
+            "Bác sĩ phẫu thuật bị đâm một nhát dao vào lưng gục chết trong căn tin bệnh viện.",
+            "Camera bị hỏng. 3 người ngồi cùng bàn đều phủ nhận việc ra tay, ai cũng nói mình đang mải cắm mặt ăn."
         ],
         suspects: [
-            {
-                name: "Quản Lý", 
-                role: "Quản Lý", 
-                detail: "Khai: 'Tôi giữ chìa khóa trong két sắt văn phòng, không ai biết mã'."
-            },
-            {
-                name: "Bảo Vệ Trưởng", 
-                role: "An Ninh", 
-                detail: "Khai: 'Tôi trực cả đêm ở cửa chính, không thấy ai vào'."
-            },
-            {
-                name: "Lao Công", 
-                role: "Tạp Vụ", 
-                detail: "Khai: 'Tôi nhặt được một vật lạ trong thùng rác sáng nay'."
-            }
+            { name: "Bệnh Nhân Cũ", role: "Khách", detail: "Khai: 'Tôi đang ăn cháo ở bàn kế bên'." },
+            { name: "Y Tá Trưởng", role: "Đồng nghiệp", detail: "Khai: 'Tôi đang ăn chiếc bánh mì kẹp cực cay, cay đến mức tôi bị nấc cụt liên tục không dừng được'." },
+            { name: "Bác Sĩ Thực Tập", role: "Cấp dưới", detail: "Khai: 'Tôi vừa gắp miếng thịt thì ông ấy ngã gục'." }
         ],
         evidence: [
-            {
-                name: "Tủ Kính", 
-                icon: "💎", 
-                desc: "Mặt kính bị cắt một lỗ tròn hoàn hảo bằng dao cắt kính chuyên dụng, sau đó được dán lại khéo léo bằng băng dính trong."
-            },
-            {
-                name: "Băng Ghi Hình", 
-                icon: "📹", 
-                desc: "Dữ liệu camera cho thấy Quản Lý đã lén tắt hệ thống báo động laser trong 5 phút vào lúc 2h sáng."
-            },
-            {
-                name: "Găng Tay Đen", 
-                icon: "🧤", 
-                desc: "Lao công tìm thấy đôi găng tay trong thùng rác, bên trong có dính một sợi tóc của Quản Lý."
-            }
+            { name: "Dao Mổ", icon: "🔪", desc: "Hung khí là dao mổ giấu trong vạt áo blouse." },
+            { name: "Lời Khai Y Tá", icon: "💬", desc: "Y Tá Trưởng nói dối. Cô ta đâm nạn nhân, nhưng vì đang bị nấc cụt dữ dội do ăn cay, cú đâm bị lệch quỹ đạo (rách áo rộng) và tiếng nấc vang lên ngay lúc nạn nhân đổ gục đã tố cáo cô ta không hề 'cắm mặt ăn'." },
+            { name: "Khay Thức Ăn", icon: "🍱", desc: "Khay của Y Tá vương vãi lộn xộn do hành động vội vàng rút dao." }
         ],
-        opts: { 
-            s: ["Bảo Vệ Trưởng", "Lao Công", "Quản Lý"], 
-            w: ["Dao Cắt Kính & Chìa Khóa", "Súng", "Búa Tạ"], 
-            l: ["Kho Hàng", "Cửa Hàng", "Phòng Camera"] 
+        opts: {
+            s: ["Bệnh Nhân Cũ", "Bác Sĩ Thực Tập", "Y Tá Trưởng"],
+            w: ["Súng Giảm Thanh", "Đầu Độc Vào Cháo", "Đâm Bằng Dao Mổ"],
+            l: ["Phòng Khám", "Căn Tin Bệnh Viện", "Nhà Vệ Sinh"]
         },
-        sol: {s: "Quản Lý", w: "Dao Cắt Kính & Chìa Khóa", l: "Cửa Hàng"}
+        sol: { s: "Y Tá Trưởng", w: "Đâm Bằng Dao Mổ", l: "Căn Tin Bệnh Viện" }
     },
     {
         id: 27,
-        title: "Bê Tông Cốt Thép", 
+        title: "Âm Nhạc Tử Thần",
         diff: "KHÓ",
-        desc: "Một xác chết được tìm thấy bên trong khối bê tông đông cứng.",
+        desc: "Kéo dây đàn, đứt sinh mệnh.",
         story: [
-            "Tại bến cảng, một thùng phi trôi dạt vào bờ bốc mùi hôi thối. Khi mở ra, bên trong là một khối bê tông đã đông cứng, chứa xác của một gã buôn lậu mất tích.",
-            "Nạn nhân bị chôn sống, ngạt thở trước khi bê tông khô hoàn toàn. Hiện trường không có dấu vết vật lộn.",
-            "Một tờ hóa đơn bị vò nát, thấm nước biển được tìm thấy trong túi áo nạn nhân.",
-            "Mã số lô hàng trên thùng phi: 9000."
+            "Nghệ sĩ Cello nổi tiếng gục ngã trên sân khấu khi đang chơi nốt cao trào nhất của bản giao hưởng.",
+            "Lưỡi của ông ta bị cắt sâu, máu chảy lênh láng. Không ai đến gần ông ta trong lúc biểu diễn."
         ],
         suspects: [
-            {
-                name: "Ông Trùm", 
-                role: "Giang Hồ", 
-                detail: "Khai: 'Hắn nợ tôi tiền, nhưng tôi cần hắn sống để trả nợ'.<br>Thái độ: Lạnh lùng."
-            },
-            {
-                name: "Tài Xế Xe Tải", 
-                role: "Vận Chuyển", 
-                detail: "Khai: 'Tôi chỉ chở hàng theo lệnh, không biết bên trong có gì'."
-            },
-            {
-                name: "Thủ Kho", 
-                role: "Nhân Viên", 
-                detail: "Khai: 'Tôi đã khóa cửa kho từ sớm'."
-            }
+            { name: "Nhạc Trưởng", role: "Chỉ huy", detail: "Khai: 'Tôi đứng trên bục chỉ huy cách ông ta 3 mét'." },
+            { name: "Kỹ Thuật Chỉnh Âm", role: "Âm thanh", detail: "Khai: 'Tôi ngồi ở phòng điều khiển tít phía sau'." },
+            { name: "Thợ Sửa Đàn", role: "Hậu cần", detail: "Khai: 'Tôi đã căng lại dây cung vĩ (bow) cho ông ấy trước khi ra diễn'." }
         ],
         evidence: [
-            {
-                name: "Khối Bê Tông", 
-                icon: "🧱", 
-                desc: "Loại xi măng chuyên dụng khô nhanh, thường dùng trong xây dựng cầu đường, không bán lẻ."
-            },
-            {
-                name: "Hóa Đơn", 
-                icon: "🧾", 
-                desc: "Hóa đơn mua 5 bao xi măng khô nhanh và 1 thùng phi, người ký tên nhận hàng là Tài Xế Xe Tải."
-            },
-            {
-                name: "Vết Lốp Xe", 
-                icon: "🚛", 
-                desc: "Tại hiện trường phi tang có vết lốp xe tải hạng nặng trùng khớp với xe của nghi phạm."
-            }
+            { name: "Cây Vĩ Cello (Bow)", icon: "🎻", desc: "Thợ sửa đàn đã thay một sợi cước kim loại sắc như dao cạo xen lẫn vào bó lông đuôi ngựa của cây Vĩ. Khi nạn nhân chơi hăng say, theo thói quen đưa Vĩ lên cao gần mặt, sợi cước đã cắt phăng cổ họng/lưỡi." },
+            { name: "Micro", icon: "🎙️", desc: "Không bị rò điện." },
+            { name: "Bản Nhạc", icon: "🎼", desc: "Có dấu máu bắn lên, vị trí hoàn toàn khớp với nhịp kéo Vĩ mạnh nhất." }
         ],
-        opts: { 
-            s: ["Thủ Kho", "Tài Xế Xe Tải", "Ông Trùm"], 
-            w: ["Súng", "Dây Thừng", "Chôn Sống (Xi Măng)"], 
-            l: ["Bãi Đất Hoang", "Nhà Kho", "Bến Cảng"] 
+        opts: {
+            s: ["Kỹ Thuật Chỉnh Âm", "Thợ Sửa Đàn", "Nhạc Trưởng"],
+            w: ["Súng Bắn Tỉa", "Cáp Âm Thanh Siết Cổ", "Sợi Cước Sắc Trong Vĩ Đàn"],
+            l: ["Phòng Chỉnh Âm", "Sân Khấu", "Phòng Chờ"]
         },
-        sol: {s: "Tài Xế Xe Tải", w: "Chôn Sống (Xi Măng)", l: "Nhà Kho"}
+        sol: { s: "Thợ Sửa Đàn", w: "Sợi Cước Sắc Trong Vĩ Đàn", l: "Sân Khấu" }
     },
     {
         id: 28,
-        title: "Khúc Cua Tử Thần", 
+        title: "Màu Sơn Đánh Lừa",
         diff: "RẤT KHÓ",
-        desc: "Tai nạn giao thông hay mưu sát được tính toán kỹ lưỡng?",
+        desc: "Chiếc xe biến mất giữa thanh thiên bạch nhật.",
         story: [
-            "Chiếc siêu xe lao xuống vực tại khúc cua gấp trên đèo. Nạn nhân là một tay đua lão luyện, không thể mắc sai lầm sơ đẳng.",
-            "Kỹ thuật viên hiện trường báo cáo dây phanh đã bị đứt đôi. Tuy nhiên, vết đứt rất gọn, không giống do mài mòn tự nhiên.",
-            "Trước khi chết, nạn nhân đã gọi điện cho vợ nhưng không ai bắt máy.",
-            "Mã khóa cửa gara riêng của nạn nhân: 1212."
+            "Vụ cướp ngân hàng táo tợn. Bọn cướp tẩu thoát bằng chiếc xe tải màu trắng. Cảnh sát chốt chặn mọi ngả đường nhưng chiếc xe bốc hơi.",
+            "Camera giao thông chỉ ghi nhận một chiếc xe tải màu xanh dương đi qua trạm kiểm soát."
         ],
         suspects: [
-            {
-                name: "Thợ Sửa Xe", 
-                role: "Kỹ Thuật", 
-                detail: "Khai: 'Tôi vừa bảo dưỡng xe hôm qua, phanh hoàn toàn bình thường'."
-            },
-            {
-                name: "Vợ Nạn Nhân", 
-                role: "Góa Phụ", 
-                detail: "Khai: 'Tôi không biết lái xe, cũng không biết gì về kỹ thuật'."
-            },
-            {
-                name: "Đối Thủ", 
-                role: "Tay Đua", 
-                detail: "Khai: 'Hắn chết thì tôi bớt đi một đối thủ, nhưng tôi không hèn hạ thế'."
-            }
+            { name: "Trưởng Băng Cướp", role: "Cầm đầu", detail: "Khai: 'Tôi bắt taxi về nhà sau khi chia tiền'." },
+            { name: "Tài Xế Đào Tẩu", role: "Lái xe", detail: "Khai: 'Tôi lái xe tải đi giao hàng nước đá'." },
+            { name: "Cảnh Sát Biến Chất", role: "Nội gián", detail: "Khai: 'Tôi trực trạm chốt, chỉ có xe màu xanh đi qua'." }
         ],
         evidence: [
-            {
-                name: "Kìm Cắt Cáp", 
-                icon: "✂️", 
-                desc: "Được giấu sâu trong túi gậy golf của Đối Thủ. Lưỡi kìm có dính dầu phanh và mạt kim loại."
-            },
-            {
-                name: "Dây Phanh", 
-                icon: "🚗", 
-                desc: "Vết cắt sắc, gọn, chứng tỏ bị cắt bằng dụng cụ chuyên dụng chứ không phải đứt do va chạm."
-            },
-            {
-                name: "Hợp Đồng BH", 
-                icon: "📄", 
-                desc: "Đối Thủ là người thụ hưởng trong một vụ cá cược ngầm liên quan đến mạng sống nạn nhân."
-            }
+            { name: "Thùng Xe Tải", icon: "🚚", desc: "Lớp sơn màu trắng bên ngoài xe thực chất là một lớp decal dán (wrap) phủ kín xe. Ngay khi khuất tầm nhìn camera đầu tiên, Tài xế đào tẩu đã lột sạch lớp decal trắng trong 30 giây, để lộ lớp sơn zin màu xanh dương bên trong và đi qua chốt an toàn." },
+            { name: "Cuộn Decal Bỏ Đi", icon: "🗑️", desc: "Tìm thấy trong thùng rác tại một con hẻm khuất cách ngân hàng 1km." },
+            { name: "Biển Số Xe", icon: "🏷️", desc: "Biển giả đã được vứt lại cùng lớp decal." }
         ],
-        opts: { 
-            s: ["Vợ Nạn Nhân", "Đối Thủ", "Thợ Sửa Xe"], 
-            w: ["Cắt Dây Phanh", "Bom Hẹn Giờ", "Đẩy Xe"], 
-            l: ["Đèo", "Gara Riêng", "Đường Đua"] 
+        opts: {
+            s: ["Trưởng Băng Cướp", "Cảnh Sát Biến Chất", "Tài Xế Đào Tẩu"],
+            w: ["Đổi Xe Chớp Nhoáng", "Xe Chở Trong Xe Tải Lớn Hơn", "Lột Decal Đổi Màu Xe"],
+            l: ["Con Hẻm Khuất", "Trạm Chốt Chặn", "Ngân Hàng"]
         },
-        sol: {s: "Đối Thủ", w: "Cắt Dây Phanh", l: "Gara Riêng"}
+        sol: { s: "Tài Xế Đào Tẩu", w: "Lột Decal Đổi Màu Xe", l: "Con Hẻm Khuất" }
     },
     {
         id: 29,
-        title: "Chén Rượu Độc", 
-        diff: "TRUNG BÌNH",
-        desc: "Cái chết đến từ một cái chạm môi.",
+        title: "Ly Cà Phê Trái Khuấy",
+        diff: "TB",
+        desc: "Tại sao kẻ thuận tay phải lại dùng tay trái?",
         story: [
-            "Tại bữa tiệc thượng lưu, ông chủ ngân hàng gục chết ngay sau khi uống cạn ly rượu vang đỏ. Mắt trợn ngược, miệng sùi bọt trắng.",
-            "Sommelier (Người nếm rượu) khẳng định chai rượu hoàn toàn bình thường vì anh ta đã nếm trước đó.",
-            "Camera cho thấy chỉ có người vợ là người duy nhất tiếp xúc với ly rượu trước khi đưa cho chồng.",
-            "Mã khóa hầm rượu quý: 3333."
+            "Một nhà văn nổi tiếng (thuận tay phải) được tìm thấy đã chết vì ngộ độc xyanua tại bàn làm việc.",
+            "Ly cà phê tẩm độc nằm gọn gàng bên PHÍA TRÁI của bàn phím.",
+            "Nạn nhân không bao giờ để ly uống nước bên tay nghịch của mình để tránh va đổ."
         ],
         suspects: [
-            {
-                name: "Sommelier", 
-                role: "Nếm Rượu", 
-                detail: "Khai: 'Uy tín của tôi quan trọng hơn mạng sống. Rượu không có độc'."
-            },
-            {
-                name: "Người Vợ", 
-                role: "Phu Nhân", 
-                detail: "Khai: 'Tôi chỉ đưa ly cho anh ấy, tay tôi không hề chạm vào rượu'."
-            },
-            {
-                name: "Bạn Làm Ăn", 
-                role: "Đối Tác", 
-                detail: "Khai: 'Tôi ngồi đối diện, chỉ cụng ly chúc mừng'."
-            }
+            { name: "Vợ Nhà Văn", role: "Người nhà", detail: "Khai: 'Tôi mang cà phê vào cho anh ấy rồi đi ngủ'." },
+            { name: "Trợ Lý Đánh Máy", role: "Nhân viên", detail: "Khai: 'Sếp nhờ tôi gõ lại bản thảo, tôi thuận tay trái nên ngồi làm việc ở bàn của sếp lúc chiều'." },
+            { name: "Biên Tập Viên", role: "Đối tác", detail: "Khai: 'Tôi đến giục nộp bản thảo, cãi nhau một trận rồi về'." }
         ],
         evidence: [
-            {
-                name: "Chiếc Nhẫn Ngọc", 
-                icon: "💍", 
-                desc: "Chiếc nhẫn trên tay Người Vợ có một ngăn rỗng bí mật bên dưới viên ngọc, chứa bột Cyanua."
-            },
-            {
-                name: "Ly Rượu", 
-                icon: "🍷", 
-                desc: "Miệng ly có vết bột trắng nhỏ xíu sót lại, không phải cặn rượu."
-            },
-            {
-                name: "Chai Rượu", 
-                icon: "🍾", 
-                desc: "Kiểm tra dung dịch trong chai: Hoàn toàn không có độc."
-            }
+            { name: "Ly Cà Phê", icon: "☕", desc: "Hung thủ đã hạ độc vào ly cà phê, nhưng vì thói quen thuận tay trái của chính mình, hắn vô thức đặt ly cà phê tẩm độc sang bên TRÁI bàn làm việc sau khi bỏ thuốc, quên mất nạn nhân thuận tay phải." },
+            { name: "Bàn Phím", icon: "⌨️", desc: "Có dấu vân tay của Trợ lý đánh máy." },
+            { name: "Lọ Thuốc", icon: "💊", desc: "Vỏ lọ xyanua vứt ở sọt rác." }
         ],
-        opts: { 
-            s: ["Bạn Làm Ăn", "Người Vợ", "Sommelier"], 
-            w: ["Kim Tiêm", "Nhẫn Chứa Độc", "Rượu Có Độc"], 
-            l: ["Quầy Bar", "Bàn Tiệc", "Hầm Rượu"] 
+        opts: {
+            s: ["Vợ Nhà Văn", "Biên Tập Viên", "Trợ Lý Đánh Máy"],
+            w: ["Dao Găm", "Cà Phê Có Độc Đặt Nhầm Tay Thuận", "Tiêm Độc Tố"],
+            l: ["Phòng Khách", "Phòng Làm Việc", "Nhà Bếp"]
         },
-        sol: {s: "Người Vợ", w: "Nhẫn Chứa Độc", l: "Bàn Tiệc"}
+        sol: { s: "Trợ Lý Đánh Máy", w: "Cà Phê Có Độc Đặt Nhầm Tay Thuận", l: "Phòng Làm Việc" }
     },
     {
         id: 30,
-        title: "Vụ Án Sân Tennis", 
-        diff: "DỄ",
-        desc: "Tai nạn thể thao hay sự trả thù đê hèn?",
+        title: "Tai Nạn Trong Phòng Kín",
+        diff: "KHÓ",
+        desc: "Bức tranh kẽm và phản ứng hóa học.",
         story: [
-            "Một vận động viên tennis triển vọng bị thương nặng ở đầu do vợt bị gãy đôi khi đang phát bóng cực mạnh. Mảnh vợt sắc nhọn đâm vào thái dương.",
-            "Cây vợt này mới được mua và kiểm tra kỹ lưỡng.",
-            "Tủ đồ của nạn nhân ở phòng thay đồ đã bị ai đó cạy mở trước trận đấu.",
-            "Mã số tủ đồ cá nhân: 0000."
+            "Họa sĩ vẽ tranh kim loại bị ngạt thở chết trong xưởng vẽ khóa trái.",
+            "Trong phòng đầy bột kẽm và một can axit loãng bị đổ lênh láng trên sàn. Không có dấu vết hung thủ.",
+            "Công an định kết luận là tai nạn do đổ hóa chất tạo khí Hydro dễ cháy/ngạt."
         ],
         suspects: [
-            {
-                name: "HLV", 
-                role: "Huấn Luyện Viên", 
-                detail: "Khai: 'Tôi đã kiểm tra vợt sáng nay, nó hoàn hảo'."
-            },
-            {
-                name: "Đối Thủ", 
-                role: "Vận Động Viên", 
-                detail: "Khai: 'Tôi muốn thắng hắn, nhưng là thắng trên sân đấu'."
-            },
-            {
-                name: "Cậu Bé Nhặt Bóng", 
-                role: "Nhân Viên", 
-                detail: "Khai: 'Em thấy có người lạ vào phòng thay đồ'."
-            }
+            { name: "Kẻ Bán Sơn", role: "Cung cấp", detail: "Khai: 'Tôi chỉ giao hàng rồi về'." },
+            { name: "Vợ Cũ", role: "Có thù oán", detail: "Khai: 'Tôi ghét ông ta, nhưng phòng khóa trái mà?'." },
+            { name: "Học Trò", role: "Phụ việc", detail: "Khai: 'Tôi là người trộn bột kẽm cho thầy trước khi ra về'." }
         ],
         evidence: [
-            {
-                name: "Khung Vợt Gãy", 
-                icon: "🎾", 
-                desc: "Tại vị trí gãy có vết cưa nhỏ rất tinh vi, làm yếu cấu trúc vợt, chỉ cần lực mạnh là gãy."
-            },
-            {
-                name: "Điện Thoại", 
-                icon: "📱", 
-                desc: "Tin nhắn từ Đối Thủ gửi cho một gã thợ: 'Làm cho sạch sẽ vào, đừng để nó thi đấu'."
-            },
-            {
-                name: "Băng Đô", 
-                icon: "🎗️", 
-                desc: "Thấm đẫm mồ hôi và máu."
-            }
+            { name: "Cục Đá Lạnh", icon: "🧊", desc: "Học trò đã dùng một cục nước đá để chêm chặn can axit đặt nghiêng. Khi đá tan, can axit mất thăng bằng đổ ụp xuống đống bột kẽm, kích hoạt phản ứng sinh khí ngạt sau khi hắn đã ra về và khóa cửa." },
+            { name: "Can Axit", icon: "🧪", desc: "Nằm lăn lóc trên sàn, nắp bị vặn lỏng sẵn." },
+            { name: "Vũng Nước", icon: "💧", desc: "Có một vũng nước nhỏ đáng ngờ ngay bên cạnh can axit đổ, mặc dù axit không bay hơi tạo thành nước." }
         ],
-        opts: { 
-            s: ["Cậu Bé Nhặt Bóng", "HLV", "Đối Thủ"], 
-            w: ["Sàn Trơn", "Bóng Tennis Chứa Chì", "Cưa Khung Vợt"], 
-            l: ["Phòng Thay Đồ", "Khán Đài", "Sân Tennis"] 
+        opts: {
+            s: ["Học Trò", "Vợ Cũ", "Kẻ Bán Sơn"],
+            w: ["Súng Chế Từ Ống Nước", "Khóa Cửa Chặn Oxy", "Bẫy Axit Bằng Cục Đá Lạnh"],
+            l: ["Xưởng Vẽ", "Hành Lang", "Tiệm Sơn"]
         },
-        sol: {s: "Đối Thủ", w: "Cưa Khung Vợt", l: "Sân Tennis"}
+        sol: { s: "Học Trò", w: "Bẫy Axit Bằng Cục Đá Lạnh", l: "Xưởng Vẽ" }
     },
     {
         id: 31,
-        title: "Bí Mật Dưới Giếng Cổ", 
-        diff: "KHÓ",
-        desc: "Xác chết dưới đáy giếng khô cạn.",
+        title: "Quả Bom Nước",
+        diff: "TRUNG BÌNH",
+        desc: "Sát khí giấu trong khối tinh thể.",
         story: [
-            "Dân làng phát hiện mùi hôi thối bốc lên từ cái giếng cạn bỏ hoang ở bìa rừng. Bên dưới là thi thể một người đàn ông lạ mặt.",
-            "Nạn nhân chết do chấn thương sọ não, bên cạnh là một cục gạch dính máu.",
-            "Miệng giếng rất hẹp, nạn nhân không thể tự ngã mà đầu va đập mạnh như vậy được.",
-            "Mã số khắc trên thành giếng: 5678."
+            "Chủ tịch tập đoàn chết do ngộ độc Kali Xyanua khi đang uống rượu whisky on the rock (uống với một viên đá cầu lớn).",
+            "Toàn bộ chai rượu, thức ăn, ly uống đều được kiểm tra trước đó bởi vệ sĩ."
         ],
         suspects: [
-            {
-                name: "Trưởng Thôn", 
-                role: "Cán Bộ", 
-                detail: "Khai: 'Tôi đi tuần tra đêm đó, không thấy ai lạ'.<br>Thái độ: Lấm lét."
-            },
-            {
-                name: "Gã Say Rượu", 
-                role: "Vô Gia Cư", 
-                detail: "Khai: 'Tôi ngủ quên ở gốc đa gần đó, nghe tiếng *bõm* rất to'."
-            },
-            {
-                name: "Cô Gái Làng", 
-                role: "Dân Làng", 
-                detail: "Khai: 'Tôi ra giếng lấy nước nhưng giếng cạn nên về'."
-            }
+            { name: "Người Pha Chế", role: "Bartender", detail: "Khai: 'Tôi đập đá từ một tảng lớn, không thể nhét độc vào được'." },
+            { name: "Vệ Sĩ", role: "An ninh", detail: "Khai: 'Tôi đã dùng máy dò chất độc thử trước rượu'." },
+            { name: "Thư Ký Thân Tín", role: "Kẻ phản bội", detail: "Khai: 'Tôi tự tay thả viên đá vào ly cho sếp'." }
         ],
         evidence: [
-            {
-                name: "Cục Gạch", 
-                icon: "🧱", 
-                desc: "Là loại gạch xây nhà của Trưởng Thôn, có dính tóc và máu nạn nhân."
-            },
-            {
-                name: "Đèn Pin", 
-                icon: "🔦", 
-                desc: "Rơi dưới đáy giếng, trên thân đèn có khắc tên Trưởng Thôn."
-            },
-            {
-                name: "Dây Thừng", 
-                icon: "🪢", 
-                desc: "Mục nát, không thể dùng để leo xuống."
-            }
+            { name: "Khuôn Làm Đá Cầu", icon: "🔮", desc: "Thư ký đã dùng khuôn silicon làm đá hình cầu tại nhà, bơm Xyanua lỏng vào chính giữa viên đá và làm đông lại. Vệ sĩ kiểm tra bề mặt đá và rượu hoàn toàn bình thường. Chỉ khi đá tan đến lõi, chất độc mới hòa vào rượu." },
+            { name: "Chai Whisky", icon: "🥃", desc: "Sạch sẽ, không có dấu vết kim tiêm." },
+            { name: "Kẹp Gắp Đá", icon: "🥢", desc: "Không dính độc." }
         ],
-        opts: { 
-            s: ["Cô Gái Làng", "Trưởng Thôn", "Gã Say Rượu"], 
-            w: ["Gạch (Ném Xuống)", "Đẩy Ngã", "Dìm Nước"], 
-            l: ["Nhà Trưởng Thôn", "Giếng Nước", "Bìa Rừng"] 
+        opts: {
+            s: ["Vệ Sĩ", "Người Pha Chế", "Thư Ký Thân Tín"],
+            w: ["Kẹp Gắp Tẩm Độc", "Độc Trong Lõi Viên Đá Cầu", "Đầu Độc Trực Tiếp"],
+            l: ["Quầy Bar", "Phòng Khách VIP", "Bếp"]
         },
-        sol: {s: "Trưởng Thôn", w: "Gạch (Ném Xuống)", l: "Giếng Nước"}
+        sol: { s: "Thư Ký Thân Tín", w: "Độc Trong Lõi Viên Đá Cầu", l: "Phòng Khách VIP" }
     },
     {
         id: 32,
-        title: "Rạp Phim Kinh Hoàng", 
-        diff: "TRUNG BÌNH",
-        desc: "Án mạng trong bóng tối và tiếng ồn.",
+        title: "Bóng Dâm Bụt",
+        diff: "DỄ",
+        desc: "Dùng độc hoa thay cho gươm đao.",
         story: [
-            "Một khán giả bị đâm chết ngay trên ghế VIP trong suất chiếu phim hành động đêm muộn. Tiếng súng trong phim đã át tiếng kêu cứu.",
-            "Hung khí là một con dao bấm sắc bén đâm thẳng vào tim.",
-            "Người ngồi cạnh nạn nhân nói rằng anh ta ngủ gật suốt buổi chiếu.",
-            "Số ghế của nạn nhân: 1024."
+            "Bà cô già giàu có chết trong giấc ngủ. Không có dấu vết đột nhập.",
+            "Trong phòng ngủ ngập tràn hoa loa kèn, hoa hồng và một chậu hoa lạ mới được gửi tặng.",
+            "Nguyên nhân chết: Ngộ độc rễ cây Hellebore (Thiết Mộc Lan) cực mạnh."
         ],
         suspects: [
-            {
-                name: "Người Ngồi Cạnh", 
-                role: "Khán Giả", 
-                detail: "Khai: 'Tôi ngủ say lắm, tỉnh dậy thì thấy ông ta đã chết'.<br>Thái độ: Quá bình tĩnh."
-            },
-            {
-                name: "Nhân Viên Soát Vé", 
-                role: "Nhân Viên", 
-                detail: "Khai: 'Tôi đứng ở cửa ra vào, không thấy ai khả nghi đi vào rạp'."
-            },
-            {
-                name: "Bạn Gái", 
-                role: "Người Yêu", 
-                detail: "Khai: 'Tôi đi vệ sinh khoảng 15 phút, lúc quay lại thì anh ấy đã...'."
-            }
+            { name: "Cháu Gái", role: "Thừa kế", detail: "Khai: 'Tôi mua tặng dì chậu Lan Ý cho thơm phòng'." },
+            { name: "Người Giao Hoa", role: "Shipper", detail: "Khai: 'Tôi chỉ giao hàng theo đơn đặt trước'." },
+            { name: "Quản Gia", role: "Người làm", detail: "Khai: 'Bà ấy thích tự pha trà rễ cây thảo mộc mỗi tối'." }
         ],
         evidence: [
-            {
-                name: "Con Dao Bấm", 
-                icon: "🗡️", 
-                desc: "Được tìm thấy dán băng dính dưới gầm ghế của Người Ngồi Cạnh. Trên cán dao chỉ có vân tay của hắn."
-            },
-            {
-                name: "Hộp Bắp Rang", 
-                icon: "🍿", 
-                desc: "Đổ vương vãi trên sàn, như thể có một cuộc vật lộn ngắn."
-            },
-            {
-                name: "Vé Xem Phim", 
-                icon: "🎫", 
-                desc: "Người Ngồi Cạnh mua vé vào phút chót, cố tình chọn ghế sát nạn nhân."
-            }
+            { name: "Chậu Hoa Mới", icon: "🪴", desc: "Cháu gái cố tình tặng chậu cây Hellebore cực độc nhưng nói dối là Lan Ý, đồng thời trà trộn vụn rễ cây này vào hộp thảo mộc pha trà của bà cô mù lòa." },
+            { name: "Hộp Trà Thảo Mộc", icon: "🫖", desc: "Có lẫn vụn rễ cây độc." },
+            { name: "Sổ Di Chúc", icon: "📜", desc: "Vừa được sửa lại để lại toàn bộ tài sản cho Cháu Gái." }
         ],
-        opts: { 
-            s: ["Bạn Gái", "Người Ngồi Cạnh", "Nhân Viên Soát Vé"], 
-            w: ["Súng Giảm Thanh", "Dây Siết", "Dao Bấm"], 
-            l: ["Quầy Vé", "Nhà Vệ Sinh", "Rạp Phim"] 
+        opts: {
+            s: ["Quản Gia", "Cháu Gái", "Người Giao Hoa"],
+            w: ["Súng Lục", "Thuốc Ngủ Quá Liều", "Trà Pha Rễ Cây Độc"],
+            l: ["Nhà Bếp", "Phòng Ngủ", "Cửa Hàng Hoa"]
         },
-        sol: {s: "Người Ngồi Cạnh", w: "Dao Bấm", l: "Rạp Phim"}
+        sol: { s: "Cháu Gái", w: "Trà Pha Rễ Cây Độc", l: "Phòng Ngủ" }
     },
     {
         id: 33,
-        title: "Hồ Bơi Sát Nhân", 
-        diff: "KHÓ",
-        desc: "Hệ thống lọc nước trở thành vũ khí giết người.",
+        title: "Bản Án Từ Tần Số",
+        diff: "CỰC KHÓ",
+        desc: "Kính vỡ đâm chết người.",
         story: [
-            "Một vận động viên bơi lội chết đuối tại hồ bơi riêng. Thi thể bị hút chặt xuống đáy hồ tại vị trí van thoát nước.",
-            "Lực hút mạnh đến mức không thể thoát ra được. Ai đó đã điều chỉnh công suất máy bơm lên mức cực đại.",
-            "Phòng máy bơm được khóa kỹ, chỉ có nhân viên kỹ thuật có chìa.",
-            "Mã khóa cửa phòng máy: 9999."
+            "Nữ ca sĩ Opera bị những mảnh kính vỡ từ đèn chùm pha lê đâm chết khi đang ở một mình trong phòng luyện thanh.",
+            "Phòng được cách âm hoàn toàn, cửa khóa. Không có dấu vết va đập vào đèn chùm."
         ],
         suspects: [
-            {
-                name: "Kỹ Thuật Viên", 
-                role: "Bảo Trì", 
-                detail: "Khai: 'Tôi đang bảo trì hệ thống ở khu B'.<br>Chứng cứ ngoại phạm: Không rõ ràng."
-            },
-            {
-                name: "Nhân Viên Cứu Hộ", 
-                role: "Cứu Hộ", 
-                detail: "Khai: 'Lúc đó tôi đang nghỉ trưa, hồ bơi vắng tanh'."
-            },
-            {
-                name: "Quản Lý", 
-                role: "Quản Lý", 
-                detail: "Khai: 'Tôi đi gặp đối tác cả buổi chiều'."
-            }
+            { name: "Quản Lý", role: "Bầu sô", detail: "Khai: 'Cô ấy đang tập luyện để phá kỷ lục hát nốt cao nhất'." },
+            { name: "Nhân Viên Kỹ Thuật", role: "Bảo trì", detail: "Khai: 'Đèn chùm pha lê rất chắc chắn, tôi vừa vệ sinh hôm qua'." },
+            { name: "Đối Thủ", role: "Ca sĩ khác", detail: "Khai: 'Tôi ghen tị với giọng hát của ả, nhưng tôi không biết ma thuật'." }
         ],
         evidence: [
-            {
-                name: "Bảng Điều Khiển", 
-                icon: "🎛️", 
-                desc: "Nhật ký hệ thống cho thấy Kỹ Thuật Viên đã đăng nhập và chỉnh lực hút lên 200% vào lúc nạn nhân xuống nước."
-            },
-            {
-                name: "Kính Bơi", 
-                icon: "🥽", 
-                desc: "Kính bơi của nạn nhân bị vỡ nát do va đập mạnh khi bị hút xuống."
-            },
-            {
-                name: "Van Nước", 
-                icon: "🚰", 
-                desc: "Nắp chắn an toàn của van đã bị tháo bỏ từ trước."
-            }
+            { name: "Hệ Thống Loa", icon: "🔊", desc: "Quản lý đã bí mật cài đặt hệ thống loa ẩn trong phòng. Khi ca sĩ ngân nốt cao (Soprano), hệ thống loa đồng thời phát ra tần số cộng hưởng cực đại làm vỡ tung toàn bộ pha lê của chiếc đèn chùm treo ngay trên đầu nạn nhân." },
+            { name: "Mảnh Pha Lê", icon: "💎", desc: "Ghim đầy trên người nạn nhân do rơi tự do từ độ cao 5 mét." },
+            { name: "Điều Khiển Loa", icon: "🎛️", desc: "Kết nối Bluetooth với điện thoại của Quản lý." }
         ],
-        opts: { 
-            s: ["Quản Lý", "Kỹ Thuật Viên", "Nhân Viên Cứu Hộ"], 
-            w: ["Điện Giật", "Dìm Nước", "Máy Bơm (Lực Hút)"], 
-            l: ["Hồ Bơi", "Phòng Thay Đồ", "Phòng Máy Bơm"] 
+        opts: {
+            s: ["Đối Thủ", "Nhân Viên Kỹ Thuật", "Quản Lý"],
+            w: ["Ném Đá Vỡ Đèn", "Hack Loa Tạo Tần Số Cộng Hưởng", "Cắt Dây Treo Đèn"],
+            l: ["Sân Khấu", "Phòng Luyện Thanh", "Phòng Chỉnh Âm"]
         },
-        sol: {s: "Kỹ Thuật Viên", w: "Máy Bơm (Lực Hút)", l: "Hồ Bơi"}
+        sol: { s: "Quản Lý", w: "Hack Loa Tạo Tần Số Cộng Hưởng", l: "Phòng Luyện Thanh" }
     },
     {
         id: 34,
-        title: "Căn Phòng Số 404", 
-        diff: "RẤT KHÓ",
-        desc: "Bí ẩn về căn phòng không bao giờ mở cửa.",
+        title: "Cái Bóng Sau Rèm",
+        diff: "KHÓ",
+        desc: "Lời khai hoàn hảo luôn có kẽ hở.",
         story: [
-            "Nhân viên dọn phòng phát hiện mùi lạ từ phòng 404 - căn phòng đã bị niêm phong 1 năm nay. Khi phá cửa, họ tìm thấy một thi thể đã phân hủy.",
-            "Cửa phòng và cửa sổ đều bị khóa trái từ bên trong bằng chốt xích. Không có lối thoát nào khác.",
-            "Nạn nhân là một khách du lịch mất tích từ tuần trước.",
-            "Mã chìa khóa vạn năng của khách sạn: 0404."
+            "Người chồng bị bắn chết. Cô vợ khai đang đứng nấu ăn trong bếp thì nghe tiếng súng, chạy ra phòng khách thấy cửa sổ mở toang, hung thủ đã tẩu thoát.",
+            "Khám nghiệm cho thấy nạn nhân bị bắn từ cự ly rất gần (dưới 1 mét)."
         ],
         suspects: [
-            {
-                name: "Lễ Tân", 
-                role: "Nhân Viên", 
-                detail: "Khai: 'Không ai check-in phòng đó cả, hệ thống báo lỗi'."
-            },
-            {
-                name: "Quản Lý", 
-                role: "Quản Lý", 
-                detail: "Khai: 'Tôi giữ chìa khóa dự phòng duy nhất trong két sắt'."
-            },
-            {
-                name: "Bảo Vệ", 
-                role: "An Ninh", 
-                detail: "Khai: 'Tôi nghe tiếng động lạ đêm qua nhưng nghĩ là chuột'."
-            }
+            { name: "Vợ Nạn Nhân", role: "Nhân chứng", detail: "Khai: 'Tôi nghe tiếng súng nổ rất to, mùi thuốc súng khét lẹt'." },
+            { name: "Kẻ Đòi Nợ", role: "Nghi phạm", detail: "Khai: 'Tôi đến đòi nợ, gõ cửa không ai mở nên đi về'." },
+            { name: "Hàng Xóm", role: "Nhân chứng", detail: "Khai: 'Tôi thấy một bóng đen nhảy qua hàng rào'." }
         ],
         evidence: [
-            {
-                name: "Sổ Đăng Ký", 
-                icon: "📖", 
-                desc: "Trang đăng ký của ngày nạn nhân mất tích đã bị xé mất."
-            },
-            {
-                name: "Chùm Chìa Khóa", 
-                icon: "🗝️", 
-                desc: "Tìm thấy chìa khóa vạn năng (Master Key) giấu trong phòng làm việc của Quản Lý. Hắn dùng nó để mở cửa, nhốt nạn nhân vào rồi dùng thủ thuật khóa chốt xích từ bên ngoài."
-            },
-            {
-                name: "Vali Hành Lý", 
-                icon: "🧳", 
-                desc: "Vali của nạn nhân chứa đầy tiền mặt - động cơ của vụ giết người cướp của."
-            }
+            { name: "Khói Thuốc Súng", icon: "💨", desc: "Vợ nạn nhân khai ngửi thấy mùi thuốc súng khét lẹt. Nhưng nếu hung thủ bắn xong bỏ chạy ngay và cửa sổ đang mở toang, gió sẽ thổi bay mùi rất nhanh. Cô ta là người bắn ở cự ly gần nên mới ngửi thấy rõ mùi đó trên tay áo mình." },
+            { name: "Vết Bắn", icon: "🎯", desc: "Vết cháy xém quanh lỗ đạn chứng minh bị bắn áp sát. Không thể có chuyện hung thủ nấp từ xa bắn." },
+            { name: "Cây Súng", icon: "🔫", desc: "Bị giấu dưới bao gạo trong bếp." }
         ],
-        opts: { 
-            s: ["Bảo Vệ", "Lễ Tân", "Quản Lý"], 
-            w: ["Súng", "Nhốt (Chết Đói/Khát)", "Dao"], 
-            l: ["Kho Hành Lý", "Phòng 404", "Sảnh Lễ Tân"] 
+        opts: {
+            s: ["Kẻ Đòi Nợ", "Hàng Xóm", "Vợ Nạn Nhân"],
+            w: ["Bắn Tỉa Qua Cửa Sổ", "Súng Lục Bắn Áp Sát", "Đâm Dao Ngụy Tạo Vết Đạn"],
+            l: ["Phòng Khách", "Ngoài Sân", "Nhà Bếp"]
         },
-        sol: {s: "Quản Lý", w: "Nhốt (Chết Đói/Khát)", l: "Phòng 404"}
+        sol: { s: "Vợ Nạn Nhân", w: "Súng Lục Bắn Áp Sát", l: "Phòng Khách" }
     },
     {
         id: 35,
-        title: "Chuyến Tàu Tốc Hành", 
-        diff: "TRUNG BÌNH",
-        desc: "Án mạng trong toa giường nằm hạng sang.",
+        title: "Con Nhện Bằng Vàng",
+        diff: "TB",
+        desc: "Động vật có nọc độc làm hung khí.",
         story: [
-            "Một thương gia buôn đá quý bị siết cổ chết trong buồng riêng trên chuyến tàu Bắc-Nam. Cửa buồng khóa, cửa sổ đóng kín.",
-            "Tàu đang chạy với tốc độ cao, hung thủ không thể nhảy ra ngoài.",
-            "Hệ thống thông gió nối giữa các buồng khá hẹp nhưng đủ để truyền âm thanh hoặc vật nhỏ.",
-            "Mã khóa vali của nạn nhân: 7777."
+            "Nhà nữ thực vật học chết trong lều cắm trại ở rừng rậm Amazon. Vết cắn của nhện Độc Góa Phụ Đen được tìm thấy trên cổ tay.",
+            "Nhưng loại nhện này không phân bố ở khu vực rừng Nam Mỹ này."
         ],
         suspects: [
-            {
-                name: "Hành Khách Bên", 
-                role: "Khách", 
-                detail: "Khai: 'Tôi nghe thấy tiếng vật lộn nhưng sợ quá không dám sang'."
-            },
-            {
-                name: "Tiếp Viên Tàu", 
-                role: "Nhân Viên", 
-                detail: "Khai: 'Tôi đưa bữa tối lúc 19h rồi đi ngay'."
-            },
-            {
-                name: "Bác Sĩ", 
-                role: "Khách", 
-                detail: "Khai: 'Tôi chỉ đi ngang qua để đến toa ăn'."
-            }
+            { name: "Hướng Dẫn Viên", role: "Dân địa phương", detail: "Khai: 'Rừng này đầy rẫy hiểm nguy, nhện độc có ở khắp nơi'." },
+            { name: "Trợ Lý Nghiên Cứu", role: "Đồng nghiệp", detail: "Khai: 'Tôi ngủ ở lều bên cạnh, đóng kín cửa lều'." },
+            { name: "Nhà Tài Trợ", role: "Tỷ phú", detail: "Khai: 'Tôi bay trực thăng đến thăm đoàn sáng nay'." }
         ],
         evidence: [
-            {
-                name: "Lỗ Thông Gió", 
-                icon: "💨", 
-                desc: "Lỗ thông gió nối với buồng nhân viên. Hung thủ đã ném chìa khóa vào đây sau khi khóa cửa từ bên ngoài?"
-            },
-            {
-                name: "Chìa Khóa Buồng", 
-                icon: "🗝️", 
-                desc: "Tìm thấy chìa khóa phòng nạn nhân trong túi tạp dề của Tiếp Viên Tàu."
-            },
-            {
-                name: "Cái Gối", 
-                icon: "🛌", 
-                desc: "Dùng để bịt miệng nạn nhân trước khi siết cổ, trên gối có sợi tóc của Tiếp Viên."
-            }
+            { name: "Hộp Bắt Côn Trùng", icon: "🕷️", desc: "Tìm thấy trong balo của Trợ Lý Nghiên Cứu. Hắn đã lén mang lậu con nhện Góa Phụ Đen từ phòng thí nghiệm ở Mỹ sang để ngụy tạo tai nạn tự nhiên nhằm cướp công trình nghiên cứu." },
+            { name: "Cửa Lều", icon: "⛺", desc: "Khóa kéo bị hở một khe nhỏ do cố ý để thả nhện vào." },
+            { name: "Tài Liệu Nghiên Cứu", icon: "📁", desc: "Đã bị chuyển tên tác giả thành tên của Trợ Lý." }
         ],
-        opts: { 
-            s: ["Bác Sĩ", "Tiếp Viên Tàu", "Hành Khách Bên"], 
-            w: ["Dao", "Thuốc Độc", "Gối & Dây Siết"], 
-            l: ["Nhà Vệ Sinh", "Toa Tàu", "Hành Lang"] 
+        opts: {
+            s: ["Hướng Dẫn Viên", "Nhà Tài Trợ", "Trợ Lý Nghiên Cứu"],
+            w: ["Súng Bắn Phi Tiêu", "Nhện Góa Phụ Đen (Nhập Lậu)", "Rắn Độc Rừng"],
+            l: ["Trong Lều Nạn Nhân", "Bãi Đáp Trực Thăng", "Bờ Suối"]
         },
-        sol: {s: "Tiếp Viên Tàu", w: "Gối & Dây Siết", l: "Toa Tàu"}
+        sol: { s: "Trợ Lý Nghiên Cứu", w: "Nhện Góa Phụ Đen (Nhập Lậu)", l: "Trong Lều Nạn Nhân" }
     },
     {
         id: 36,
-        title: "Thợ Săn Kho Báu", 
-        diff: "DỄ",
-        desc: "Lòng tham dẫn đến diệt vong.",
+        title: "Băng Keo Cuốn Họng",
+        diff: "RẤT KHÓ",
+        desc: "Phá vỡ bằng chứng ngoại phạm 'Ngủ say'.",
         story: [
-            "Hai thợ săn kho báu cùng đi vào một hang động sâu để tìm vàng. Sáng hôm sau, chỉ một người trở ra với vẻ mặt hoảng hốt.",
-            "Anh ta khai rằng người bạn đồng hành bị trượt chân rơi xuống vực thẳm.",
-            "Tuy nhiên, cảnh sát tìm thấy dấu vết lạ trên đoạn dây leo núi còn sót lại.",
-            "Mã khóa ba lô của kẻ sống sót: 1357."
+            "Chủ tiệm cầm đồ bị siết cổ chết tại nhà. Vợ hắn khai rằng cô ta đã uống thuốc ngủ cực mạnh và ngủ say như chết từ 8h tối.",
+            "Cảnh sát tìm thấy chai thuốc ngủ trống rỗng và cô ta quả thực rất lờ đờ khi được đánh thức."
         ],
         suspects: [
-            {
-                name: "Thợ Săn Sống", 
-                role: "Đồng Hành", 
-                detail: "Khai: 'Dây thừng bị đứt do đá cứa. Tôi đã cố giữ nhưng không được'."
-            },
-            {
-                name: "Dẫn Đường", 
-                role: "Hướng Dẫn", 
-                detail: "Khai: 'Tôi chờ ở cửa hang, không đi vào trong'."
-            },
-            {
-                name: "Dân Làng", 
-                role: "Địa Phương", 
-                detail: "Khai: 'Họ cãi nhau về cách chia vàng từ tối hôm trước'."
-            }
+            { name: "Vợ Nạn Nhân", role: "Người nhà", detail: "Khai: 'Tôi uống 3 viên Valium, ai làm gì tôi cũng không biết'." },
+            { name: "Con Nợ", role: "Giang hồ", detail: "Khai: 'Tôi đến đập cửa lúc 10h đêm không ai ra'." },
+            { name: "Tình Nhân Của Vợ", role: "Kẻ ngoại tình", detail: "Khai: 'Tôi ở quán bar suốt đêm'." }
         ],
         evidence: [
-            {
-                name: "Dây Leo Núi", 
-                icon: "🧗", 
-                desc: "Đầu dây bị đứt cực kỳ phẳng và gọn, chắc chắn là vết cắt của dao sắc, không phải do ma sát với đá."
-            },
-            {
-                name: "Con Dao Găm", 
-                icon: "🔪", 
-                desc: "Tìm thấy trong ba lô của Thợ Săn Sống Sót. Lưỡi dao có dính sợi nylon từ dây leo núi."
-            },
-            {
-                name: "Bản Đồ", 
-                icon: "🗺️", 
-                desc: "Nằm gọn trong túi áo của kẻ sống sót. Hắn muốn độc chiếm kho báu."
-            }
+            { name: "Cuộn Băng Keo", icon: "🩹", desc: "Trong thùng rác có một đoạn băng keo dính. Người vợ đã dàn cảnh: Giết chồng lúc 8:30 tối. Xong xuôi, cô ta mới uống 3 viên thuốc ngủ vào lúc 9h tối để tạo tình trạng lờ đờ thật sự khi cảnh sát đến. Đoạn băng keo dùng để che khe cửa chặn tiếng hét." },
+            { name: "Máu Dưới Móng Tay", icon: "🩸", desc: "Cô vợ không tẩy sạch được vết cào của chồng dưới móng tay mình." },
+            { name: "Chai Thuốc Ngủ", icon: "💊", desc: "Dấu vân tay của vợ đè lên trên vết máu mờ (cầm lọ thuốc SAU khi giết người)." }
         ],
-        opts: { 
-            s: ["Dân Làng", "Dẫn Đường", "Thợ Săn Sống"], 
-            w: ["Đẩy Ngã", "Cắt Dây Thừng", "Hòn Đá"], 
-            l: ["Cửa Hang", "Khu Rừng", "Vực Thẳm"] 
+        opts: {
+            s: ["Tình Nhân Của Vợ", "Con Nợ", "Vợ Nạn Nhân"],
+            w: ["Dây Xích Siết Cổ", "Bắn Súng Lục", "Đầu Độc"],
+            l: ["Phòng Khách", "Cửa Ra Vào", "Nhà Bếp"]
         },
-        sol: {s: "Thợ Săn Sống", w: "Cắt Dây Thừng", l: "Vực Thẳm"}
+        sol: { s: "Vợ Nạn Nhân", w: "Dây Xích Siết Cổ", l: "Phòng Khách" }
     },
     {
         id: 37,
-        title: "Siêu Mẫu Sàn Catwalk", 
+        title: "Tiếng Gõ Nhịp Tim",
         diff: "KHÓ",
-        desc: "Cú ngã chết người trước hàng trăm ống kính.",
+        desc: "Sát thủ không có mặt tại hiện trường.",
         story: [
-            "Siêu mẫu vedette đang sải bước trên sàn diễn thì bất ngờ vấp ngã, cú ngã mạnh khiến cô gãy cổ tử vong ngay lập tức.",
-            "Kiểm tra đôi giày cao gót 15cm của nạn nhân, phát hiện phần gót giày đã bị gãy lìa. Đây không phải tai nạn ngẫu nhiên.",
-            "Đôi giày này là thiết kế độc quyền, được giữ trong hộp khóa mã số cho đến phút chót.",
-            "Mã khóa hộp giày: 0909."
+            "Bệnh nhân giàu có đang chờ ghép tim đột ngột qua đời trong phòng chăm sóc đặc biệt (ICU).",
+            "Máy thở bị tắt. Nhưng y tá trực ngoài cửa thề không ai bước vào phòng.",
+            "Có một chú chó trị liệu (Pet Therapy) được phép chạy lăng xăng trong khu vực này."
         ],
         suspects: [
-            {
-                name: "Đối Thủ", 
-                role: "Người Mẫu", 
-                detail: "Khai: 'Cô ta chết thì tôi lên làm vedette, nhưng tôi không hèn hạ thế'.<br>Thái độ: Cười nhếch mép."
-            },
-            {
-                name: "Nhà Thiết Kế", 
-                role: "NTK", 
-                detail: "Khai: 'Đôi giày là kiệt tác của tôi, tôi không bao giờ phá hỏng nó'."
-            },
-            {
-                name: "Trợ Lý Riêng", 
-                role: "Trợ Lý", 
-                detail: "Khai: 'Tôi là người duy nhất được chạm vào hộp giày'."
-            }
+            { name: "Y Tá Trực", role: "Trực đêm", detail: "Khai: 'Tôi ngồi ngay bàn trực, cửa phòng bằng kính trong suốt'." },
+            { name: "Người Thừa Kế", role: "Cháu trai", detail: "Khai: 'Tôi về nhà từ chiều'." },
+            { name: "Bác Sĩ", role: "Trưởng khoa", detail: "Khai: 'Tôi đang nghỉ ngơi ở phòng trực'." }
         ],
         evidence: [
-            {
-                name: "Gót Giày Gãy", 
-                icon: "👠", 
-                desc: "Phần lõi thép bên trong gót giày đã bị cưa gần đứt, chỉ cần chịu lực mạnh là gãy ngay."
-            },
-            {
-                name: "Chiếc Cưa Nhỏ", 
-                icon: "🪚", 
-                desc: "Tìm thấy một chiếc cưa kim loại nhỏ xíu giấu trong hộp phấn trang điểm của Đối Thủ."
-            },
-            {
-                name: "Sàn Diễn", 
-                icon: "🌟", 
-                desc: "Sàn được đánh bóng quá mức tại vị trí ngã, có vết dầu trơn do ai đó bôi thêm."
-            }
+            { name: "Chú Chó Trị Liệu", icon: "🐕", desc: "Người thừa kế đã gắn một module điều khiển từ xa cực nhỏ pha lẫn thiết bị phá sóng wifi vào vòng cổ của chú chó. Khi chú chó chạy ngang qua máy thở, thiết bị phá sóng đã làm máy thở sập nguồn (reboot) khiến bệnh nhân tử vong." },
+            { name: "Vòng Cổ Chó", icon: "📿", desc: "Bị đứt và vứt lại ngoài bãi cỏ." },
+            { name: "Máy Thở", icon: "📟", desc: "Log ghi nhận lỗi 'Mất tín hiệu kết nối thiết bị ngoại vi'." }
         ],
-        opts: { 
-            s: ["Trợ Lý Riêng", "Đối Thủ", "Nhà Thiết Kế"], 
-            w: ["Sàn Trơn", "Cưa Gót Giày", "Đẩy Ngã"], 
-            l: ["Phòng Thay Đồ", "Hậu Trường", "Sàn Diễn"] 
+        opts: {
+            s: ["Người Thừa Kế", "Y Tá Trực", "Bác Sĩ"],
+            w: ["Rút Phích Cắm Bằng Tay", "Thiết Bị Phá Sóng Trên Vòng Cổ Chó", "Tiêm Độc Qua Cây Truyền Dịch"],
+            l: ["Phòng Trực", "Phòng ICU", "Ngoài Hành Lang"]
         },
-        sol: {s: "Đối Thủ", w: "Cưa Gót Giày", l: "Sàn Diễn"}
+        sol: { s: "Người Thừa Kế", w: "Thiết Bị Phá Sóng Trên Vòng Cổ Chó", l: "Phòng ICU" }
     },
     {
         id: 38,
-        title: "Thang Máy Tử Thần", 
-        diff: "RẤT KHÓ",
-        desc: "Rơi tự do từ tầng 20 không lối thoát.",
+        title: "Bản Phác Thảo Bằng Bút Chì",
+        diff: "DỄ",
+        desc: "Hung khí nằm ở những chi tiết học thuật.",
         story: [
-            "Thang máy VIP của tòa nhà chọc trời rơi tự do từ tầng 20 xuống tầng hầm. Vị CEO bên trong tử vong tại chỗ.",
-            "Hệ thống phanh khẩn cấp đã không kích hoạt. Cáp treo thang máy bị đứt hoàn toàn.",
-            "Camera trong thang máy bị hỏng đúng vào thời điểm xảy ra sự cố.",
-            "Mã phòng kỹ thuật thang máy: 2020."
+            "Sinh viên mỹ trúc bị đâm chết tại bàn vẽ. Xung quanh đầy bản phác thảo.",
+            "Vết đâm rất nhỏ nhưng sâu, xuyên thẳng vào động mạch cổ.",
+            "Không tìm thấy dao, kéo hay bất kỳ vật sắc nhọn kim loại nào."
         ],
         suspects: [
-            {
-                name: "Kỹ Sư Bảo Trì", 
-                role: "Bảo Trì", 
-                detail: "Khai: 'Tôi vừa kiểm tra định kỳ hôm qua, mọi thứ đều ổn'.<br>Biểu hiện: Tay dính vết cháy axit."
-            },
-            {
-                name: "Bảo Vệ Tòa Nhà", 
-                role: "An Ninh", 
-                detail: "Khai: 'Tôi trực ở sảnh, thấy thang máy rơi rất nhanh'."
-            },
-            {
-                name: "Lao Công", 
-                role: "Tạp Vụ", 
-                detail: "Khai: 'Tôi đang lau dọn ở tầng hầm'."
-            }
+            { name: "Bạn Cùng Phòng", role: "Sinh viên", detail: "Khai: 'Tôi đi thư viện mượn sách từ sáng'." },
+            { name: "Giảng Viên Mỹ Thuật", role: "Thầy giáo", detail: "Khai: 'Cậu ta ăn cắp ý tưởng của tôi, tôi đã tát cậu ta một cái'." },
+            { name: "Bảo Vệ Ký Túc Xá", role: "An ninh", detail: "Khai: 'Tôi không cho người ngoài vào'." }
         ],
         evidence: [
-            {
-                name: "Đoạn Cáp Đứt", 
-                icon: "⛓️", 
-                desc: "Đầu cáp bị ăn mòn nham nhở, không phải vết cắt bằng kìm hay cưa, mà là do hóa chất."
-            },
-            {
-                name: "Bình Axit", 
-                icon: "🧪", 
-                desc: "Một bình axit Sulfuric rỗng được tìm thấy trong tủ đồ cá nhân của Kỹ Sư Bảo Trì."
-            },
-            {
-                name: "Hệ Thống Phanh", 
-                icon: "🛑", 
-                desc: "Chốt an toàn của phanh đã bị tháo rời thủ công."
-            }
+            { name: "Bút Chì Kim", icon: "✏️", desc: "Giảng viên đã dùng một cây bút chì phác thảo cỡ lớn, chuốt cực nhọn bằng dao rọc giấy để đâm nạn nhân. Lõi chì than chì đã bị gãy và kẹt trong vết thương, không thể che giấu bởi máy X-quang." },
+            { name: "Bản Vẽ Dở", icon: "🖼️", desc: "Có vệt máu kéo dài." },
+            { name: "Tẩy Cao Su", icon: "🧽", desc: "Dính đầy than chì bất thường (để mài nhọn ngòi)." }
         ],
-        opts: { 
-            s: ["Bảo Vệ Tòa Nhà", "Kỹ Sư Bảo Trì", "Lao Công"], 
-            w: ["Bom", "Axit Ăn Mòn Cáp", "Cưa Cáp"], 
-            l: ["Phòng Kỹ Thuật", "Hố Thang Máy", "Cabin Thang Máy"] 
+        opts: {
+            s: ["Bạn Cùng Phòng", "Giảng Viên Mỹ Thuật", "Bảo Vệ Ký Túc Xá"],
+            w: ["Dao Rọc Giấy", "Súng Bút", "Bút Chì Chuốt Nhọn"],
+            l: ["Phòng Vẽ", "Hành Lang", "Thư Viện"]
         },
-        sol: {s: "Kỹ Sư Bảo Trì", w: "Axit Ăn Mòn Cáp", l: "Hố Thang Máy"}
+        sol: { s: "Giảng Viên Mỹ Thuật", w: "Bút Chì Chuốt Nhọn", l: "Phòng Vẽ" }
     },
     {
         id: 39,
-        title: "Vụ Án Nhà Kính", 
-        diff: "TB",
-        desc: "Cái chết dị ứng trong căn phòng đầy hoa.",
+        title: "Khẩu Trang Tử Thần",
+        diff: "CỰC KHÓ",
+        desc: "Sự bảo vệ biến thành cỗ máy giết người.",
         story: [
-            "Ông chủ điền trang được phát hiện đã chết trong nhà kính trồng hoa phong lan. Cửa nhà kính khóa kín từ bên trong.",
-            "Nạn nhân chết do sốc phản vệ, đường thở bị sưng phù. Ông ta vốn bị dị ứng phấn hoa nghiêm trọng.",
-            "Hệ thống quạt thông gió đang chạy hết công suất, thổi phấn hoa bay mù mịt.",
-            "Mã bộ điều khiển nhiệt độ: 3030."
+            "Một TikToker bị ngạt thở tử vong khi đang livestream review sản phẩm khẩu trang chống khói bụi đặc chủng.",
+            "Nạn nhân có biểu hiện co giật ôm cổ họng rồi gục xuống ngay trước camera.",
+            "Loại khẩu trang này được thiết kế với màng lọc than hoạt tính tiên tiến."
         ],
         suspects: [
-            {
-                name: "Người Làm Vườn", 
-                role: "Nhân Viên", 
-                detail: "Khai: 'Ông chủ cấm trồng hoa có phấn trong nhà kính này'."
-            },
-            {
-                name: "Con Gái", 
-                role: "Người Thân", 
-                detail: "Khai: 'Tôi ghét hoa, tôi không bao giờ vào đó'."
-            },
-            {
-                name: "Bác Sĩ", 
-                role: "Gia Đình", 
-                detail: "Khai: 'Tôi luôn nhắc ông ấy mang theo bút tiêm Epipen'."
-            }
+            { name: "Nhà Sản Xuất", role: "Tài trợ", detail: "Khai: 'Hàng ngàn người dùng sản phẩm của chúng tôi không sao cả'." },
+            { name: "Trợ Lý Livestream", role: "Hậu trường", detail: "Khai: 'Tôi chỉ đứng bấm điện thoại quay phim'." },
+            { name: "Kẻ Anti-fan", role: "Người xem", detail: "Khai: 'Tôi có bình luận chửi rủa, nhưng không thể giết người qua mạng'." }
         ],
         evidence: [
-            {
-                name: "Chậu Hoa Ly", 
-                icon: "🌺", 
-                desc: "Một chậu hoa Ly (nhiều phấn) được giấu kỹ sau các giò phong lan. Đây là nguồn gây dị ứng."
-            },
-            {
-                name: "Điều Khiển Quạt", 
-                icon: "💨", 
-                desc: "Dấu vân tay của Con Gái in rõ trên nút bật quạt chế độ mạnh nhất."
-            },
-            {
-                name: "Bút Tiêm", 
-                icon: "💉", 
-                desc: "Bút tiêm trong túi nạn nhân đã bị đánh tráo bằng một bút rỗng."
-            }
+            { name: "Khẩu Trang Nạn Nhân Đeo", icon: "😷", desc: "Trợ lý livestream đã tráo lớp màng lọc than hoạt tính bằng một lớp nilon mỏng trong suốt cắt từ túi nilon, chèn vào giữa hai lớp vải của khẩu trang. Khi nạn nhân hít mạnh để test khả năng lọc khí, lớp nilon dán chặt vào mũi miệng gây ngạt thở cấp tính." },
+            { name: "Kéo Cắt Giấy", icon: "✂️", desc: "Trợ lý dùng để cắt lớp nilon." },
+            { name: "Bao Bì Sản Phẩm", icon: "📦", desc: "Có vết rạch lén ở mép dưới." }
         ],
-        opts: { 
-            s: ["Người Làm Vườn", "Bác Sĩ", "Con Gái"], 
-            w: ["Khí Gas", "Thuốc Độc", "Phấn Hoa (Sốc Phản Vệ)"], 
-            l: ["Phòng Ngủ", "Nhà Kính", "Vườn Hoa"] 
+        opts: {
+            s: ["Nhà Sản Xuất", "Trợ Lý Livestream", "Kẻ Anti-fan"],
+            w: ["Khí Độc Trong Studio", "Màng Nilon Giấu Trong Khẩu Trang", "Độc Ở Cốc Nước Cạnh Bàn"],
+            l: ["Nhà Kho", "Phòng Studio Livestream", "Nhà Máy Sản Xuất"]
         },
-        sol: {s: "Con Gái", w: "Phấn Hoa (Sốc Phản Vệ)", l: "Nhà Kính"}
-    },
-    {
-        id: 40,
-        title: "Ngọn Hải Đăng Máu", 
-        diff: "KHÓ",
-        desc: "Cú ngã từ độ cao 50 mét xuống bãi đá.",
-        story: [
-            "Người gác hải đăng già rơi từ ban công ngọn đèn xuống bãi đá ngầm bên dưới. Hộp sọ vỡ nát.",
-            "Lan can sắt chỗ nạn nhân rơi xuống đã bị gãy rời. Nhìn qua tưởng như do rỉ sét lâu ngày.",
-            "Nhưng một người thợ điện vừa mới đến sửa chữa đèn hôm qua.",
-            "Mã hộp dụng cụ: 1111."
-        ],
-        suspects: [
-            {
-                name: "Thuyền Chài", 
-                role: "Ngư Dân", 
-                detail: "Khai: 'Tôi thấy ông ấy rơi xuống khi đang đánh cá gần bờ'."
-            },
-            {
-                name: "Vợ Nạn Nhân", 
-                role: "Góa Phụ", 
-                detail: "Khai: 'Tôi mang cơm trưa lên thì không thấy ông ấy đâu'."
-            },
-            {
-                name: "Thợ Điện", 
-                role: "Kỹ Thuật", 
-                detail: "Khai: 'Tôi chỉ sửa bóng đèn, không đụng vào lan can'."
-            }
-        ],
-        evidence: [
-            {
-                name: "Thanh Lan Can", 
-                icon: "🚧", 
-                desc: "Các con ốc cố định lan can đã bị tháo lỏng ra, không phải gãy do rỉ sét."
-            },
-            {
-                name: "Cờ Lê", 
-                icon: "🔧", 
-                desc: "Chiếc cờ lê của Thợ Điện có dính vụn sơn màu trắng của lan can hải đăng."
-            },
-            {
-                name: "Bóng Đèn", 
-                icon: "💡", 
-                desc: "Vẫn hoạt động bình thường, chứng tỏ Thợ Điện có mục đích khác khi leo lên đó."
-            }
-        ],
-        opts: { 
-            s: ["Vợ Nạn Nhân", "Thợ Điện", "Thuyền Chài"], 
-            w: ["Đẩy Ngã", "Tháo Ốc Lan Can", "Gậy Sắt"], 
-            l: ["Bãi Đá", "Đỉnh Hải Đăng", "Cầu Thang"] 
-        },
-        sol: {s: "Thợ Điện", w: "Tháo Ốc Lan Can", l: "Đỉnh Hải Đăng"}
-    },
-    ];
+        sol: { s: "Trợ Lý Livestream", w: "Màng Nilon Giấu Trong Khẩu Trang", l: "Phòng Studio Livestream" }
+    }
+];
