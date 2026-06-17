@@ -1,4 +1,3 @@
-<script>
 const CASES = [
     {
         id: 0,
@@ -2136,3 +2135,4 @@ const CASES = [
         },
         sol: {s: "Thợ Điện", w: "Tháo Ốc Lan Can", l: "Đỉnh Hải Đăng"}
     },
+    ];
