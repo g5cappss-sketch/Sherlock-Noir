@@ -1,3 +1,4 @@
+<script>
 const CASES = [
     {
         id: 0,
